@@ -6,15 +6,18 @@ namespace Bomberman.GameObjects
 {
     public class World : IWorld
     {
+        Int32 squareSize = 20;
+        Int32 numSquaresX = 32;
+        Int32 numSquaresY = 32;
         private List<Player> Players { get; set; }
         public int[][] Objects { get; set; }
 
         public World()
         {
-            Objects = new int[32][];
-            for (int i = 0; i < 32; i++)
+            Objects = new int[numSquaresY][];
+            for (int i = 0; i < numSquaresY; i++)
             {
-                Objects[i] = new int[32];
+                Objects[i] = new int[numSquaresX];
             }
             Players = new List<Player>();
             GenerateWorld();
@@ -55,7 +58,7 @@ namespace Bomberman.GameObjects
                     }
                     break;
                 case "D":
-                    if (Objects[player.x+1][player.y] != 3 || Objects[player.x+1][player.y1] != 4)
+                    if (Objects[player.x+1][player.y] != 3 || Objects[player.x+1][player.y] != 4)
                     {
                         Objects[player.x][player.y] = 2;
                         Objects[player.x + 1][player.y] = 1;
@@ -120,7 +123,11 @@ namespace Bomberman.GameObjects
                             else if (rand >= 1)
                                 Objects[i][j] = 3;
                             else
-                                Objects[i][j] = 1;
+                            {
+                                //TEMP
+                                //Objects[i][j] = 1;
+                                Objects[i][j] = 2;
+                            }
 
                         }
                     }

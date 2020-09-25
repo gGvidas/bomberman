@@ -11,4 +11,21 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="3.1.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bomberman\Bomberman.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="GameWindow.cs" />
+    <Compile Update="GameWindow.Designer.cs">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="GameWindow.resx">
+      <DependentUpon>GameWindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

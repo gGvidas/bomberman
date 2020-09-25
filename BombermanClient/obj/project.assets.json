@@ -228,6 +228,22 @@
         "runtime": {
           "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
         }
+      },
+      "Bomberman/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "3.1.8"
+        },
+        "compile": {
+          "bin/placeholder/Bomberman.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bomberman.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -563,28 +579,34 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Bomberman/1.0.0": {
+      "type": "project",
+      "path": "../Bomberman/Bomberman.csproj",
+      "msbuildProject": "../Bomberman/Bomberman.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Bomberman >= 1.0.0",
       "Microsoft.AspNetCore.SignalR.Client >= 3.1.8",
       "Microsoft.AspNetCore.SignalR.Common >= 3.1.8"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sxlar\\.nuget\\packages\\": {}
+    "C:\\Users\\Justinas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\KTUother\\opp\\Bomberman\\BombermanClient\\BombermanClient.csproj",
+      "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
       "projectName": "BombermanClient",
-      "projectPath": "D:\\KTUother\\opp\\Bomberman\\BombermanClient\\BombermanClient.csproj",
-      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-      "outputPath": "D:\\KTUother\\opp\\Bomberman\\BombermanClient\\obj\\",
+      "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
+      "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -596,7 +618,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -628,6 +654,9 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
@@ -635,7 +664,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
