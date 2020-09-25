@@ -86,7 +86,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameWindow";
-            this.Text = "Snake by HowCSharp.Com";
+            this.Text = "Bomberman by Twin Towers (c)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.screen)).EndInit();

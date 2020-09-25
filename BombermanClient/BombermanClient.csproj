@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="GameWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="GameWindow.cs" />
     <Compile Update="GameWindow.Designer.cs">
       <DependentUpon>GameWindow.cs</DependentUpon>
     </Compile>
