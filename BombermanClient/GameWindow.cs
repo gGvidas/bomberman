@@ -1,12 +1,9 @@
 ﻿using Bomberman.GameObjects;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -86,22 +83,30 @@ namespace SnakeGame
             for (int i = 1; i < numSquaresX; ++i)
                 imgGraph.DrawLine(gridPen, i * squareSize, 0, i * squareSize, squareSize * numSquaresY);
 
-            //Draw player
             if (world == null) return;
-            var playerColor = new SolidBrush(Color.Black);
+
+            //Draw
+            var playerColor = new SolidBrush(Color.Green);
+            var pathColor = new SolidBrush(Color.SandyBrown);
+            var rockColor = new SolidBrush(Color.RosyBrown);
+            var wallColor = new SolidBrush(Color.Brown);
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
                 for (int j = 0; j < world[i].Length; j++)
                 {
-                    if(world[i][j] == 1)
-                    {
+                    if (world[i][j] == 1)
                         imgGraph.FillRectangle(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
-                    }
+                    if (world[i][j] == 2)
+                        imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    if (world[i][j] == 3)
+                        imgGraph.FillRectangle(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    if (world[i][j] == 4)
+                        imgGraph.FillRectangle(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                 }
             }
-               
-                graph.DrawImage(img, 0, 0);
+
+            graph.DrawImage(img, 0, 0);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -111,7 +116,7 @@ namespace SnakeGame
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (hubConnection != null)
+             if (hubConnection != null)
             {
                 if (keyData == Keys.A || keyData == Keys.S || keyData == Keys.D || keyData == Keys.W)
                 {
@@ -129,9 +134,11 @@ namespace SnakeGame
 
         private async Task InitConnection()
         {
-            hubConnection = new HubConnectionBuilder().WithUrl("https://localhost:44344/hub/").Build();
+            hubConnection = new HubConnectionBuilder()
+                            .WithUrl("https://localhost:5001/hub/")
+                            .Build();
             hubConnection.On<int[][]>("StateUpdate", StateUpdated);
-           
+
             await hubConnection.StartAsync();
         }
 

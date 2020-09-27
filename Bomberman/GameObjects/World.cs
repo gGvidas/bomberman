@@ -31,10 +31,14 @@ namespace Bomberman.GameObjects
         public void MovePlayer(string id, string keypress)
         {
             Player player = GetPlayer(id);
+            int up = Objects[player.x][player.y - 1];
+            int down = Objects[player.x][player.y + 1];
+            int left = Objects[player.x-1][player.y];
+            int right = Objects[player.x+1][player.y];
             switch (keypress)
             {
                 case "W":
-                    if (Objects[player.x][player.y - 1] != 3 || Objects[player.x][player.y - 1] != 4)
+                    if (up != 3 && up != 4)
                     {
                         Objects[player.x][player.y] = 2;
                         Objects[player.x][player.y - 1] = 1;
@@ -42,7 +46,7 @@ namespace Bomberman.GameObjects
                     }
                     break;
                 case "A":
-                    if (Objects[player.x -1][player.y] != 3 || Objects[player.x -1][player.y] != 4)
+                    if (left != 3 && left != 4)
                     {
                         Objects[player.x][player.y] = 2;
                         Objects[player.x - 1][player.y] = 1;
@@ -50,7 +54,7 @@ namespace Bomberman.GameObjects
                     }
                     break;
                 case "S":
-                    if (Objects[player.x][player.y + 1] != 3 || Objects[player.x][player.y + 1] != 4)
+                    if (down != 3 && down != 4)
                     {
                         Objects[player.x][player.y] = 2;
                         Objects[player.x][player.y + 1] = 1;
@@ -58,7 +62,7 @@ namespace Bomberman.GameObjects
                     }
                     break;
                 case "D":
-                    if (Objects[player.x+1][player.y] != 3 || Objects[player.x+1][player.y] != 4)
+                    if (right != 3 && right != 4)
                     {
                         Objects[player.x][player.y] = 2;
                         Objects[player.x + 1][player.y] = 1;
@@ -106,7 +110,6 @@ namespace Bomberman.GameObjects
             {
                 for (int j = 0; j < Objects.GetLength(0); j++)
                 {
-
                     rand = r.Next(0, 10);
 
                     if (j == 0 || j == (Objects.GetLength(0) - 1) || i == 0 || i == (Objects.GetLength(0) - 1))
@@ -120,7 +123,7 @@ namespace Bomberman.GameObjects
                             if (((i == 1 && (j == 1 || j == 2)) || (i == 2 && j == 1)
                                 || (i == (Objects.GetLength(0) - 1) - 2 && j == (Objects.GetLength(0) - 1) - 1) || (i == (Objects.GetLength(0) - 1) - 1 && (j == (Objects.GetLength(0) - 1) - 1 || j == (Objects.GetLength(0) - 1) - 2)))) // les cases adjacentes au point de spawn du joueurs sont exemptes de blocks destructibles
                                 Objects[i][j] = 2;
-                            else if (rand >= 1)
+                            else if (rand >= 6)
                                 Objects[i][j] = 3;
                             else
                             {

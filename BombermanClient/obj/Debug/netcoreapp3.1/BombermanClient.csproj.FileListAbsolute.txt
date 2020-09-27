@@ -74,3 +74,46 @@ C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debu
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.exe
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.pdb
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.exe
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.exe
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.deps.json
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.runtimeconfig.json
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.runtimeconfig.dev.json
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.pdb
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.pdb
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csprojAssemblyReference.cache
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\SnakeGame.GameWindow.resources
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.GenerateResource.cache
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.AssemblyInfoInputs.cache
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.AssemblyInfo.cs
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.CopyComplete
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.pdb
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.genruntimeconfig.cache
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\44421\Desktop\bonber\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.CoreCompileInputs.cache
+C:\Users\44421\Desktop\bonber\BombermanClient\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
