@@ -1160,6 +1160,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "BombermanClasses": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Common": "3.1.8"
         },
         "compile": {
@@ -1171,6 +1172,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "BombermanClasses/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/BombermanClasses.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BombermanClasses.dll": {}
+        }
       }
     }
   },
@@ -4088,11 +4099,17 @@
       "type": "project",
       "path": "../Bomberman/Bomberman.csproj",
       "msbuildProject": "../Bomberman/Bomberman.csproj"
+    },
+    "BombermanClasses/1.0.0": {
+      "type": "project",
+      "path": "../BombermanClasses/BombermanClasses.csproj",
+      "msbuildProject": "../BombermanClasses/BombermanClasses.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Bomberman >= 1.0.0",
+      "BombermanClasses >= 1.0.0",
       "Microsoft.AspNet.SignalR.Client >= 2.4.1",
       "Microsoft.AspNetCore.SignalR.Client >= 5.0.0-rc.1.20451.17",
       "Microsoft.AspNetCore.SignalR.Common >= 5.0.0-rc.1.20451.17",
@@ -4106,23 +4123,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\44421\\.nuget\\packages\\": {},
+    "C:\\Users\\Sxlar\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\BombermanClient.csproj",
+      "projectUniqueName": "D:\\KTUother\\opp\\Bomberman\\BombermanClient\\BombermanClient.csproj",
       "projectName": "BombermanClient",
-      "projectPath": "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\BombermanClient.csproj",
-      "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\obj\\",
+      "projectPath": "D:\\KTUother\\opp\\Bomberman\\BombermanClient\\BombermanClient.csproj",
+      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
+      "outputPath": "D:\\KTUother\\opp\\Bomberman\\BombermanClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4135,8 +4152,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj": {
-              "projectPath": "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj"
+            "D:\\KTUother\\opp\\Bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "D:\\KTUother\\opp\\Bomberman\\BombermanClasses\\BombermanClasses.csproj"
+            },
+            "D:\\KTUother\\opp\\Bomberman\\Bomberman\\Bomberman.csproj": {
+              "projectPath": "D:\\KTUother\\opp\\Bomberman\\Bomberman\\Bomberman.csproj"
             }
           }
         }

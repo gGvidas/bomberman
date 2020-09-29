@@ -2,28 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bomberman.GameObjects
+namespace BombermanClasses
 {
-    public class World : IWorld
+    [Serializable]
+    public sealed class World
     {
-        Int32 squareSize = 20;
-        Int32 numSquaresX = 32;
-        Int32 numSquaresY = 32;
+        private static readonly World instance = new World();
+        public static World Instance { get { return instance; } }
+        private Int32 squareSize = 20;
+        private Int32 numSquaresX = 32;
+        private Int32 numSquaresY = 32;
         private List<Player> Players { get; set; }
-        public int[][] Objects { get; set; }
+        private Tile[][] Objects { get; set; }
 
-        public World()
+        static World()
         {
-            Objects = new int[numSquaresY][];
+
+        }
+        private World()
+        {
+            Objects = new Tile[numSquaresY][];
             for (int i = 0; i < numSquaresY; i++)
             {
-                Objects[i] = new int[numSquaresX];
+                Objects[i] = new Tile[numSquaresX];
+                for (int j = 0; j < numSquaresX; j++)
+                {
+                    Objects[i][j] = new Tile();
+                }
             }
             Players = new List<Player>();
             GenerateWorld();
         }
 
-        public int[][] GetObjects()
+        public Tile[][] GetObjects()
         {
             return Objects;
         }
@@ -31,42 +42,39 @@ namespace Bomberman.GameObjects
         public void MovePlayer(string id, string keypress)
         {
             Player player = GetPlayer(id);
-            int up = Objects[player.x][player.y - 1];
-            int down = Objects[player.x][player.y + 1];
-            int left = Objects[player.x-1][player.y];
-            int right = Objects[player.x+1][player.y];
+
             switch (keypress)
             {
                 case "W":
-                    if (up != 3 && up != 4)
+                    if (player.y != 0 && !Objects[player.x][player.y -1].wall && Objects[player.x][player.y - 1].player == null)
                     {
-                        Objects[player.x][player.y] = 2;
-                        Objects[player.x][player.y - 1] = 1;
+                        Objects[player.x][player.y].player = null;
+                        Objects[player.x][player.y - 1].player = player;
                         player.y -= 1;
                     }
                     break;
                 case "A":
-                    if (left != 3 && left != 4)
+                    if (player.x != 0 && !Objects[player.x -1][player.y].wall && Objects[player.x -1][player.y].player == null)
                     {
-                        Objects[player.x][player.y] = 2;
-                        Objects[player.x - 1][player.y] = 1;
+                        Objects[player.x][player.y].player = null;
+                        Objects[player.x - 1][player.y].player = player;
                         player.x -= 1;
                     }
                     break;
-                case "S":
-                    if (down != 3 && down != 4)
+                case "D":
+                    if (player.x != numSquaresX - 1 && !Objects[player.x + 1][player.y].wall && Objects[player.x + 1][player.y].player == null)
                     {
-                        Objects[player.x][player.y] = 2;
-                        Objects[player.x][player.y + 1] = 1;
-                        player.y += 1;
+                        Objects[player.x][player.y].player = null;
+                        Objects[player.x + 1][player.y].player = player;
+                        player.x += 1;
                     }
                     break;
-                case "D":
-                    if (right != 3 && right != 4)
+                case "S":
+                    if (player.y != numSquaresY - 1 && !Objects[player.x][player.y + 1].wall && Objects[player.x][player.y + 1].player == null)
                     {
-                        Objects[player.x][player.y] = 2;
-                        Objects[player.x + 1][player.y] = 1;
-                        player.x += 1;
+                        Objects[player.x][player.y].player = null;
+                        Objects[player.x][player.y + 1].player = player;
+                        player.y += 1;
                     }
                     break;
                 default:
@@ -79,18 +87,19 @@ namespace Bomberman.GameObjects
             Random random = new Random();
             int x = 0;
             int y = 0;
-            while (Objects[x][y] != 2)
+            while (Objects[x][y].wall)
             {
-                x = random.Next(0, Objects.GetLength(0));
-                y = random.Next(0, Objects.GetLength(0));
+                x = random.Next(0, numSquaresX);
+                y = random.Next(0, numSquaresY);
             }
-            Objects[x][y] = 1;
-            Players.Add(new Player(id, x, y));
+            Player player = new Player(id, x, y);
+            Objects[x][y].player = player;
+            Players.Add(player);
         }
         public void RemovePlayer(string id)
         {
             Player player = GetPlayer(id);
-            Objects[player.x][player.y] = 2;
+            Objects[player.x][player.y].player = null;
             Players.Remove(player);
         }
         private Player GetPlayer(string id)
@@ -98,10 +107,6 @@ namespace Bomberman.GameObjects
             return Players.FirstOrDefault(player => player.Id == id);
         }
 
-        // 1 = player
-        // 2 = nothing
-        // 3 = destructable wall
-        // 4 = indestructable wall
         private void GenerateWorld()
         {
             Random r = new Random();
@@ -113,23 +118,21 @@ namespace Bomberman.GameObjects
                     rand = r.Next(0, 10);
 
                     if (j == 0 || j == (Objects.GetLength(0) - 1) || i == 0 || i == (Objects.GetLength(0) - 1))
-                        Objects[i][j] = 4;
+                        Objects[i][j].wall = true;
                     else
                     {
                         if (i % 2 == 0 && j % 2 == 0)
-                            Objects[i][j] = 4;
+                            Objects[i][j].wall = true;
                         else
                         {
                             if (((i == 1 && (j == 1 || j == 2)) || (i == 2 && j == 1)
                                 || (i == (Objects.GetLength(0) - 1) - 2 && j == (Objects.GetLength(0) - 1) - 1) || (i == (Objects.GetLength(0) - 1) - 1 && (j == (Objects.GetLength(0) - 1) - 1 || j == (Objects.GetLength(0) - 1) - 2)))) // les cases adjacentes au point de spawn du joueurs sont exemptes de blocks destructibles
-                                Objects[i][j] = 2;
+                                Objects[i][j].wall = false;
                             else if (rand >= 6)
-                                Objects[i][j] = 3;
+                                Objects[i][j].wall = true;
                             else
                             {
-                                //TEMP
-                                //Objects[i][j] = 1;
-                                Objects[i][j] = 2;
+                                Objects[i][j].wall = false;
                             }
 
                         }
@@ -137,12 +140,5 @@ namespace Bomberman.GameObjects
                 }
             }
         }
-    }
-    public interface IWorld
-    {
-        public void MovePlayer(string id, string keyPress);
-        public void AddPlayer(string id);
-        public void RemovePlayer(string id);
-        public int[][] GetObjects();
     }
 }

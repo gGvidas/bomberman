@@ -82,3 +82,5 @@ C:\Users\44421\Desktop\bonber\Bomberman\obj\Debug\netcoreapp3.1\staticwebassets\
 C:\Users\44421\Desktop\bonber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.dll
 C:\Users\44421\Desktop\bonber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
 C:\Users\44421\Desktop\bonber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
+D:\KTUother\opp\Bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.dll
+D:\KTUother\opp\Bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.pdb

@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "KSo39Uvs//ZGKNL+y2eJc56f9AHsGlyrnwD5QsAMYyipATHkP4aGmMaYRNnR1OxMST3xV86NrMkgCbcii0yN8A==",
+  "dgSpecHash": "Sn9+EqyX4HLOX4YFc43yeJxQnr+sVjqkm96JROMy87dOvce1EY5UWWRPGkwad+CXxd61GgqyUlovAYvbSVROIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj",
+  "projectFilePath": "D:\\KTUother\\opp\\Bomberman\\Bomberman\\Bomberman.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\44421\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.8\\microsoft.aspnetcore.connections.abstractions.3.1.8.nupkg.sha512",
-    "C:\\Users\\44421\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.8\\microsoft.aspnetcore.http.features.3.1.8.nupkg.sha512",
-    "C:\\Users\\44421\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\3.1.8\\microsoft.aspnetcore.signalr.common.3.1.8.nupkg.sha512",
-    "C:\\Users\\44421\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.8\\microsoft.extensions.dependencyinjection.abstractions.3.1.8.nupkg.sha512",
-    "C:\\Users\\44421\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
-    "C:\\Users\\44421\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
-    "C:\\Users\\44421\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512"
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.8\\microsoft.aspnetcore.connections.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.8\\microsoft.aspnetcore.http.features.3.1.8.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\3.1.8\\microsoft.aspnetcore.signalr.common.3.1.8.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.8\\microsoft.extensions.dependencyinjection.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512"
   ],
   "logs": []
 }

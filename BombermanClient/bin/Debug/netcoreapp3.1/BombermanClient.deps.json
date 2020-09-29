@@ -9,6 +9,7 @@
       "BombermanClient/1.0.0": {
         "dependencies": {
           "Bomberman": "1.0.0",
+          "BombermanClasses": "1.0.0",
           "Microsoft.AspNet.SignalR.Client": "2.4.1",
           "Microsoft.AspNetCore.SignalR.Client": "5.0.0-rc.1.20451.17",
           "Microsoft.AspNetCore.SignalR.Common": "5.0.0-rc.1.20451.17",
@@ -728,10 +729,16 @@
       },
       "Bomberman/1.0.0": {
         "dependencies": {
+          "BombermanClasses": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Common": "5.0.0-rc.1.20451.17"
         },
         "runtime": {
           "Bomberman.dll": {}
+        }
+      },
+      "BombermanClasses/1.0.0": {
+        "runtime": {
+          "BombermanClasses.dll": {}
         }
       }
     }
@@ -1303,6 +1310,11 @@
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
     "Bomberman/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BombermanClasses/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

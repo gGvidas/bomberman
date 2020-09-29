@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZwJe/ZMfSNZiW5JbVkj/uCThwKnFuTJYOAW/WzTWjTl8ZVSLUjTP58+fI1z9KVE1vpmTHtUxw4aALoxqL6FM6A==",
+  "success": true,
+  "projectFilePath": "D:\\KTUother\\opp\\Bomberman\\BombermanClasses\\BombermanClasses.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sxlar\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Sxlar\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

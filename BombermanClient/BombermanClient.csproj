@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BombermanClasses\BombermanClasses.csproj" />
     <ProjectReference Include="..\Bomberman\Bomberman.csproj" />
   </ItemGroup>
 
