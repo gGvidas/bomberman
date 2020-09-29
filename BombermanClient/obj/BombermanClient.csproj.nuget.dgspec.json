@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj": {}
+    "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\BombermanClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj": {
+    "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\BombermanClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
+        "projectUniqueName": "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\BombermanClient.csproj",
         "projectName": "BombermanClient",
-        "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
-        "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\obj\\",
+        "projectPath": "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\BombermanClient.csproj",
+        "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\44421\\Desktop\\bonber\\BombermanClient\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj": {
-                "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj"
+              "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj": {
+                "projectPath": "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj"
               }
             }
           }
@@ -42,13 +45,45 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNet.SignalR.Client": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
             "Microsoft.AspNetCore.SignalR.Client": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[5.0.0-rc.1.20451.17, )"
             },
             "Microsoft.AspNetCore.SignalR.Common": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[5.0.0-rc.1.20451.17, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "System.ComponentModel": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.ComponentModel.Primitives": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.ComponentModel.TypeConverter": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "System.Text.Encodings.Web": {
+              "target": "Package",
+              "version": "[5.0.0-rc.1.20451.14, )"
             }
           },
           "imports": [
@@ -72,21 +107,24 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj": {
+    "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj",
+        "projectUniqueName": "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj",
         "projectName": "Bomberman",
-        "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj",
-        "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\obj\\",
+        "projectPath": "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\Bomberman.csproj",
+        "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\44421\\Desktop\\bonber\\Bomberman\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -133,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
