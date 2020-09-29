@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IJemwZ6+AfJj81VFRMLrsMBKUC0X2wundEoesFzmpPTbUKsoDWMzwJhqC4S+bF3dN4Quk25O1pwP4jOZdymmsA==",
+  "dgSpecHash": "5ToHeYSK1bPTEfF49fQF25tzC9vZoQaJdr2T1LkPrUqtryUO7tgw8tfnCUFcFBYsdK6HxTQVkpY2mhMyLM/ZYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Justinas\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Justinas\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Justinas\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

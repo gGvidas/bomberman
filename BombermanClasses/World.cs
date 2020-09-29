@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BombermanClasses.Walls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,7 +47,7 @@ namespace BombermanClasses
             switch (keypress)
             {
                 case "W":
-                    if (player.y != 0 && !Objects[player.x][player.y -1].wall && Objects[player.x][player.y - 1].player == null)
+                    if (player.y != 0 && !(Objects[player.x][player.y -1].mapObject is Wall) && Objects[player.x][player.y - 1].player == null)
                     {
                         Objects[player.x][player.y].player = null;
                         Objects[player.x][player.y - 1].player = player;
@@ -54,7 +55,7 @@ namespace BombermanClasses
                     }
                     break;
                 case "A":
-                    if (player.x != 0 && !Objects[player.x -1][player.y].wall && Objects[player.x -1][player.y].player == null)
+                    if (player.x != 0 && !(Objects[player.x -1][player.y].mapObject is Wall) && Objects[player.x -1][player.y].player == null)
                     {
                         Objects[player.x][player.y].player = null;
                         Objects[player.x - 1][player.y].player = player;
@@ -62,7 +63,7 @@ namespace BombermanClasses
                     }
                     break;
                 case "D":
-                    if (player.x != numSquaresX - 1 && !Objects[player.x + 1][player.y].wall && Objects[player.x + 1][player.y].player == null)
+                    if (player.x != numSquaresX - 1 && !(Objects[player.x + 1][player.y].mapObject is Wall) && Objects[player.x + 1][player.y].player == null)
                     {
                         Objects[player.x][player.y].player = null;
                         Objects[player.x + 1][player.y].player = player;
@@ -70,7 +71,7 @@ namespace BombermanClasses
                     }
                     break;
                 case "S":
-                    if (player.y != numSquaresY - 1 && !Objects[player.x][player.y + 1].wall && Objects[player.x][player.y + 1].player == null)
+                    if (player.y != numSquaresY - 1 && !(Objects[player.x][player.y + 1].mapObject is Wall) && Objects[player.x][player.y + 1].player == null)
                     {
                         Objects[player.x][player.y].player = null;
                         Objects[player.x][player.y + 1].player = player;
@@ -87,13 +88,13 @@ namespace BombermanClasses
             Random random = new Random();
             int x = 0;
             int y = 0;
-            while (Objects[x][y].wall)
+            while (Objects[x][y].mapObject is Wall)
             {
                 x = random.Next(0, numSquaresX);
                 y = random.Next(0, numSquaresY);
             }
             Player player = new Player(id, x, y);
-            Objects[x][y].player = player;
+            Objects[x][y].mapObject = player;
             Players.Add(player);
         }
         public void RemovePlayer(string id)
@@ -111,6 +112,9 @@ namespace BombermanClasses
         {
             Random r = new Random();
             int rand = 0;
+
+            var wallFactory = new WallFactory();
+
             for (int i = 0; i < Objects.GetLength(0); i++)
             {
                 for (int j = 0; j < Objects.GetLength(0); j++)
@@ -118,21 +122,31 @@ namespace BombermanClasses
                     rand = r.Next(0, 10);
 
                     if (j == 0 || j == (Objects.GetLength(0) - 1) || i == 0 || i == (Objects.GetLength(0) - 1))
-                        Objects[i][j].wall = true;
+                    {
+                        Objects[i][j].mapObject = wallFactory.CreateWall(2);
+                    }
                     else
                     {
                         if (i % 2 == 0 && j % 2 == 0)
-                            Objects[i][j].wall = true;
+                        {
+                            Objects[i][j].mapObject = wallFactory.CreateWall(2);
+                        }
+
                         else
                         {
                             if (((i == 1 && (j == 1 || j == 2)) || (i == 2 && j == 1)
                                 || (i == (Objects.GetLength(0) - 1) - 2 && j == (Objects.GetLength(0) - 1) - 1) || (i == (Objects.GetLength(0) - 1) - 1 && (j == (Objects.GetLength(0) - 1) - 1 || j == (Objects.GetLength(0) - 1) - 2)))) // les cases adjacentes au point de spawn du joueurs sont exemptes de blocks destructibles
-                                Objects[i][j].wall = false;
+                            {
+                                //empty path
+                                continue;
+                            }
                             else if (rand >= 6)
-                                Objects[i][j].wall = true;
+                            {
+                                Objects[i][j].mapObject = wallFactory.CreateWall(1);
+
+                            }
                             else
                             {
-                                Objects[i][j].wall = false;
                             }
 
                         }

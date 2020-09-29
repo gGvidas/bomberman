@@ -43,9 +43,6 @@ C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debu
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Client.Core.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
@@ -58,7 +55,6 @@ C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debu
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.GenerateResource.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.AssemblyInfoInputs.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.AssemblyInfo.cs
-C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.CoreCompileInputs.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.CopyComplete
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.pdb
@@ -127,3 +123,11 @@ D:\KTUother\opp\Bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClass
 D:\KTUother\opp\Bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClasses.pdb
 D:\KTUother\opp\Bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.pdb
 D:\KTUother\opp\Bomberman\BombermanClient\obj\Debug\netcoreapp3.1\SnakeGame.GameWindow.resources
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClasses.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClasses.pdb
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.csproj.CoreCompileInputs.cache

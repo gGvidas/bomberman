@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "byBIPutzFfBNL20dNw/LxxJ5ZpsKkMF1JQAa2i+KJ8OMmUclQFyfcfaWYTV91T5SUgfqUKOeinY5atv8ZTGcaQ==",
+  "dgSpecHash": "yWEaf8GzQ3nHGY8IZ9OU3TVKfVc7q8pGfK3Di/j3tfG6rmGixu5ZsfUJMkH0oYMlFtwpbhXDHEfnWiWgyKZDPw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
   "expectedPackageFiles": [
@@ -21,9 +21,10 @@
     "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0-rc.1.20451.14\\microsoft.extensions.logging.abstractions.5.0.0-rc.1.20451.14.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.extensions.options\\5.0.0-rc.1.20451.14\\microsoft.extensions.options.5.0.0-rc.1.20451.14.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0-rc.1.20451.14\\microsoft.extensions.primitives.5.0.0-rc.1.20451.14.nupkg.sha512",
-    "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
+    "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
-    "C:\\Users\\Justinas\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Justinas\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
@@ -49,6 +50,7 @@
     "C:\\Users\\Justinas\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0-rc.1.20451.14\\system.diagnostics.diagnosticsource.5.0.0-rc.1.20451.14.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Users\\Justinas\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\system.globalization.extensions\\4.3.0\\system.globalization.extensions.4.3.0.nupkg.sha512",

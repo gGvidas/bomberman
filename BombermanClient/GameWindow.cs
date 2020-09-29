@@ -1,7 +1,10 @@
 ﻿using BombermanClasses;
+using BombermanClasses.Walls;
 using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
 using System;
 using System.Drawing;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,8 +39,13 @@ namespace SnakeGame
 
         }
 
-        public void StateUpdated(Tile[][] worldFromServer)
+    
+        public void StateUpdated(string serializedWordFromServer)
         {
+            var worldFromServer = JsonConvert.DeserializeObject<Tile[][]>(serializedWordFromServer, new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            });
             world = worldFromServer;
             Draw();
         }
@@ -96,10 +104,12 @@ namespace SnakeGame
                 {
                     if (world[i][j].player != null)
                         imgGraph.FillRectangle(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
-                    else if (world[i][j].player == null && world[i][j].wall == false)
+                    else if (world[i][j].mapObject is DestructableWall)
+                        world[i][j].mapObject.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].mapObject is IndestructableWall)
+                        world[i][j].mapObject.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else 
                         imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
-                    else if (world[i][j].wall == true)
-                        imgGraph.FillRectangle(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                 }
             }
 
@@ -134,7 +144,7 @@ namespace SnakeGame
             hubConnection = new HubConnectionBuilder()
                             .WithUrl("https://localhost:5001/hub/")
                             .Build();
-            hubConnection.On<Tile[][]>("StateUpdate", StateUpdated);
+            hubConnection.On<string>("StateUpdate", StateUpdated);
 
             await hubConnection.StartAsync();
             buttonStart.Enabled = true;

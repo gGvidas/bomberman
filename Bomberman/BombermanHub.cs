@@ -1,5 +1,6 @@
 ﻿using BombermanClasses;
 using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 
@@ -9,7 +10,11 @@ namespace Bomberman
     {
         public async Task UpdateClients()
         {
-            await Clients.All.SendAsync("StateUpdate", World.Instance.GetObjects());
+           
+            await Clients.All.SendAsync("StateUpdate", 
+                                        JsonConvert.SerializeObject(World.Instance.GetObjects(), 
+                                        typeof(Tile), new JsonSerializerSettings 
+                                        { TypeNameHandling = TypeNameHandling.Auto }));
         }
         public async Task Movement(string KeyPress)
         {

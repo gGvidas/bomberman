@@ -29,8 +29,6 @@ D:\KTUother\opp\Bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntime
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csprojAssemblyReference.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfoInputs.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfo.cs
-C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
-C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -84,3 +82,8 @@ C:\Users\44421\Desktop\bonber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
 C:\Users\44421\Desktop\bonber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
 D:\KTUother\opp\Bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.dll
 D:\KTUother\opp\Bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.pdb
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.dll
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.pdb
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

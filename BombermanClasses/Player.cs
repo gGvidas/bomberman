@@ -1,6 +1,8 @@
-﻿namespace BombermanClasses
+﻿using System.Drawing;
+
+namespace BombermanClasses
 {
-    public class Player
+    public class Player : IMapObject
     {
         public string Id { get; set; }
         public int x { get; set; } 
@@ -11,6 +13,11 @@
             Id = id;
             this.x = x;
             this.y = y;
+        }
+
+        public void Draw(SolidBrush color, int x, int y, int width, int height, Graphics graphics)
+        {
+            graphics.FillRectangle(color, x, y, width, height);
         }
     }
 }
