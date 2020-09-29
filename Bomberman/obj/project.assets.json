@@ -80,6 +80,16 @@
         "runtime": {
           "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
         }
+      },
+      "BombermanClasses/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/BombermanClasses.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BombermanClasses.dll": {}
+        }
       }
     }
   },
@@ -210,10 +220,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BombermanClasses/1.0.0": {
+      "type": "project",
+      "path": "../BombermanClasses/BombermanClasses.csproj",
+      "msbuildProject": "../BombermanClasses/BombermanClasses.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "BombermanClasses >= 1.0.0",
       "Microsoft.AspNetCore.SignalR.Common >= 3.1.8"
     ]
   },
@@ -242,7 +258,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -280,5 +300,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

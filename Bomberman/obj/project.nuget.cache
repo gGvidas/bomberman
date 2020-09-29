@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KqowDMOo/rPIykczEQxDMH7vBfuCG+CYIQ/O0RkdFMaP5LbATLaCI19d4gtDKS23GdgtErfwZKerbTdC0gOiSA==",
+  "dgSpecHash": "9JvnpFnhndoCn+iVDB1CeNJrMOhDPn54pHhHYSk7vuSvDGpl9M7DG7cPRhwLWKpObzogdTUpy0Apnm/ycnAOXA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj",
   "expectedPackageFiles": [
@@ -12,5 +12,12 @@
     "C:\\Users\\Justinas\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
     "C:\\Users\\Justinas\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

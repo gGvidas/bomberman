@@ -1,0 +1,9 @@
+D:\KTUother\opp\Bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.deps.json
+D:\KTUother\opp\Bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.dll
+D:\KTUother\opp\Bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.pdb
+D:\KTUother\opp\Bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csprojAssemblyReference.cache
+D:\KTUother\opp\Bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfoInputs.cache
+D:\KTUother\opp\Bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfo.cs
+D:\KTUother\opp\Bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache
+D:\KTUother\opp\Bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
+D:\KTUother\opp\Bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb

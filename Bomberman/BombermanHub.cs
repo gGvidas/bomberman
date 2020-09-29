@@ -1,4 +1,4 @@
-﻿using Bomberman.GameObjects;
+﻿using BombermanClasses;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Threading.Tasks;
@@ -7,25 +7,18 @@ namespace Bomberman
 {
     public class BombermanHub : Hub
     {
-        private IWorld World;
-
-        public BombermanHub(IWorld world)
-        {
-            World = world;
-        }
-
         public async Task UpdateClients()
         {
-            await Clients.All.SendAsync("StateUpdate", World.GetObjects());
+            await Clients.All.SendAsync("StateUpdate", World.Instance.GetObjects());
         }
         public async Task Movement(string KeyPress)
         {
-            World.MovePlayer(Context.ConnectionId, KeyPress);
+            World.Instance.MovePlayer(Context.ConnectionId, KeyPress);
             await UpdateClients();
         }
         public async override Task OnConnectedAsync()
         {
-            World.AddPlayer(Context.ConnectionId);
+            World.Instance.AddPlayer(Context.ConnectionId);
             await UpdateClients();
             await base.OnConnectedAsync();
         }
