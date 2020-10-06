@@ -1,4 +1,4 @@
-﻿using BombermanClasses.Walls;
+﻿using BombermanClasses.BombNameSpace;
 using System;
 
 namespace BombermanClasses
@@ -6,8 +6,8 @@ namespace BombermanClasses
     [Serializable]
     public class Tile
     {
-        public Player player { get; set; }
+        public Bomb bomb { get; set; }
 
-        public IMapObject mapObject { get; set; }
+        public IMapObject entity { get; set; }
     }
 }

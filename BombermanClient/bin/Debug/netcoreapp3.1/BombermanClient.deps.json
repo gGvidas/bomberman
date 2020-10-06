@@ -751,6 +751,7 @@
       },
       "BombermanClasses/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Core": "1.1.0",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {

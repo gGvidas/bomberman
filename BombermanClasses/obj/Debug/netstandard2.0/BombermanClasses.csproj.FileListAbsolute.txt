@@ -16,3 +16,12 @@ C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClasses\obj\Deb
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.deps.json
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.dll
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.pdb
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csprojAssemblyReference.cache
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfoInputs.cache
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfo.cs
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb
+C:\Users\Sxlar\Documents\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache

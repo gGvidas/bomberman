@@ -8,6 +8,10 @@ namespace Bomberman
 {
     public class BombermanHub : Hub
     {
+        public BombermanHub()
+        {
+            World.Instance.hub = this;
+        }
         public async Task UpdateClients()
         {
            
@@ -19,6 +23,11 @@ namespace Bomberman
         public async Task Movement(string KeyPress)
         {
             World.Instance.MovePlayer(Context.ConnectionId, KeyPress);
+            await UpdateClients();
+        }
+        public async Task PutDownBomb()
+        {
+            World.Instance.AddBomb(Context.ConnectionId);
             await UpdateClients();
         }
         public async override Task OnConnectedAsync()
