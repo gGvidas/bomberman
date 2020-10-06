@@ -1,4 +1,6 @@
-﻿using BombermanClasses.Walls;
+﻿using Bomberman;
+using BombermanClasses.BombNameSpace;
+using BombermanClasses.Walls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,8 @@ namespace BombermanClasses
         private Int32 numSquaresY = 32;
         private List<Player> Players { get; set; }
         private Tile[][] Objects { get; set; }
+
+        public BombermanHub hub { get; set; }
 
         static World()
         {
@@ -47,34 +51,34 @@ namespace BombermanClasses
             switch (keypress)
             {
                 case "W":
-                    if (player.y != 0 && !(Objects[player.x][player.y -1].mapObject is Wall) && Objects[player.x][player.y - 1].player == null)
+                    if (player.y != 0 && Objects[player.x][player.y - 1].entity == null)
                     {
-                        Objects[player.x][player.y].player = null;
-                        Objects[player.x][player.y - 1].player = player;
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x][player.y - 1].entity = player;
                         player.y -= 1;
                     }
                     break;
                 case "A":
-                    if (player.x != 0 && !(Objects[player.x -1][player.y].mapObject is Wall) && Objects[player.x -1][player.y].player == null)
+                    if (player.x != 0 && Objects[player.x -1][player.y].entity == null)
                     {
-                        Objects[player.x][player.y].player = null;
-                        Objects[player.x - 1][player.y].player = player;
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x - 1][player.y].entity = player;
                         player.x -= 1;
                     }
                     break;
                 case "D":
-                    if (player.x != numSquaresX - 1 && !(Objects[player.x + 1][player.y].mapObject is Wall) && Objects[player.x + 1][player.y].player == null)
+                    if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null)
                     {
-                        Objects[player.x][player.y].player = null;
-                        Objects[player.x + 1][player.y].player = player;
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x + 1][player.y].entity = player;
                         player.x += 1;
                     }
                     break;
                 case "S":
-                    if (player.y != numSquaresY - 1 && !(Objects[player.x][player.y + 1].mapObject is Wall) && Objects[player.x][player.y + 1].player == null)
+                    if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null)
                     {
-                        Objects[player.x][player.y].player = null;
-                        Objects[player.x][player.y + 1].player = player;
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x][player.y + 1].entity = player;
                         player.y += 1;
                     }
                     break;
@@ -83,24 +87,74 @@ namespace BombermanClasses
             }
         }
 
+        public void AddBomb(string id)
+        {
+            Player player = GetPlayer(id);
+            Random random = new Random();
+            int randNumber = random.Next(0, 100);
+            IBombRadiusStrategy strategy;
+            if (randNumber < 50)
+            {
+                strategy = new SmallBombRadiusStrategy();
+            }
+            else if (randNumber < 75)
+            {
+                strategy = new MediumBombRadiusStrategy();
+            }
+            else if (randNumber < 93)
+            {
+                strategy = new LargeBombRadiusStrategy();
+            }
+            else
+            {
+                strategy = new NuclearBombRadiusStrategy();
+            }
+            Bomb bomb = new Bomb(player.x, player.y, strategy);
+            Objects[player.x][player.y].bomb = bomb;
+
+            //take out later
+            Explode(player.x, player.y);
+        }
+
+        public async void Explode(int x, int y)
+        {
+            int radius = Objects[x][y].bomb.explosionRadius(2);
+            Objects[x][y].bomb = null;
+            if (!(Objects[x][y].entity is Player))
+                Objects[x][y].entity = null;
+            for (int i = 1; i <= radius; i++)
+            {
+                if (x + i < numSquaresX && !(Objects[x+i][y].entity is IndestructableWall) && !(Objects[x + i][y].entity is Player))
+                    Objects[x+i][y].entity = null;
+                if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall) && !(Objects[x - i][y].entity is Player))
+                    Objects[x-i][y].entity = null;
+                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall) && !(Objects[x][y + i].entity is Player))
+                    Objects[x][y+i].entity = null;
+                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !(Objects[x][y - i].entity is Player))
+                    Objects[x][y-i].entity = null;
+            }
+
+            await hub.UpdateClients();
+        }
+
         public void AddPlayer(string id)
         {
             Random random = new Random();
             int x = 0;
             int y = 0;
-            while (Objects[x][y].mapObject is Wall)
+            while (Objects[x][y].entity is Wall)
             {
                 x = random.Next(0, numSquaresX);
                 y = random.Next(0, numSquaresY);
             }
             Player player = new Player(id, x, y);
-            Objects[x][y].mapObject = player;
+            Objects[x][y].entity = player;
             Players.Add(player);
         }
         public void RemovePlayer(string id)
         {
             Player player = GetPlayer(id);
-            Objects[player.x][player.y].player = null;
+            Objects[player.x][player.y].entity = null;
             Players.Remove(player);
         }
         private Player GetPlayer(string id)
@@ -122,29 +176,22 @@ namespace BombermanClasses
                     rand = r.Next(0, 10);
 
                     if (j == 0 || j == (Objects.GetLength(0) - 1) || i == 0 || i == (Objects.GetLength(0) - 1))
-                    {
-                        Objects[i][j].mapObject = wallFactory.CreateWall(2);
-                    }
+                        Objects[i][j].entity = wallFactory.CreateWall(2);
                     else
                     {
                         if (i % 2 == 0 && j % 2 == 0)
-                        {
-                            Objects[i][j].mapObject = wallFactory.CreateWall(2);
-                        }
+                            Objects[i][j].entity = wallFactory.CreateWall(2);
 
                         else
                         {
                             if (((i == 1 && (j == 1 || j == 2)) || (i == 2 && j == 1)
-                                || (i == (Objects.GetLength(0) - 1) - 2 && j == (Objects.GetLength(0) - 1) - 1) || (i == (Objects.GetLength(0) - 1) - 1 && (j == (Objects.GetLength(0) - 1) - 1 || j == (Objects.GetLength(0) - 1) - 2)))) // les cases adjacentes au point de spawn du joueurs sont exemptes de blocks destructibles
+                                || (i == (Objects.GetLength(0) - 1) - 2 && j == (Objects.GetLength(0) - 1) - 1) || (i == (Objects.GetLength(0) - 1) - 1 && (j == (Objects.GetLength(0) - 1) - 1 || j == (Objects.GetLength(0) - 1) - 2))))
                             {
                                 //empty path
                                 continue;
                             }
                             else if (rand >= 6)
-                            {
-                                Objects[i][j].mapObject = wallFactory.CreateWall(1);
-
-                            }
+                                Objects[i][j].entity = wallFactory.CreateWall(1);
                             else
                             {
                             }

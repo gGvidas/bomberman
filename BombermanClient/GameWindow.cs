@@ -102,14 +102,14 @@ namespace SnakeGame
             {
                 for (int j = 0; j < world[i].Length; j++)
                 {
-                    if (world[i][j].player != null)
-                        imgGraph.FillRectangle(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
-                    else if (world[i][j].mapObject is DestructableWall)
-                        world[i][j].mapObject.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if (world[i][j].mapObject is IndestructableWall)
-                        world[i][j].mapObject.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else 
+                    if (world[i][j].entity == null)
                         imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    else if (world[i][j].entity is Player)
+                        imgGraph.FillRectangle(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    else if (world[i][j].entity is DestructableWall)
+                        world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].entity is IndestructableWall)
+                        world[i][j].entity.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                 }
             }
 
@@ -132,7 +132,7 @@ namespace SnakeGame
                 }
                 else if (keyData == Keys.Space)
                 {
-                    //put a bomb
+                    hubConnection.SendAsync("PutDownBomb");
                     return true;
                 }
             }

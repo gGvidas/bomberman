@@ -87,3 +87,34 @@ C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\bin\Debug\netc
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Justinas\Desktop\bomberman per naujo\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.exe
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.deps.json
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.runtimeconfig.json
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.runtimeconfig.dev.json
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.pdb
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.pdb
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csprojAssemblyReference.cache
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfoInputs.cache
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfo.cs
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.RazorTargetAssemblyInfo.cache
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CopyComplete
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\staticwebassets\Bomberman.StaticWebAssets.Manifest.cache
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\staticwebassets\Bomberman.StaticWebAssets.xml
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.dll
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
+C:\Users\Sxlar\Documents\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
