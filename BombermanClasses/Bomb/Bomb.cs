@@ -14,11 +14,11 @@ namespace BombermanClasses.BombNameSpace
         private int explosionTime = 2;
         private int currentTime = 0;
 
-        private Subject Subject;
+        private World Subject;
 
         public IBombRadiusStrategy strategy { get; set; }
 
-        public Bomb(int x, int y, IBombRadiusStrategy strategy, Subject subject)
+        public Bomb(int x, int y, IBombRadiusStrategy strategy, World subject)
         {
             if (subject == null) return;
             this.x = x;
