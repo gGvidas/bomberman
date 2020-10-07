@@ -144,13 +144,13 @@ namespace BombermanClasses
                 Objects[x][y].entity = null;
             for (int i = 1; i <= radius; i++)
             {
-                if (x + i < numSquaresX && !(Objects[x+i][y].entity is IndestructableWall) && !(Objects[x + i][y].entity is Player))
+                if (x + i < numSquaresX && !(Objects[x+i][y].entity is IndestructableWall))
                     Objects[x+i][y].entity = null;
-                if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall) && !(Objects[x - i][y].entity is Player))
+                if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall))
                     Objects[x-i][y].entity = null;
-                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall) && !(Objects[x][y + i].entity is Player))
+                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall))
                     Objects[x][y+i].entity = null;
-                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !(Objects[x][y - i].entity is Player))
+                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall))
                     Objects[x][y-i].entity = null;
             }
         }
