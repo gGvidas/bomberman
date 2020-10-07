@@ -1,10 +1,12 @@
 ﻿using BombermanClasses;
+using BombermanClasses.BombNameSpace;
 using BombermanClasses.Walls;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,6 +48,7 @@ namespace SnakeGame
             {
                 TypeNameHandling = TypeNameHandling.Auto
             });
+
             world = worldFromServer;
             Draw();
         }
@@ -74,7 +77,7 @@ namespace SnakeGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+            hubConnection.SendAsync("UpdateClients");
         }
 
         private void Draw()
@@ -97,15 +100,19 @@ namespace SnakeGame
             var pathColor = new SolidBrush(Color.SandyBrown);
             var rockColor = new SolidBrush(Color.RosyBrown);
             var wallColor = new SolidBrush(Color.Brown);
+            var bombColor = new SolidBrush(Color.Black);
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
                 for (int j = 0; j < world[i].Length; j++)
                 {
-                    if (world[i][j].entity == null)
+
+                    if (world[i][j].entity is Player)
+                        world[i][j].entity.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if(world[i][j].bomb != null)
+                        world[i][j].bomb.Draw(bombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].entity == null)
                         imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
-                    else if (world[i][j].entity is Player)
-                        imgGraph.FillRectangle(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                     else if (world[i][j].entity is IndestructableWall)
@@ -133,6 +140,12 @@ namespace SnakeGame
                 else if (keyData == Keys.Space)
                 {
                     hubConnection.SendAsync("PutDownBomb");
+                    Task.Factory.StartNew(() => Thread.Sleep(4000))
+                    .ContinueWith((t) =>
+                    {
+                        hubConnection.SendAsync("StateUpdate");
+
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
                     return true;
                 }
             }
