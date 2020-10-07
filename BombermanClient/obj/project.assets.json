@@ -4279,19 +4279,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sxlar\\.nuget\\packages\\": {}
+    "C:\\Users\\Justinas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sxlar\\Documents\\bomberman\\BombermanClient\\BombermanClient.csproj",
+      "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
       "projectName": "BombermanClient",
-      "projectPath": "C:\\Users\\Sxlar\\Documents\\bomberman\\BombermanClient\\BombermanClient.csproj",
-      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sxlar\\Documents\\bomberman\\BombermanClient\\obj\\",
+      "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\BombermanClient.csproj",
+      "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4304,11 +4304,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Sxlar\\Documents\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
-              "projectPath": "C:\\Users\\Sxlar\\Documents\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+            "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
             },
-            "C:\\Users\\Sxlar\\Documents\\bomberman\\Bomberman\\Bomberman.csproj": {
-              "projectPath": "C:\\Users\\Sxlar\\Documents\\bomberman\\Bomberman\\Bomberman.csproj"
+            "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\bomberman per naujo\\bomberman\\Bomberman\\Bomberman.csproj"
             }
           }
         }
@@ -4388,7 +4388,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

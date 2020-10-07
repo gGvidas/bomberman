@@ -1,14 +1,17 @@
 ﻿using Bomberman;
 using BombermanClasses.BombNameSpace;
+using BombermanClasses.Observer;
 using BombermanClasses.Walls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Timers;
 
 namespace BombermanClasses
 {
     [Serializable]
-    public sealed class World
+    public sealed class World : Subject
     {
         private static readonly World instance = new World();
         public static World Instance { get { return instance; } }
@@ -19,6 +22,9 @@ namespace BombermanClasses
         private Tile[][] Objects { get; set; }
 
         public BombermanHub hub { get; set; }
+
+        private int timeUnitInMilisec = 1000;
+        private Timer _timer { get; set; }
 
         static World()
         {
@@ -37,6 +43,20 @@ namespace BombermanClasses
             }
             Players = new List<Player>();
             GenerateWorld();
+            SetTimer();
+        }
+
+        private void SetTimer()
+        {
+            _timer = new Timer();
+            _timer.Interval = timeUnitInMilisec;
+            _timer.Elapsed += OnTimedEvent;
+            _timer.Start();
+        }
+
+        private async void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            Notify();
         }
 
         public Tile[][] GetObjects()
@@ -109,15 +129,15 @@ namespace BombermanClasses
             {
                 strategy = new NuclearBombRadiusStrategy();
             }
-            Bomb bomb = new Bomb(player.x, player.y, strategy);
+            Bomb bomb = new Bomb(player.x, player.y, strategy, instance);
             Objects[player.x][player.y].bomb = bomb;
 
-            //take out later
-            Explode(player.x, player.y);
+         
         }
 
-        public async void Explode(int x, int y)
+        public async Task Explode(int x, int y)
         {
+            if (Objects[x][y].bomb == null) return;
             int radius = Objects[x][y].bomb.explosionRadius(2);
             Objects[x][y].bomb = null;
             if (!(Objects[x][y].entity is Player))
@@ -133,8 +153,6 @@ namespace BombermanClasses
                 if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !(Objects[x][y - i].entity is Player))
                     Objects[x][y-i].entity = null;
             }
-
-            await hub.UpdateClients();
         }
 
         public void AddPlayer(string id)

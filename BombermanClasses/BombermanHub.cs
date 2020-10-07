@@ -12,12 +12,12 @@ namespace Bomberman
         {
             World.Instance.hub = this;
         }
+
         public async Task UpdateClients()
         {
-           
-            await Clients.All.SendAsync("StateUpdate", 
-                                        JsonConvert.SerializeObject(World.Instance.GetObjects(), 
-                                        typeof(Tile), new JsonSerializerSettings 
+             await Clients.All.SendAsync("StateUpdate",
+                                         JsonConvert.SerializeObject(World.Instance.GetObjects(),
+                                         typeof(Tile), new JsonSerializerSettings
                                         { TypeNameHandling = TypeNameHandling.Auto }));
         }
         public async Task Movement(string KeyPress)
