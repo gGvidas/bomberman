@@ -1,5 +1,6 @@
 ﻿using Bomberman;
 using BombermanClasses.BombNameSpace;
+using BombermanClasses.Items;
 using BombermanClasses.Observer;
 using BombermanClasses.Walls;
 using System;
@@ -107,7 +108,7 @@ namespace BombermanClasses
             }
         }
 
-        public void AddBomb(string id)
+        public void AddBomb(string id, int type = 0)
         {
             Player player = GetPlayer(id);
             Random random = new Random();
@@ -129,30 +130,75 @@ namespace BombermanClasses
             {
                 strategy = new NuclearBombRadiusStrategy();
             }
-            Bomb bomb = new Bomb(player.x, player.y, strategy, instance);
-            Objects[player.x][player.y].bomb = bomb;
 
-         
+            type = random.Next(0, 3);
+            if (type == 1)
+            {
+                var factory = new FireFactory();
+                FireBomb bomb = (FireBomb)factory.createBomb(player.x, player.y, strategy, instance);
+                Objects[player.x][player.y].bomb = bomb;
+            }
+            else if (type == 2)
+            {
+                var factory = new IceFactory();
+                IceBomb bomb = (IceBomb)factory.createBomb(player.x, player.y, strategy, instance);
+                Objects[player.x][player.y].bomb = bomb;
+            }
+            else
+            {
+                Bomb bomb = new Bomb(player.x, player.y, strategy, instance);
+                Objects[player.x][player.y].bomb = bomb;
+            }         
         }
 
         public async Task Explode(int x, int y)
         {
             if (Objects[x][y].bomb == null) return;
             int radius = Objects[x][y].bomb.explosionRadius(2);
-            Objects[x][y].bomb = null;
+            // Objects[x][y].bomb = null;// You are evil bastard... :D So much time I searched for bug...
             if (!(Objects[x][y].entity is Player))
                 Objects[x][y].entity = null;
+            var wallFactory = new WallFactory();
             for (int i = 1; i <= radius; i++)
             {
-                if (x + i < numSquaresX && !(Objects[x+i][y].entity is IndestructableWall))
-                    Objects[x+i][y].entity = null;
+                if (x + i < numSquaresX && !(Objects[x + i][y].entity is IndestructableWall)) 
+                { 
+                    if (Objects[x][y].bomb is FireBomb)
+                        Objects[x + i][y].entity = new Fire(x + i, y);
+                    else if (Objects[x][y].bomb is IceBomb)
+                        Objects[x + i][y].entity = wallFactory.CreateWall(4);
+                    else
+                        Objects[x + i][y].entity = null;
+                }
                 if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall))
-                    Objects[x-i][y].entity = null;
-                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall))
-                    Objects[x][y+i].entity = null;
+                {
+                    if (Objects[x][y].bomb is FireBomb)
+                        Objects[x - i][y].entity = new Fire(x - i, y);
+                    else if (Objects[x][y].bomb is IceBomb)
+                        Objects[x - i][y].entity = wallFactory.CreateWall(4);
+                    else
+                        Objects[x - i][y].entity = null;
+                }
+                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall)) 
+                {
+                    if (Objects[x][y].bomb is FireBomb)
+                        Objects[x][y + i].entity = new Fire(x, y + i);
+                    else if (Objects[x][y].bomb is IceBomb)
+                        Objects[x][y + i].entity = wallFactory.CreateWall(4);
+                    else
+                        Objects[x][y + i].entity = null;
+                            }
                 if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall))
-                    Objects[x][y-i].entity = null;
+                {
+                    if (Objects[x][y].bomb is FireBomb)
+                        Objects[x][y - i].entity = new Fire(x, y - i);
+                    else if (Objects[x][y].bomb is IceBomb)
+                        Objects[x][y - i].entity = wallFactory.CreateWall(4);
+                    else
+                        Objects[x][y - i].entity = null;
+                }
             }
+            Objects[x][y].bomb = null;
         }
 
         public void AddPlayer(string id)

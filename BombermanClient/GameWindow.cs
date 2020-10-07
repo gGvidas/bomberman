@@ -1,5 +1,6 @@
 ﻿using BombermanClasses;
 using BombermanClasses.BombNameSpace;
+using BombermanClasses.Items;
 using BombermanClasses.Walls;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
@@ -101,6 +102,10 @@ namespace SnakeGame
             var rockColor = new SolidBrush(Color.RosyBrown);
             var wallColor = new SolidBrush(Color.Brown);
             var bombColor = new SolidBrush(Color.Black);
+            var firebombColor = new SolidBrush(Color.Firebrick);
+            var icebombColor = new SolidBrush(Color.Blue);
+            var fireColor = new SolidBrush(Color.Red);
+            var iceColor = new SolidBrush(Color.LightBlue);
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
@@ -109,10 +114,20 @@ namespace SnakeGame
 
                     if (world[i][j].entity is Player)
                         world[i][j].entity.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if(world[i][j].bomb != null)
+                   
+                    else if (world[i][j].bomb is FireBomb)
+                        world[i][j].bomb.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].bomb is IceBomb)
+                        world[i][j].bomb.Draw(icebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].bomb != null)
                         world[i][j].bomb.Draw(bombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+
                     else if (world[i][j].entity == null)
                         imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    else if (world[i][j].entity is Fire)
+                        imgGraph.FillRectangle(fireColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    else if (world[i][j].entity is IceWall)
+                        imgGraph.FillRectangle(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                     else if (world[i][j].entity is IndestructableWall)

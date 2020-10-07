@@ -1,4 +1,5 @@
 ﻿using Bomberman;
+using BombermanClasses.Items;
 using BombermanClasses.Observer;
 using System;
 using System.Drawing;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BombermanClasses.BombNameSpace
 {
-    public class Bomb : IMapObject, IObserver
+    public class Bomb : Item, IMapObject, IObserver
     {
         public int x { get; set; }
         public int y { get; set; }
@@ -41,7 +42,6 @@ namespace BombermanClasses.BombNameSpace
 
         public async Task Update()
         {
-            
                 currentTime++;
                 if (currentTime == explosionTime)
                 {
