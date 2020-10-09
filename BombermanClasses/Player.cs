@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using BombermanClasses.Items;
+using System.Drawing;
 
 namespace BombermanClasses
 {
@@ -7,7 +8,8 @@ namespace BombermanClasses
         public string Id { get; set; }
         public int x { get; set; } 
         public int y { get; set; }
-        
+        public Shield shield { get; set; } = null;
+
         public Player(string id, int x, int y)
         {
             Id = id;

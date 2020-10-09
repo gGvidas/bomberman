@@ -72,7 +72,9 @@ namespace BombermanClasses
             switch (keypress)
             {
                 case "W":
-                    if (player.y != 0 && Objects[player.x][player.y - 1].entity == null)
+                    if (player.y != 0 && Objects[player.x][player.y - 1].entity == null ||
+                        player.y != 0 && Objects[player.x][player.y - 1].entity is Fire && player.shield is FireShield ||
+                        player.y != 0 && Objects[player.x][player.y - 1].entity is IceWall && player.shield is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y - 1].entity = player;
@@ -80,7 +82,9 @@ namespace BombermanClasses
                     }
                     break;
                 case "A":
-                    if (player.x != 0 && Objects[player.x -1][player.y].entity == null)
+                    if (player.x != 0 && Objects[player.x -1][player.y].entity == null ||
+                        player.x != 0 && Objects[player.x -1][player.y].entity is Fire && player.shield is FireShield ||
+                        player.x != 0 && Objects[player.x -1][player.y].entity is IceWall && player.shield is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x - 1][player.y].entity = player;
@@ -88,7 +92,9 @@ namespace BombermanClasses
                     }
                     break;
                 case "D":
-                    if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null)
+                    if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null ||
+                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is Fire && player.shield is FireShield ||
+                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is IceWall && player.shield is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x + 1][player.y].entity = player;
@@ -96,7 +102,9 @@ namespace BombermanClasses
                     }
                     break;
                 case "S":
-                    if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null)
+                    if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null ||
+                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is Fire && player.shield is FireShield ||
+                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is IceWall && player.shield is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y + 1].entity = player;
@@ -155,48 +163,68 @@ namespace BombermanClasses
         {
             if (Objects[x][y].bomb == null) return;
             int radius = Objects[x][y].bomb.explosionRadius(2);
-            // Objects[x][y].bomb = null;// You are evil bastard... :D So much time I searched for bug...
             if (!(Objects[x][y].entity is Player))
                 Objects[x][y].entity = null;
             var wallFactory = new WallFactory();
+            bool up = false, down = false, left = false, right = false;
             for (int i = 1; i <= radius; i++)
             {
-                if (x + i < numSquaresX && !(Objects[x + i][y].entity is IndestructableWall)) 
+                if (x + i < numSquaresX && !(Objects[x + i][y].entity is IndestructableWall) && !right) 
                 { 
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x + i][y].entity = new Fire(x + i, y);
                     else if (Objects[x][y].bomb is IceBomb)
-                        Objects[x + i][y].entity = wallFactory.CreateWall(4);
+                        if (!(Objects[x][y + i].entity is DestructableWall))
+                            Objects[x + i][y].entity = wallFactory.CreateWall(4);
+                        else
+                            right = true;
                     else
                         Objects[x + i][y].entity = null;
                 }
-                if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall))
+                else
+                    right = true;
+                if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall) && !left)
                 {
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x - i][y].entity = new Fire(x - i, y);
                     else if (Objects[x][y].bomb is IceBomb)
-                        Objects[x - i][y].entity = wallFactory.CreateWall(4);
+                        if (!(Objects[x][y + i].entity is DestructableWall))
+                            Objects[x - i][y].entity = wallFactory.CreateWall(4);
+                        else
+                            left = true;
                     else
                         Objects[x - i][y].entity = null;
                 }
-                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall)) 
+                else
+                    left = true;
+                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall) && !up) 
                 {
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x][y + i].entity = new Fire(x, y + i);
                     else if (Objects[x][y].bomb is IceBomb)
-                        Objects[x][y + i].entity = wallFactory.CreateWall(4);
+                        if(!(Objects[x][y + i].entity is DestructableWall))
+                            Objects[x][y + i].entity = wallFactory.CreateWall(4);
+                        else
+                            up = true;
                     else
                         Objects[x][y + i].entity = null;
-                            }
-                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall))
+                }
+                else
+                    up = true;
+                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !down)
                 {
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x][y - i].entity = new Fire(x, y - i);
                     else if (Objects[x][y].bomb is IceBomb)
-                        Objects[x][y - i].entity = wallFactory.CreateWall(4);
+                        if (!(Objects[x][y + i].entity is DestructableWall))
+                            Objects[x][y - i].entity = wallFactory.CreateWall(4);
+                        else
+                            down = true;
                     else
                         Objects[x][y - i].entity = null;
                 }
+                else
+                    down = true;
             }
             Objects[x][y].bomb = null;
         }
