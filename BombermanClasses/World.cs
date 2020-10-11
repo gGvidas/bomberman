@@ -100,6 +100,13 @@ namespace BombermanClasses
                         Objects[player.x + 1][player.y].entity = player;
                         player.x += 1;
                     }
+                    //else if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].item != null)
+                    //{
+                    //    player.shield = Objects[player.x + 1][player.y].item;
+                    //    Objects[player.x][player.y].item = null;
+                    //    Objects[player.x + 1][player.y].entity = player;
+                    //    player.x += 1;
+                    //}
                     break;
                 case "S":
                     if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null ||
@@ -170,7 +177,7 @@ namespace BombermanClasses
             for (int i = 1; i <= radius; i++)
             {
                 if (x + i < numSquaresX && !(Objects[x + i][y].entity is IndestructableWall) && !right) 
-                { 
+                {
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x + i][y].entity = new Fire(x + i, y);
                     else if (Objects[x][y].bomb is IceBomb)
@@ -178,8 +185,13 @@ namespace BombermanClasses
                             Objects[x + i][y].entity = wallFactory.CreateWall(4);
                         else
                             right = true;
-                    else
-                        Objects[x + i][y].entity = null;
+                    else 
+                    {
+                        if (Objects[x + i][y].item != null)
+                            Objects[x + i][y].entity = wallFactory.CreateWall(3);
+                        else
+                            Objects[x + i][y].entity = null;
+                    }
                 }
                 else
                     right = true;
@@ -193,7 +205,12 @@ namespace BombermanClasses
                         else
                             left = true;
                     else
-                        Objects[x - i][y].entity = null;
+                    {
+                        if (Objects[x - i][y].item != null)
+                            Objects[x - i][y].entity = wallFactory.CreateWall(3);
+                        else
+                            Objects[x - i][y].entity = null;
+                    }
                 }
                 else
                     left = true;
@@ -207,7 +224,12 @@ namespace BombermanClasses
                         else
                             up = true;
                     else
-                        Objects[x][y + i].entity = null;
+                    {
+                        if (Objects[x][y + i].item != null)
+                            Objects[x][y + i].entity = wallFactory.CreateWall(3);
+                        else
+                            Objects[x][y + i].entity = null;
+                    }
                 }
                 else
                     up = true;
@@ -221,7 +243,12 @@ namespace BombermanClasses
                         else
                             down = true;
                     else
-                        Objects[x][y - i].entity = null;
+                    {
+                        if (Objects[x][y + i].item != null)
+                            Objects[x][y + i].entity = wallFactory.CreateWall(3);
+                        else
+                            Objects[x][y + i].entity = null;
+                    }
                 }
                 else
                     down = true;
@@ -283,7 +310,23 @@ namespace BombermanClasses
                                 continue;
                             }
                             else if (rand >= 6)
+                            {
                                 Objects[i][j].entity = wallFactory.CreateWall(1);
+                                if (rand >= 9)
+                                {
+                                    AbstractFactory firefac = new FireFactory();
+                                    AbstractFactory icefac = new FireFactory();
+                                    int rand2 = r.Next(0, 100);
+                                    if (rand2 < 25)
+                                        Objects[i][j].item = firefac.createShield();
+                                    else if (rand2 < 50)
+                                        Objects[i][j].item = icefac.createShield();
+                                    //else if (rand2 < 75)
+                                    //    Objects[i][j].bomb = firefac.createBomb();
+                                    //else if (rand2 < 101)
+                                    //    Objects[i][j].bomb = icefac.createBomb();
+                                }
+                            }
                             else
                             {
                             }

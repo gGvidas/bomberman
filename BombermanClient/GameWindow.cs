@@ -107,6 +107,8 @@ namespace SnakeGame
             var fireColor = new SolidBrush(Color.Red);
             var iceColor = new SolidBrush(Color.LightBlue);
 
+            var itemColor = new SolidBrush(Color.ForestGreen);
+
             for (int i = 0; i < world.GetLength(0); i++)
             {
                 for (int j = 0; j < world[i].Length; j++)
@@ -130,6 +132,10 @@ namespace SnakeGame
                         imgGraph.FillRectangle(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                   
+                    else if (world[i][j].entity is ItemDropWall)
+                        world[i][j].entity.Draw(itemColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                  
                     else if (world[i][j].entity is IndestructableWall)
                         world[i][j].entity.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                 }
