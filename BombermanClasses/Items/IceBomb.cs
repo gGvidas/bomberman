@@ -10,6 +10,10 @@ namespace BombermanClasses.Items
 {
     public class IceBomb : Bomb
     {
+        public IceBomb()
+        {
+        }
+
         public IceBomb(int x, int y, IBombRadiusStrategy strategy, World subject) : base(x, y, strategy, subject)
         {
         }

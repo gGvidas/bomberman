@@ -8,8 +8,7 @@ namespace BombermanClasses
         public string Id { get; set; }
         public int x { get; set; } 
         public int y { get; set; }
-        public Shield shield { get; set; } = null;
-        public int type { get; set; } = 0;
+        public Item item { get; set; } = null;
 
         public Player(string id, int x, int y)
         {

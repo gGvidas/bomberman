@@ -19,6 +19,9 @@ namespace BombermanClasses.BombNameSpace
 
         public IBombRadiusStrategy strategy { get; set; }
 
+        public Bomb()
+        {
+        }
         public Bomb(int x, int y, IBombRadiusStrategy strategy, World subject)
         {
             if (subject == null) return;

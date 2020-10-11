@@ -12,8 +12,13 @@ namespace BombermanClasses.Items
 		{
 			return new FireBomb(x, y, strategy, subject);
 		}
-		
-		public override Shield createShield(  )
+
+        public override Bomb createBomb()
+        {
+            return new FireBomb();
+        }
+
+        public override Shield createShield(  )
 		{
 			return new FireShield();
 		}

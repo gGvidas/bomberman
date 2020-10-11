@@ -8,6 +8,10 @@ namespace BombermanClasses.Items
 {
 	public class IceFactory : AbstractFactory
 	{
+		public override Bomb createBomb()
+		{
+			return new IceBomb();
+		}
 		public override Bomb createBomb(int x, int y, IBombRadiusStrategy strategy, World subject)
 		{
 			return new IceBomb(x, y, strategy, subject);

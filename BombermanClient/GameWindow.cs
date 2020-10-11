@@ -107,7 +107,7 @@ namespace SnakeGame
             var fireColor = new SolidBrush(Color.Red);
             var iceColor = new SolidBrush(Color.LightBlue);
 
-            var itemColor = new SolidBrush(Color.ForestGreen);
+            var itemColor = new SolidBrush(Color.DeepPink);
 
             for (int i = 0; i < world.GetLength(0); i++)
             {

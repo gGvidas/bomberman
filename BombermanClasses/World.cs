@@ -73,9 +73,19 @@ namespace BombermanClasses
             {
                 case "W":
                     if (player.y != 0 && Objects[player.x][player.y - 1].entity == null ||
-                        player.y != 0 && Objects[player.x][player.y - 1].entity is Fire && player.shield is FireShield ||
-                        player.y != 0 && Objects[player.x][player.y - 1].entity is IceWall && player.shield is IceShield)
+                        player.y != 0 && Objects[player.x][player.y - 1].entity is Fire && player.item is FireShield ||
+                        player.y != 0 && Objects[player.x][player.y - 1].entity is IceWall && player.item is IceShield)
                     {
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x][player.y - 1].entity = player;
+                        player.y -= 1;
+                    }
+                    else if (player.y != 0 && 
+                        !(Objects[player.x][player.y - 1].entity is DestructableWall) && 
+                        Objects[player.x][player.y - 1].item != null)
+                    {
+                        player.item = Objects[player.x][player.y - 1].item;
+                        Objects[player.x][player.y - 1].item = null;
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y - 1].entity = player;
                         player.y -= 1;
@@ -83,9 +93,19 @@ namespace BombermanClasses
                     break;
                 case "A":
                     if (player.x != 0 && Objects[player.x -1][player.y].entity == null ||
-                        player.x != 0 && Objects[player.x -1][player.y].entity is Fire && player.shield is FireShield ||
-                        player.x != 0 && Objects[player.x -1][player.y].entity is IceWall && player.shield is IceShield)
+                        player.x != 0 && Objects[player.x -1][player.y].entity is Fire && player.item is FireShield ||
+                        player.x != 0 && Objects[player.x -1][player.y].entity is IceWall && player.item is IceShield)
                     {
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x - 1][player.y].entity = player;
+                        player.x -= 1;
+                    }
+                    else if (player.x != 0 && 
+                        !(Objects[player.x - 1][player.y].entity is DestructableWall) && 
+                        Objects[player.x - 1][player.y].item != null)
+                    {
+                        player.item = Objects[player.x - 1][player.y].item;
+                        Objects[player.x - 1][player.y].item = null;
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x - 1][player.y].entity = player;
                         player.x -= 1;
@@ -93,26 +113,39 @@ namespace BombermanClasses
                     break;
                 case "D":
                     if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null ||
-                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is Fire && player.shield is FireShield ||
-                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is IceWall && player.shield is IceShield)
+                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is Fire && player.item is FireShield ||
+                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is IceWall && player.item is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x + 1][player.y].entity = player;
                         player.x += 1;
                     }
-                    //else if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].item != null)
-                    //{
-                    //    player.shield = Objects[player.x + 1][player.y].item;
-                    //    Objects[player.x][player.y].item = null;
-                    //    Objects[player.x + 1][player.y].entity = player;
-                    //    player.x += 1;
-                    //}
+                    else if (player.x != numSquaresX - 1 && 
+                        !(Objects[player.x + 1][player.y].entity is DestructableWall) && 
+                        Objects[player.x + 1][player.y].item != null)
+                    {
+                        player.item = Objects[player.x + 1][player.y].item;
+                        Objects[player.x + 1][player.y].item = null;
+                        Objects[player.x][player.y].item = null;
+                        Objects[player.x + 1][player.y].entity = player;
+                        player.x += 1;
+                    }
                     break;
                 case "S":
                     if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null ||
-                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is Fire && player.shield is FireShield ||
-                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is IceWall && player.shield is IceShield)
+                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is Fire && player.item is FireShield ||
+                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is IceWall && player.item is IceShield)
                     {
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x][player.y + 1].entity = player;
+                        player.y += 1;
+                    }
+                    else if (player.y != 0 && 
+                        !(Objects[player.x][player.y + 1].entity is DestructableWall) && 
+                        Objects[player.x][player.y + 1].item != null)
+                    {
+                        player.item = Objects[player.x][player.y + 1].item;
+                        Objects[player.x][player.y + 1].item = null;
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y + 1].entity = player;
                         player.y += 1;
@@ -123,7 +156,7 @@ namespace BombermanClasses
             }
         }
 
-        public void AddBomb(string id, int type = 0)
+        public void AddBomb(string id)
         {
             Player player = GetPlayer(id);
             Random random = new Random();
@@ -146,18 +179,19 @@ namespace BombermanClasses
                 strategy = new NuclearBombRadiusStrategy();
             }
 
-            type = random.Next(0, 3);
-            if (type == 1)
+            if (player.item is FireBomb)
             {
                 var factory = new FireFactory();
                 FireBomb bomb = (FireBomb)factory.createBomb(player.x, player.y, strategy, instance);
                 Objects[player.x][player.y].bomb = bomb;
+                player.item = null;
             }
-            else if (type == 2)
+            else if (player.item is IceBomb)
             {
                 var factory = new IceFactory();
                 IceBomb bomb = (IceBomb)factory.createBomb(player.x, player.y, strategy, instance);
                 Objects[player.x][player.y].bomb = bomb;
+                player.item = null;
             }
             else
             {
@@ -214,21 +248,21 @@ namespace BombermanClasses
                 }
                 else
                     left = true;
-                if (y + i < numSquaresY && !(Objects[x][y + i].entity is IndestructableWall) && !up) 
+                if (y + i < numSquaresX && !(Objects[x][y + i].entity is IndestructableWall) && !up)
                 {
                     if (Objects[x][y].bomb is FireBomb)
-                        Objects[x][y + i].entity = new Fire(x, y + i);
+                        Objects[x][y + i].entity = new Fire(x, y - i);
                     else if (Objects[x][y].bomb is IceBomb)
-                        if(!(Objects[x][y + i].entity is DestructableWall))
+                        if (!(Objects[x][y - i].entity is DestructableWall))
                             Objects[x][y + i].entity = wallFactory.CreateWall(4);
                         else
                             up = true;
                     else
                     {
-                        if (Objects[x][y + i].item != null)
-                            Objects[x][y + i].entity = wallFactory.CreateWall(3);
+                        if (Objects[x][y - i].item != null)
+                            Objects[x][y - i].entity = wallFactory.CreateWall(3);
                         else
-                            Objects[x][y + i].entity = null;
+                            Objects[x][y - i].entity = null;
                     }
                 }
                 else
@@ -315,16 +349,16 @@ namespace BombermanClasses
                                 if (rand >= 9)
                                 {
                                     AbstractFactory firefac = new FireFactory();
-                                    AbstractFactory icefac = new FireFactory();
+                                    AbstractFactory icefac = new IceFactory();
                                     int rand2 = r.Next(0, 100);
                                     if (rand2 < 25)
                                         Objects[i][j].item = firefac.createShield();
                                     else if (rand2 < 50)
                                         Objects[i][j].item = icefac.createShield();
-                                    //else if (rand2 < 75)
-                                    //    Objects[i][j].bomb = firefac.createBomb();
-                                    //else if (rand2 < 101)
-                                    //    Objects[i][j].bomb = icefac.createBomb();
+                                    else if (rand2 < 75)
+                                        Objects[i][j].item = firefac.createBomb();
+                                    else if (rand2 < 101)
+                                        Objects[i][j].item = icefac.createBomb();
                                 }
                             }
                             else
