@@ -1,10 +1,12 @@
 ﻿using BombermanClasses;
 using BombermanClasses.BombNameSpace;
+using BombermanClasses.Items;
 using BombermanClasses.Walls;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +29,9 @@ namespace SnakeGame
         Image img = null;
         Graphics imgGraph = null;
         Graphics graph = null;
+
+        [NonSerialized]        
+        private Image Background_;
 
         public GameWindow()
         {
@@ -79,11 +84,28 @@ namespace SnakeGame
         {
             hubConnection.SendAsync("UpdateClients");
         }
+        public Image Background
+        {
+            get
+            {
+                return Background_;
+            }
+
+            set
+            {
+                Background_ = value;
+            }
+        }
 
         private void Draw()
         {
-            imgGraph.FillRectangle(new SolidBrush(Color.White), 0, 0, squareSize * numSquaresX, squareSize * numSquaresY);
-
+            var spritesFolder = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..");
+            this.Background = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\World.jpg"));
+            if (Background != null)
+            {
+                imgGraph.DrawImage(Background, 0, 0, squareSize * numSquaresX, squareSize * numSquaresY);
+            }
+           
             var gridBrush = new SolidBrush(Color.LightGray);
             var gridPen = new Pen(gridBrush);
 
@@ -96,11 +118,18 @@ namespace SnakeGame
             if (world == null) return;
 
             //Draw
-            var playerColor = new SolidBrush(Color.Green);
-            var pathColor = new SolidBrush(Color.SandyBrown);
-            var rockColor = new SolidBrush(Color.RosyBrown);
-            var wallColor = new SolidBrush(Color.Brown);
-            var bombColor = new SolidBrush(Color.Black);
+            Image playerColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Player.png"));
+            Image rockColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockDestructible.png"));
+            Image wallColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockNonDestructible.png"));
+            Image bombColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Bombe.png"));
+            Image firebombColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Fire_Bomb.png"));
+            Image icebombColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Ice_Bomb.png"));
+            Image fireColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Fire.png"));
+            Image iceColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockIce.png"));
+
+            Image itemColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockItem.png"));
+            Image fireshieldColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Fire_Shield.png"));
+            Image iceshieldColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Ice_Shield.png"));
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
@@ -109,15 +138,35 @@ namespace SnakeGame
 
                     if (world[i][j].entity is Player)
                         world[i][j].entity.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if(world[i][j].bomb != null)
+                   
+                    else if (world[i][j].bomb is FireBomb)
+                        world[i][j].bomb.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].bomb is IceBomb)
+                        world[i][j].bomb.Draw(icebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].bomb != null)
                         world[i][j].bomb.Draw(bombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if (world[i][j].entity == null)
-                        imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+
+                    else if (world[i][j].entity is Fire)
+                        imgGraph.DrawImage(fireColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                    else if (world[i][j].entity is IceWall)
+                        imgGraph.DrawImage(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].entity is ItemDropWall)
+                        world[i][j].entity.Draw(itemColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                     else if (world[i][j].entity is IndestructableWall)
                         world[i][j].entity.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                }
+
+                    else if (world[i][j].item is FireBomb)
+                        world[i][j].item.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is IceBomb)
+                        world[i][j].item.Draw(icebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is FireShield)
+                        world[i][j].item.Draw(fireshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is IceShield)
+                        world[i][j].item.Draw(iceshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+
+                   }
             }
 
             graph.DrawImage(img, 0, 0);
