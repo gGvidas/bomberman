@@ -127,6 +127,8 @@ namespace SnakeGame
             Image iceColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockIce.png");
 
             Image itemColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockItem.png");
+            Image fireshieldColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Fire_Shield.png");
+            Image iceshieldColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Ice_Shield.png");
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
@@ -149,10 +151,16 @@ namespace SnakeGame
                         imgGraph.DrawImage(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                   
-                    else if (world[i][j].entity is ItemDropWall)
-                        world[i][j].entity.Draw(itemColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                  
+
+                    else if (world[i][j].item is FireBomb)
+                        world[i][j].entity.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is IceBomb)
+                        world[i][j].entity.Draw(icebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is FireShield)
+                        world[i][j].entity.Draw(fireshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is IceShield)
+                        world[i][j].entity.Draw(iceshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+
                     else if (world[i][j].entity is IndestructableWall)
                         world[i][j].entity.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                 }
