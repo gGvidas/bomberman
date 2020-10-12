@@ -72,16 +72,9 @@ namespace BombermanClasses
             switch (keypress)
             {
                 case "W":
-                    if (player.y != 0 && Objects[player.x][player.y - 1].entity == null ||
-                        player.y != 0 && Objects[player.x][player.y - 1].entity is Fire && player.item is FireShield ||
-                        player.y != 0 && Objects[player.x][player.y - 1].entity is IceWall && player.item is IceShield)
-                    {
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x][player.y - 1].entity = player;
-                        player.y -= 1;
-                    }
-                    else if (player.y != 0 && 
-                        !(Objects[player.x][player.y - 1].entity is DestructableWall) && 
+
+                    if (player.y != 0 &&
+                        Objects[player.x][player.y - 1].entity == null &&
                         Objects[player.x][player.y - 1].item != null)
                     {
                         player.item = Objects[player.x][player.y - 1].item;
@@ -90,18 +83,18 @@ namespace BombermanClasses
                         Objects[player.x][player.y - 1].entity = player;
                         player.y -= 1;
                     }
-                    break;
-                case "A":
-                    if (player.x != 0 && Objects[player.x -1][player.y].entity == null ||
-                        player.x != 0 && Objects[player.x -1][player.y].entity is Fire && player.item is FireShield ||
-                        player.x != 0 && Objects[player.x -1][player.y].entity is IceWall && player.item is IceShield)
+                    else if (player.y != 0 && Objects[player.x][player.y - 1].entity == null ||
+                        player.y != 0 && Objects[player.x][player.y - 1].entity is Fire && player.item is FireShield ||
+                        player.y != 0 && Objects[player.x][player.y - 1].entity is IceWall && player.item is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
-                        Objects[player.x - 1][player.y].entity = player;
-                        player.x -= 1;
+                        Objects[player.x][player.y - 1].entity = player;
+                        player.y -= 1;
                     }
-                    else if (player.x != 0 && 
-                        !(Objects[player.x - 1][player.y].entity is DestructableWall) && 
+                    break;
+                case "A":
+                    if (player.x != 0 &&
+                        Objects[player.x - 1][player.y].entity == null &&
                         Objects[player.x - 1][player.y].item != null)
                     {
                         player.item = Objects[player.x - 1][player.y].item;
@@ -110,18 +103,18 @@ namespace BombermanClasses
                         Objects[player.x - 1][player.y].entity = player;
                         player.x -= 1;
                     }
-                    break;
-                case "D":
-                    if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null ||
-                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is Fire && player.item is FireShield ||
-                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is IceWall && player.item is IceShield)
+                    else if (player.x != 0 && Objects[player.x -1][player.y].entity == null ||
+                        player.x != 0 && Objects[player.x -1][player.y].entity is Fire && player.item is FireShield ||
+                        player.x != 0 && Objects[player.x -1][player.y].entity is IceWall && player.item is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
-                        Objects[player.x + 1][player.y].entity = player;
-                        player.x += 1;
+                        Objects[player.x - 1][player.y].entity = player;
+                        player.x -= 1;
                     }
-                    else if (player.x != numSquaresX - 1 && 
-                        !(Objects[player.x + 1][player.y].entity is DestructableWall) && 
+                    break;
+                case "D":
+                    if (player.x != numSquaresX - 1 &&
+                        Objects[player.x + 1][player.y].entity == null &&
                         Objects[player.x + 1][player.y].item != null)
                     {
                         player.item = Objects[player.x + 1][player.y].item;
@@ -130,22 +123,30 @@ namespace BombermanClasses
                         Objects[player.x + 1][player.y].entity = player;
                         player.x += 1;
                     }
-                    break;
-                case "S":
-                    if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null ||
-                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is Fire && player.item is FireShield ||
-                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is IceWall && player.item is IceShield)
+                    else if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null ||
+                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is Fire && player.item is FireShield ||
+                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is IceWall && player.item is IceShield)
                     {
                         Objects[player.x][player.y].entity = null;
-                        Objects[player.x][player.y + 1].entity = player;
-                        player.y += 1;
+                        Objects[player.x + 1][player.y].entity = player;
+                        player.x += 1;
                     }
-                    else if (player.y != 0 && 
-                        !(Objects[player.x][player.y + 1].entity is DestructableWall) && 
+                    break;
+                case "S":
+                    if (player.y != 0 &&
+                        Objects[player.x][player.y + 1].entity == null &&
                         Objects[player.x][player.y + 1].item != null)
                     {
                         player.item = Objects[player.x][player.y + 1].item;
                         Objects[player.x][player.y + 1].item = null;
+                        Objects[player.x][player.y].entity = null;
+                        Objects[player.x][player.y + 1].entity = player;
+                        player.y += 1;
+                    }
+                    else if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null ||
+                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is Fire && player.item is FireShield ||
+                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is IceWall && player.item is IceShield)
+                    {
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y + 1].entity = player;
                         player.y += 1;
