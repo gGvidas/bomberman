@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,6 +29,9 @@ namespace SnakeGame
         Image img = null;
         Graphics imgGraph = null;
         Graphics graph = null;
+
+        [NonSerialized]        
+        private Image Background_;
 
         public GameWindow()
         {
@@ -80,11 +84,27 @@ namespace SnakeGame
         {
             hubConnection.SendAsync("UpdateClients");
         }
+        public Image Background
+        {
+            get
+            {
+                return Background_;
+            }
+
+            set
+            {
+                Background_ = value;
+            }
+        }
 
         private void Draw()
         {
-            imgGraph.FillRectangle(new SolidBrush(Color.White), 0, 0, squareSize * numSquaresX, squareSize * numSquaresY);
-
+            this.Background = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\World.jpg");
+            if (Background != null)
+            {
+                imgGraph.DrawImage(Background, 0, 0, squareSize * numSquaresX, squareSize * numSquaresY);
+            }
+           
             var gridBrush = new SolidBrush(Color.LightGray);
             var gridPen = new Pen(gridBrush);
 
@@ -97,17 +117,16 @@ namespace SnakeGame
             if (world == null) return;
 
             //Draw
-            var playerColor = new SolidBrush(Color.Green);
-            var pathColor = new SolidBrush(Color.SandyBrown);
-            var rockColor = new SolidBrush(Color.RosyBrown);
-            var wallColor = new SolidBrush(Color.Brown);
-            var bombColor = new SolidBrush(Color.Black);
-            var firebombColor = new SolidBrush(Color.Firebrick);
-            var icebombColor = new SolidBrush(Color.Blue);
-            var fireColor = new SolidBrush(Color.Red);
-            var iceColor = new SolidBrush(Color.LightBlue);
+            Image playerColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Player.png");
+            Image rockColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockDestructible.png");
+            Image wallColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockNonDestructible.png");
+            Image bombColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Bombe.png");
+            Image firebombColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Fire_Bomb.png");
+            Image icebombColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Ice_Bomb.png");
+            Image fireColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Fire.png");
+            Image iceColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockIce.png");
 
-            var itemColor = new SolidBrush(Color.DeepPink);
+            Image itemColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockItem.png");
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
@@ -124,12 +143,10 @@ namespace SnakeGame
                     else if (world[i][j].bomb != null)
                         world[i][j].bomb.Draw(bombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
 
-                    else if (world[i][j].entity == null)
-                        imgGraph.FillRectangle(pathColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is Fire)
-                        imgGraph.FillRectangle(fireColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                        imgGraph.DrawImage(fireColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is IceWall)
-                        imgGraph.FillRectangle(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
+                        imgGraph.DrawImage(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                    

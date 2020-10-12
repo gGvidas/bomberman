@@ -17,9 +17,9 @@ namespace BombermanClasses
             this.y = y;
         }
 
-        public void Draw(SolidBrush color, int x, int y, int width, int height, Graphics graphics)
+        public void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
-            graphics.FillRectangle(color, x, y, width, height);
+            graphics.DrawImage(image, x, y, width, height);
         }
     }
 }

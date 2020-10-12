@@ -7,6 +7,6 @@ namespace BombermanClasses
 {
     public interface IMapObject
     {
-        void Draw(SolidBrush color, int x, int y, int width, int height, Graphics graphics);
+        void Draw(Image image, int x, int y, int width, int height, Graphics graphics);
     }
 }

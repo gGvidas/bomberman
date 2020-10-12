@@ -7,18 +7,18 @@ namespace BombermanClasses.Items
 {
     public class Fire : IMapObject
     {
-        public int x { get; set; }
-        public int y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public Fire(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
-        public void Draw(SolidBrush color, int x, int y, int width, int height, Graphics graphics)
+        public void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
-            graphics.FillRectangle(color, x, y, width, height);
+            graphics.DrawImage(image, x, y, width, height);
         }
     }
 }
