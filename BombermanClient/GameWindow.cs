@@ -151,19 +151,21 @@ namespace SnakeGame
                         imgGraph.DrawImage(iceColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1);
                     else if (world[i][j].entity is DestructableWall)
                         world[i][j].entity.Draw(rockColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-
-                    else if (world[i][j].item is FireBomb)
-                        world[i][j].entity.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if (world[i][j].item is IceBomb)
-                        world[i][j].entity.Draw(icebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if (world[i][j].item is FireShield)
-                        world[i][j].entity.Draw(fireshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                    else if (world[i][j].item is IceShield)
-                        world[i][j].entity.Draw(iceshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-
+                    else if (world[i][j].entity is ItemDropWall)
+                        world[i][j].entity.Draw(itemColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                     else if (world[i][j].entity is IndestructableWall)
                         world[i][j].entity.Draw(wallColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                }
+
+                    else if (world[i][j].item is FireBomb)
+                        world[i][j].item.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is IceBomb)
+                        world[i][j].item.Draw(icebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is FireShield)
+                        world[i][j].item.Draw(fireshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    else if (world[i][j].item is IceShield)
+                        world[i][j].item.Draw(iceshieldColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+
+                   }
             }
 
             graph.DrawImage(img, 0, 0);
