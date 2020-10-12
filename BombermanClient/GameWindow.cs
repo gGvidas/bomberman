@@ -99,7 +99,8 @@ namespace SnakeGame
 
         private void Draw()
         {
-            this.Background = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\World.jpg");
+            var spritesFolder = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..");
+            this.Background = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\World.jpg"));
             if (Background != null)
             {
                 imgGraph.DrawImage(Background, 0, 0, squareSize * numSquaresX, squareSize * numSquaresY);
@@ -117,18 +118,18 @@ namespace SnakeGame
             if (world == null) return;
 
             //Draw
-            Image playerColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Player.png");
-            Image rockColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockDestructible.png");
-            Image wallColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockNonDestructible.png");
-            Image bombColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Bombe.png");
-            Image firebombColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Fire_Bomb.png");
-            Image icebombColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Ice_Bomb.png");
-            Image fireColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Fire.png");
-            Image iceColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockIce.png");
+            Image playerColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Player.png"));
+            Image rockColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockDestructible.png"));
+            Image wallColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockNonDestructible.png"));
+            Image bombColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Bombe.png"));
+            Image firebombColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Fire_Bomb.png"));
+            Image icebombColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Ice_Bomb.png"));
+            Image fireColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Fire.png"));
+            Image iceColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockIce.png"));
 
-            Image itemColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\BlockItem.png");
-            Image fireshieldColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Fire_Shield.png");
-            Image iceshieldColor = Image.FromFile(@"C:\Users\44421\Desktop\bomber2\BombermanClient\Sprites\Ice_Shield.png");
+            Image itemColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\BlockItem.png"));
+            Image fireshieldColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Fire_Shield.png"));
+            Image iceshieldColor = Image.FromFile(Path.Combine(spritesFolder, @"Sprites\Ice_Shield.png"));
 
             for (int i = 0; i < world.GetLength(0); i++)
             {
