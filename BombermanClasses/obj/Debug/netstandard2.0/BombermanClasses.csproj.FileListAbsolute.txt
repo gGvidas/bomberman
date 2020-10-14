@@ -34,3 +34,12 @@ C:\Users\44421\Desktop\bomber2\BombermanClasses\obj\Debug\netstandard2.0\Bomberm
 C:\Users\44421\Desktop\bomber2\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache
 C:\Users\44421\Desktop\bomber2\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
 C:\Users\44421\Desktop\bomber2\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb
+D:\bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.deps.json
+D:\bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.dll
+D:\bomberman\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.pdb
+D:\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csprojAssemblyReference.cache
+D:\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfoInputs.cache
+D:\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfo.cs
+D:\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache
+D:\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
+D:\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb
