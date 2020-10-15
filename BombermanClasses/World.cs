@@ -1,5 +1,6 @@
 ﻿using Bomberman;
 using BombermanClasses.BombNameSpace;
+using BombermanClasses.Command;
 using BombermanClasses.Items;
 using BombermanClasses.Observer;
 using BombermanClasses.Walls;
@@ -27,6 +28,8 @@ namespace BombermanClasses
         private int timeUnitInMilisec = 1000;
         private Timer _timer { get; set; }
 
+        private MovementInvoker movementInvoker;
+
         static World()
         {
 
@@ -45,6 +48,7 @@ namespace BombermanClasses
             Players = new List<Player>();
             GenerateWorld();
             SetTimer();
+            movementInvoker = new MovementInvoker();
         }
 
         private void SetTimer()
@@ -68,89 +72,84 @@ namespace BombermanClasses
         public void MovePlayer(string id, string keypress)
         {
             Player player = GetPlayer(id);
-
             switch (keypress)
             {
                 case "W":
+                    if (player.y != 0 && (Objects[player.x][player.y - 1].entity == null ||
+                        (Objects[player.x][player.y - 1].entity is Fire && player.item is FireShield) ||
+                        (Objects[player.x][player.y - 1].entity is IceWall && player.item is IceShield)))
+                    {
+                        if (Objects[player.x][player.y - 1].item != null)
+                        {
+                            player.item = Objects[player.x][player.y - 1].item;
+                            Objects[player.x][player.y - 1].item = null;
+                        }
 
-                    if (player.y != 0 &&
-                        Objects[player.x][player.y - 1].entity == null &&
-                        Objects[player.x][player.y - 1].item != null)
-                    {
-                        player.item = Objects[player.x][player.y - 1].item;
-                        Objects[player.x][player.y - 1].item = null;
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y - 1].entity = player;
-                        player.y -= 1;
-                    }
-                    else if (player.y != 0 && Objects[player.x][player.y - 1].entity == null ||
-                        player.y != 0 && Objects[player.x][player.y - 1].entity is Fire && player.item is FireShield ||
-                        player.y != 0 && Objects[player.x][player.y - 1].entity is IceWall && player.item is IceShield)
-                    {
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x][player.y - 1].entity = player;
-                        player.y -= 1;
+
+                        movementInvoker.setCommand(new MoveUpCommand(player));
+                        movementInvoker.move();
                     }
                     break;
                 case "A":
-                    if (player.x != 0 &&
-                        Objects[player.x - 1][player.y].entity == null &&
-                        Objects[player.x - 1][player.y].item != null)
+                    if (player.x != 0 && (Objects[player.x -1][player.y].entity == null ||
+                        (Objects[player.x -1][player.y].entity is Fire && player.item is FireShield) ||
+                        (Objects[player.x -1][player.y].entity is IceWall && player.item is IceShield)))
                     {
-                        player.item = Objects[player.x - 1][player.y].item;
-                        Objects[player.x - 1][player.y].item = null;
+                        if (Objects[player.x - 1][player.y].item != null)
+                        {
+                            player.item = Objects[player.x - 1][player.y].item;
+                            Objects[player.x - 1][player.y].item = null;
+                        }
+
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x - 1][player.y].entity = player;
-                        player.x -= 1;
-                    }
-                    else if (player.x != 0 && Objects[player.x -1][player.y].entity == null ||
-                        player.x != 0 && Objects[player.x -1][player.y].entity is Fire && player.item is FireShield ||
-                        player.x != 0 && Objects[player.x -1][player.y].entity is IceWall && player.item is IceShield)
-                    {
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x - 1][player.y].entity = player;
-                        player.x -= 1;
+
+                        movementInvoker.setCommand(new MoveLeftCommand(player));
+                        movementInvoker.move();
                     }
                     break;
                 case "D":
-                    if (player.x != numSquaresX - 1 &&
-                        Objects[player.x + 1][player.y].entity == null &&
-                        Objects[player.x + 1][player.y].item != null)
+                    if (player.x != numSquaresX - 1 && (Objects[player.x + 1][player.y].entity == null ||
+                        (Objects[player.x + 1][player.y].entity is Fire && player.item is FireShield) ||
+                        (Objects[player.x + 1][player.y].entity is IceWall && player.item is IceShield)))
                     {
-                        player.item = Objects[player.x + 1][player.y].item;
-                        Objects[player.x + 1][player.y].item = null;
-                        Objects[player.x][player.y].item = null;
-                        Objects[player.x + 1][player.y].entity = player;
-                        player.x += 1;
-                    }
-                    else if (player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity == null ||
-                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is Fire && player.item is FireShield ||
-                        player.x != numSquaresX - 1 && Objects[player.x + 1][player.y].entity is IceWall && player.item is IceShield)
-                    {
+                        if (Objects[player.x + 1][player.y].item != null)
+                        {
+                            player.item = Objects[player.x + 1][player.y].item;
+                            Objects[player.x + 1][player.y].item = null;
+                        }
+
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x + 1][player.y].entity = player;
-                        player.x += 1;
+
+                        movementInvoker.setCommand(new MoveRightCommand(player));
+                        movementInvoker.move();
                     }
                     break;
                 case "S":
-                    if (player.y != 0 &&
-                        Objects[player.x][player.y + 1].entity == null &&
-                        Objects[player.x][player.y + 1].item != null)
+                    if (player.y != numSquaresY - 1 && (Objects[player.x][player.y + 1].entity == null ||
+                        (Objects[player.x][player.y + 1].entity is Fire && player.item is FireShield) ||
+                        (Objects[player.x][player.y + 1].entity is IceWall && player.item is IceShield)))
                     {
-                        player.item = Objects[player.x][player.y + 1].item;
-                        Objects[player.x][player.y + 1].item = null;
+                        if (Objects[player.x][player.y + 1].item != null)
+                        {
+                            player.item = Objects[player.x][player.y + 1].item;
+                            Objects[player.x][player.y + 1].item = null;
+                        }
+
                         Objects[player.x][player.y].entity = null;
                         Objects[player.x][player.y + 1].entity = player;
-                        player.y += 1;
+
+                        movementInvoker.setCommand(new MoveDownCommand(player));
+                        movementInvoker.move();
                     }
-                    else if (player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity == null ||
-                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is Fire && player.item is FireShield ||
-                        player.y != numSquaresY - 1 && Objects[player.x][player.y + 1].entity is IceWall && player.item is IceShield)
-                    {
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x][player.y + 1].entity = player;
-                        player.y += 1;
-                    }
+                    break;
+                case "F":
+                    Objects[player.x][player.y].entity = null;
+                    movementInvoker.undo(player.Id);
+                    Objects[player.x][player.y].entity = player;
                     break;
                 default:
                     break;
