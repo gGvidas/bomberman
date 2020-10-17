@@ -16,6 +16,8 @@ namespace BombermanClasses.Walls
                     return new IndestructableWall();
                 case 3:
                     return new ItemDropWall();
+                case 4:
+                    return new IceWall();
                 default:
                     throw new NotImplementedException();
             }

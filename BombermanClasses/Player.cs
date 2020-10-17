@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using BombermanClasses.Items;
+using System.Drawing;
 
 namespace BombermanClasses
 {
@@ -7,7 +8,8 @@ namespace BombermanClasses
         public string Id { get; set; }
         public int x { get; set; } 
         public int y { get; set; }
-        
+        public Item item { get; set; } = null;
+
         public Player(string id, int x, int y)
         {
             Id = id;
@@ -15,9 +17,25 @@ namespace BombermanClasses
             this.y = y;
         }
 
-        public void Draw(SolidBrush color, int x, int y, int width, int height, Graphics graphics)
+        public void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
-            graphics.FillRectangle(color, x, y, width, height);
+            graphics.DrawImage(image, x, y, width, height);
+        }
+        public void moveUp()
+        {
+            y--;
+        }
+        public void moveDown()
+        {
+            y++;
+        }
+        public void moveRight()
+        {
+            x++;
+        }
+        public void moveLeft()
+        {
+            x--;
         }
     }
 }
