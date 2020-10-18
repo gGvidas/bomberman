@@ -1562,19 +1562,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sxlar\\.nuget\\packages\\": {}
+    "C:\\Users\\44421\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
+      "projectUniqueName": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj",
       "projectName": "BombermanClasses",
-      "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
-      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-      "outputPath": "D:\\bomberman\\BombermanClasses\\obj\\",
+      "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj",
+      "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

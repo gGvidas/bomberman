@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace BombermanClasses
 {
-    public class Player : IMapObject
+    public class Player : IMapObject, IPlayer
     {
         public string Id { get; set; }
         public int x { get; set; } 
@@ -21,6 +21,7 @@ namespace BombermanClasses
         {
             graphics.DrawImage(image, x, y, width, height);
         }
+
         public void moveUp()
         {
             y--;
