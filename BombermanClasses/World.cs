@@ -72,84 +72,114 @@ namespace BombermanClasses
         public void MovePlayer(string id, string keypress)
         {
             Player player = GetPlayer(id);
+            int x = player.x, y = player.y;
+            Objects[x][y].firetype = null;
+            Objects[x][y].icetype = null;
             switch (keypress)
             {
                 case "W":
-                    if (player.y != 0 && (Objects[player.x][player.y - 1].entity == null ||
-                        (Objects[player.x][player.y - 1].entity is Fire && player.item is FireShield) ||
-                        (Objects[player.x][player.y - 1].entity is IceWall && player.item is IceShield)))
+                    if (y != 0 && (Objects[x][y - 1].entity == null ||
+                        (Objects[x][y - 1].entity is Fire && player.item is FireShield) ||
+                        (Objects[x][y - 1].entity is IceWall && player.item is IceShield)))
                     {
-                        if (Objects[player.x][player.y - 1].item != null)
+                        IPlayer play = new Player(id, x, y);
+                        if (Objects[x][y - 1].item != null)
                         {
-                            player.item = Objects[player.x][player.y - 1].item;
-                            Objects[player.x][player.y - 1].item = null;
+                            player.item = Objects[x][y - 1].item;
+                            Objects[x][y - 1].item = null;
                         }
 
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x][player.y - 1].entity = player;
+                        Objects[x][y].entity = null;
+                        Objects[x][y - 1].entity = player;
+
+                        if (player.item is FireShield)
+                            Objects[x][y - 1].firetype = new FirePlayer(play);
+                        else if (player.item is IceShield)
+                            Objects[x][y - 1].icetype = new IcePlayer(play);
 
                         movementInvoker.setCommand(new MoveUpCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "A":
-                    if (player.x != 0 && (Objects[player.x -1][player.y].entity == null ||
-                        (Objects[player.x -1][player.y].entity is Fire && player.item is FireShield) ||
-                        (Objects[player.x -1][player.y].entity is IceWall && player.item is IceShield)))
+                    if (x != 0 && (Objects[x -1][y].entity == null ||
+                        (Objects[x -1][y].entity is Fire && player.item is FireShield) ||
+                        (Objects[x -1][y].entity is IceWall && player.item is IceShield)))
                     {
-                        if (Objects[player.x - 1][player.y].item != null)
+                        IPlayer play = new Player(id, x, y);
+                        if (Objects[x - 1][y].item != null)
                         {
-                            player.item = Objects[player.x - 1][player.y].item;
-                            Objects[player.x - 1][player.y].item = null;
+                            player.item = Objects[x - 1][y].item;
+                            Objects[x - 1][y].item = null;
                         }
 
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x - 1][player.y].entity = player;
+                        Objects[x][y].entity = null;
+                        Objects[x - 1][y].entity = player;
+
+
+                        if (player.item is FireShield)
+                            Objects[x - 1][y].firetype = new FirePlayer(play);
+                        else if (player.item is IceShield)
+                            Objects[x - 1][y].icetype = new IcePlayer(play);
 
                         movementInvoker.setCommand(new MoveLeftCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "D":
-                    if (player.x != numSquaresX - 1 && (Objects[player.x + 1][player.y].entity == null ||
-                        (Objects[player.x + 1][player.y].entity is Fire && player.item is FireShield) ||
-                        (Objects[player.x + 1][player.y].entity is IceWall && player.item is IceShield)))
+                    if (x != numSquaresX - 1 && (Objects[x + 1][y].entity == null ||
+                        (Objects[x + 1][y].entity is Fire && player.item is FireShield) ||
+                        (Objects[x + 1][y].entity is IceWall && player.item is IceShield)))
                     {
-                        if (Objects[player.x + 1][player.y].item != null)
+                        IPlayer play = new Player(id, x, y);
+                        if (Objects[x + 1][y].item != null)
                         {
-                            player.item = Objects[player.x + 1][player.y].item;
-                            Objects[player.x + 1][player.y].item = null;
+                            player.item = Objects[x + 1][y].item;
+                            Objects[x + 1][y].item = null;
                         }
 
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x + 1][player.y].entity = player;
+                        Objects[x][y].entity = null;
+                        Objects[x + 1][y].entity = player;
+
+
+                        if (player.item is FireShield)
+                            Objects[x + 1][y].firetype = new FirePlayer(play);
+                        else if (player.item is IceShield)
+                            Objects[x + 1][y].icetype = new IcePlayer(play);
 
                         movementInvoker.setCommand(new MoveRightCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "S":
-                    if (player.y != numSquaresY - 1 && (Objects[player.x][player.y + 1].entity == null ||
-                        (Objects[player.x][player.y + 1].entity is Fire && player.item is FireShield) ||
-                        (Objects[player.x][player.y + 1].entity is IceWall && player.item is IceShield)))
+                    if (y != numSquaresY - 1 && (Objects[x][y + 1].entity == null ||
+                        (Objects[x][y + 1].entity is Fire && player.item is FireShield) ||
+                        (Objects[x][y + 1].entity is IceWall && player.item is IceShield)))
                     {
-                        if (Objects[player.x][player.y + 1].item != null)
+                        IPlayer play = new Player(id, x, y);
+                        if (Objects[x][y + 1].item != null)
                         {
-                            player.item = Objects[player.x][player.y + 1].item;
-                            Objects[player.x][player.y + 1].item = null;
+                            player.item = Objects[x][y + 1].item;
+                            Objects[x][y + 1].item = null;
                         }
 
-                        Objects[player.x][player.y].entity = null;
-                        Objects[player.x][player.y + 1].entity = player;
+                        Objects[x][y].entity = null;
+                        Objects[x][y + 1].entity = player;
+
+
+                        if (player.item is FireShield)
+                            Objects[x][y + 1].firetype = new FirePlayer(play);
+                        else if (player.item is IceShield)
+                            Objects[x][y + 1].icetype = new IcePlayer(play);
 
                         movementInvoker.setCommand(new MoveDownCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "F":
-                    Objects[player.x][player.y].entity = null;
+                    Objects[x][y].entity = null;
                     movementInvoker.undo(player.Id);
-                    Objects[player.x][player.y].entity = player;
+                    Objects[x][y].entity = player;
                     break;
                 default:
                     break;

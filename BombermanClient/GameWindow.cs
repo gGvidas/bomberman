@@ -137,8 +137,14 @@ namespace SnakeGame
                 {
 
                     if (world[i][j].entity is Player)
-                        world[i][j].entity.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
-                   
+                    {
+                        if (world[i][j].firetype != null)
+                            world[i][j].firetype.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                        else if (world[i][j].icetype != null)
+                            world[i][j].icetype.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                        else
+                            world[i][j].entity.Draw(playerColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
+                    }
                     else if (world[i][j].bomb is FireBomb)
                         world[i][j].bomb.Draw(firebombColor, i * squareSize, j * squareSize, squareSize - 1, squareSize - 1, imgGraph);
                     else if (world[i][j].bomb is IceBomb)
