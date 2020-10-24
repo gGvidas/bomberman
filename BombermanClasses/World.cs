@@ -179,7 +179,7 @@ namespace BombermanClasses
                 case "F":
                     Objects[x][y].entity = null;
                     movementInvoker.undo(player.Id);
-                    Objects[x][y].entity = player;
+                    Objects[player.x][player.y].entity = player;
                     break;
                 default:
                     break;
