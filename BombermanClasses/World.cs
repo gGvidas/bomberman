@@ -146,6 +146,8 @@ namespace BombermanClasses
                             Objects[x + 1][y].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
                             Objects[x + 1][y].icetype = new IcePlayer(play);
+                        //FirePlayer e = new FirePlayer(play);
+                        //OnFirePlayer e1 = new OnFirePlayer(e);
 
                         movementInvoker.setCommand(new MoveRightCommand(player));
                         movementInvoker.move();
@@ -180,6 +182,11 @@ namespace BombermanClasses
                     Objects[x][y].entity = null;
                     movementInvoker.undo(player.Id);
                     Objects[player.x][player.y].entity = player;
+                    IPlayer play1 = new Player(id, x, y);
+                    if (player.item is FireShield)
+                        Objects[player.x][player.y].firetype = new FirePlayer(play1);
+                    else if (player.item is IceShield)
+                        Objects[player.x][player.y].icetype = new IcePlayer(play1);
                     break;
                 default:
                     break;
@@ -208,19 +215,21 @@ namespace BombermanClasses
             {
                 strategy = new NuclearBombRadiusStrategy();
             }
-
+            ItemsMaker maker = new ItemsMaker();
             if (player.item is FireBomb)
             {
-                var factory = new FireFactory();
-                FireBomb bomb = (FireBomb)factory.createBomb(player.x, player.y, strategy, instance);
-                Objects[player.x][player.y].bomb = bomb;
+                //var factory = new FireFactory();
+                //FireBomb bomb = (FireBomb)factory.createBomb(player.x, player.y, strategy, instance);
+                //Objects[player.x][player.y].bomb = bomb;
+                Objects[player.x][player.y].bomb = maker.GetFireBomb(player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else if (player.item is IceBomb)
             {
-                var factory = new IceFactory();
-                IceBomb bomb = (IceBomb)factory.createBomb(player.x, player.y, strategy, instance);
-                Objects[player.x][player.y].bomb = bomb;
+                //var factory = new IceFactory();
+                //IceBomb bomb = (IceBomb)factory.createBomb(player.x, player.y, strategy, instance);
+                //Objects[player.x][player.y].bomb = bomb;
+                Objects[player.x][player.y].bomb = maker.GetIceBomb(player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else
@@ -356,17 +365,16 @@ namespace BombermanClasses
                             else if (rand >= 9)
                             {
                                 Objects[i][j].entity = wallFactory.CreateWall(3);
-                                AbstractFactory firefac = new FireFactory();
-                                AbstractFactory icefac = new IceFactory();
+                                ItemsMaker maker = new ItemsMaker();
                                 int rand2 = r.Next(0, 100);
                                 if (rand2 < 25)
-                                    Objects[i][j].item = firefac.createShield();
+                                    Objects[i][j].item = maker.GetFireShield();
                                 else if (rand2 < 50)
-                                    Objects[i][j].item = icefac.createShield();
+                                    Objects[i][j].item = maker.GetIceShield();
                                 else if (rand2 < 75)
-                                    Objects[i][j].item = firefac.createBomb();
+                                    Objects[i][j].item = maker.GetFireBomb();
                                 else if (rand2 < 101)
-                                    Objects[i][j].item = icefac.createBomb();
+                                    Objects[i][j].item = maker.GetIceBomb();
                             }
                             else if (rand >= 6)
                                 Objects[i][j].entity = wallFactory.CreateWall(1);
