@@ -12,6 +12,7 @@ namespace BombermanClasses
         public Item item { get; set; } = null;
 
         public FirePlayer firetype { get; set; } = null;
+        public OnFirePlayer onfiretype { get; set; } = null;
         public IcePlayer icetype { get; set; } = null;
 
         public IMapObject entity { get; set; }

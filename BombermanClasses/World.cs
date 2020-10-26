@@ -73,6 +73,7 @@ namespace BombermanClasses
         {
             Player player = GetPlayer(id);
             int x = player.x, y = player.y;
+            Objects[x][y].onfiretype = null;
             Objects[x][y].firetype = null;
             Objects[x][y].icetype = null;
             switch (keypress)
@@ -90,12 +91,14 @@ namespace BombermanClasses
                         }
 
                         Objects[x][y].entity = null;
-                        Objects[x][y - 1].entity = player;
 
-                        if (player.item is FireShield)
+                        if (Objects[x][y - 1].entity is Fire && player.item is FireShield)
+                            Objects[x][y - 1].onfiretype = new OnFirePlayer(play);
+                        else if (player.item is FireShield)
                             Objects[x][y - 1].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
                             Objects[x][y - 1].icetype = new IcePlayer(play);
+                        Objects[x][y - 1].entity = player;
 
                         movementInvoker.setCommand(new MoveUpCommand(player));
                         movementInvoker.move();
@@ -114,13 +117,15 @@ namespace BombermanClasses
                         }
 
                         Objects[x][y].entity = null;
-                        Objects[x - 1][y].entity = player;
 
 
-                        if (player.item is FireShield)
+                        if (Objects[x - 1][y].entity is Fire && player.item is FireShield)
+                            Objects[x - 1][y].onfiretype = new OnFirePlayer(play);
+                        else if (player.item is FireShield)
                             Objects[x - 1][y].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
                             Objects[x - 1][y].icetype = new IcePlayer(play);
+                        Objects[x - 1][y].entity = player;
 
                         movementInvoker.setCommand(new MoveLeftCommand(player));
                         movementInvoker.move();
@@ -139,15 +144,14 @@ namespace BombermanClasses
                         }
 
                         Objects[x][y].entity = null;
-                        Objects[x + 1][y].entity = player;
 
-
-                        if (player.item is FireShield)
+                        if (Objects[x + 1][y].entity is Fire && player.item is FireShield)
+                            Objects[x + 1][y].onfiretype = new OnFirePlayer(play);
+                        else if (player.item is FireShield)
                             Objects[x + 1][y].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
                             Objects[x + 1][y].icetype = new IcePlayer(play);
-                        //FirePlayer e = new FirePlayer(play);
-                        //OnFirePlayer e1 = new OnFirePlayer(e);
+                        Objects[x + 1][y].entity = player;
 
                         movementInvoker.setCommand(new MoveRightCommand(player));
                         movementInvoker.move();
@@ -166,13 +170,14 @@ namespace BombermanClasses
                         }
 
                         Objects[x][y].entity = null;
-                        Objects[x][y + 1].entity = player;
 
-
-                        if (player.item is FireShield)
+                        if (Objects[x][y + 1].entity is Fire && player.item is FireShield)
+                            Objects[x][y + 1].onfiretype = new OnFirePlayer(play);
+                        else if (player.item is FireShield)
                             Objects[x][y + 1].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
                             Objects[x][y + 1].icetype = new IcePlayer(play);
+                        Objects[x][y + 1].entity = player;
 
                         movementInvoker.setCommand(new MoveDownCommand(player));
                         movementInvoker.move();
@@ -183,7 +188,9 @@ namespace BombermanClasses
                     movementInvoker.undo(player.Id);
                     Objects[player.x][player.y].entity = player;
                     IPlayer play1 = new Player(id, x, y);
-                    if (player.item is FireShield)
+                    if (Objects[player.x][player.y].entity is Fire && player.item is FireShield)
+                        Objects[player.x][player.y].onfiretype = new OnFirePlayer(play1);
+                    else if (player.item is FireShield)
                         Objects[player.x][player.y].firetype = new FirePlayer(play1);
                     else if (player.item is IceShield)
                         Objects[player.x][player.y].icetype = new IcePlayer(play1);
@@ -218,17 +225,11 @@ namespace BombermanClasses
             ItemsMaker maker = new ItemsMaker();
             if (player.item is FireBomb)
             {
-                //var factory = new FireFactory();
-                //FireBomb bomb = (FireBomb)factory.createBomb(player.x, player.y, strategy, instance);
-                //Objects[player.x][player.y].bomb = bomb;
                 Objects[player.x][player.y].bomb = maker.GetFireBomb(player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else if (player.item is IceBomb)
             {
-                //var factory = new IceFactory();
-                //IceBomb bomb = (IceBomb)factory.createBomb(player.x, player.y, strategy, instance);
-                //Objects[player.x][player.y].bomb = bomb;
                 Objects[player.x][player.y].bomb = maker.GetIceBomb(player.x, player.y, strategy, instance);
                 player.item = null;
             }
