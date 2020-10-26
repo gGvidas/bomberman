@@ -21,8 +21,6 @@ namespace BombermanClasses
 
 		public void AddShield(int x, int y, int width, int height, Graphics graphics)
 		{
-			//string spritesFolder = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..");
-			//Image shield = Image.FromFile(Path.Combine(spritesFolder, @"BombermanClient\Sprites\Fire_Shield.jpg"));
 			graphics.FillRectangle(new SolidBrush(Color.Red), x, y, width/2, height/2);
 		}
 
