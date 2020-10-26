@@ -10,6 +10,8 @@ namespace BombermanClasses
         public int y { get; set; }
         public Item item { get; set; } = null;
 
+        public bool isDead { get; set; } = false;
+
         public Player(string id, int x, int y)
         {
             Id = id;

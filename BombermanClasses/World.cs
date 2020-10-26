@@ -72,6 +72,9 @@ namespace BombermanClasses
         public void MovePlayer(string id, string keypress)
         {
             Player player = GetPlayer(id);
+            if (player.isDead) return;
+
+
             int x = player.x, y = player.y;
             Objects[x][y].onfiretype = null;
             Objects[x][y].firetype = null;
@@ -203,6 +206,8 @@ namespace BombermanClasses
         public void AddBomb(string id)
         {
             Player player = GetPlayer(id);
+            if (player.isDead) return;
+
             Random random = new Random();
             int randNumber = random.Next(0, 100);
             IBombRadiusStrategy strategy;
@@ -243,11 +248,15 @@ namespace BombermanClasses
         public async Task Explode(int x, int y)
         {
             if (Objects[x][y].bomb == null) return;
+
             int radius = Objects[x][y].bomb.explosionRadius(2);
-            if (!(Objects[x][y].entity is Player))
-                Objects[x][y].entity = null;
+
+            Objects[x][y].destroy();
+
             var wallFactory = new WallFactory();
+
             bool up = false, down = false, left = false, right = false;
+
             for (int i = 1; i <= radius; i++)
             {
                 if (x + i < numSquaresX && !(Objects[x + i][y].entity is IndestructableWall) && !right) 
@@ -260,7 +269,7 @@ namespace BombermanClasses
                         else
                             right = true;
                     else 
-                        Objects[x + i][y].entity = null;
+                        Objects[x + i][y].destroy();
                 }
                 else
                     right = true;
@@ -274,7 +283,7 @@ namespace BombermanClasses
                         else
                             left = true;
                     else
-                        Objects[x - i][y].entity = null;
+                        Objects[x - i][y].destroy();
                 }
                 else
                     left = true;
@@ -288,7 +297,7 @@ namespace BombermanClasses
                         else
                             up = true;
                     else
-                        Objects[x][y - i].entity = null;
+                        Objects[x][y - i].destroy();
                 }
                 else
                     up = true;
@@ -302,12 +311,13 @@ namespace BombermanClasses
                         else
                             down = true;
                     else
-                        Objects[x][y + i].entity = null;
+                        Objects[x][y + i].destroy();
                 }
                 else
                     down = true;
             }
             Objects[x][y].bomb = null;
+            CheckIfEndgame();
         }
 
         public void AddPlayer(string id)
@@ -315,7 +325,7 @@ namespace BombermanClasses
             Random random = new Random();
             int x = 0;
             int y = 0;
-            while (Objects[x][y].entity is Wall)
+            while (!(Objects[x][y].entity == null))
             {
                 x = random.Next(0, numSquaresX);
                 y = random.Next(0, numSquaresY);
@@ -334,7 +344,40 @@ namespace BombermanClasses
         {
             return Players.FirstOrDefault(player => player.Id == id);
         }
-
+        private void CheckIfEndgame()
+        {
+            int aliveCount = Players.Where(player => !player.isDead).Count();
+            if ((Players.Count == 1 && aliveCount == 0) || (Players.Count > 1 && aliveCount == 1))
+            {
+                RestartGame();
+            }
+        }
+        private void RestartGame()
+        {
+            foreach (Tile[] row in Objects)
+            {
+                foreach (Tile tile in row)
+                {
+                    tile.clear();
+                }
+            }
+            GenerateWorld();
+            foreach (Player player in Players)
+            {
+                Random random = new Random();
+                int x = 0;
+                int y = 0;
+                while (!(Objects[x][y].entity == null))
+                {
+                    x = random.Next(0, numSquaresX);
+                    y = random.Next(0, numSquaresY);
+                }
+                player.isDead = false;
+                player.x = x;
+                player.y = y;
+                Objects[x][y].entity = player;
+            }
+        }
         private void GenerateWorld()
         {
             Random r = new Random();
