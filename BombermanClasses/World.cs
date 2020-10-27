@@ -264,7 +264,7 @@ namespace BombermanClasses
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x + i][y].entity = new Fire(x + i, y);
                     else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x][y + i].entity is DestructableWall))
+                        if (!(Objects[x + 1][y].entity is DestructableWall))
                             Objects[x + i][y].entity = wallFactory.CreateWall(4);
                         else
                             right = true;
@@ -278,7 +278,7 @@ namespace BombermanClasses
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x - i][y].entity = new Fire(x - i, y);
                     else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x][y + i].entity is DestructableWall))
+                        if (!(Objects[x - 1][y].entity is DestructableWall))
                             Objects[x - i][y].entity = wallFactory.CreateWall(4);
                         else
                             left = true;
@@ -292,22 +292,8 @@ namespace BombermanClasses
                     if (Objects[x][y].bomb is FireBomb)
                         Objects[x][y + i].entity = new Fire(x, y - i);
                     else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x][y - i].entity is DestructableWall))
-                            Objects[x][y + i].entity = wallFactory.CreateWall(4);
-                        else
-                            up = true;
-                    else
-                        Objects[x][y - i].destroy();
-                }
-                else
-                    up = true;
-                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !down)
-                {
-                    if (Objects[x][y].bomb is FireBomb)
-                        Objects[x][y - i].entity = new Fire(x, y - i);
-                    else if (Objects[x][y].bomb is IceBomb)
                         if (!(Objects[x][y + i].entity is DestructableWall))
-                            Objects[x][y - i].entity = wallFactory.CreateWall(4);
+                            Objects[x][y + i].entity = wallFactory.CreateWall(4);
                         else
                             down = true;
                     else
@@ -315,6 +301,20 @@ namespace BombermanClasses
                 }
                 else
                     down = true;
+                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !down)
+                {
+                    if (Objects[x][y].bomb is FireBomb)
+                        Objects[x][y - i].entity = new Fire(x, y - i);
+                    else if (Objects[x][y].bomb is IceBomb)
+                        if (!(Objects[x][y - i].entity is DestructableWall))
+                            Objects[x][y - i].entity = wallFactory.CreateWall(4);
+                        else
+                            up = true;
+                    else
+                        Objects[x][y - i].destroy();
+                }
+                else
+                    up = true;
             }
             Objects[x][y].bomb = null;
             CheckIfEndgame();
