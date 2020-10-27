@@ -38,9 +38,9 @@ namespace Bomberman
         }
         public async override Task OnDisconnectedAsync(Exception exception)
         {
-            //World.RemovePlayer(Context.ConnectionId);
-            //await UpdateClients();
-            //await base.OnDisconnectedAsync(exception);
+            World.Instance.RemovePlayer(Context.ConnectionId);
+            await UpdateClients();
+            await base.OnDisconnectedAsync(exception);
         }
     }
 }
