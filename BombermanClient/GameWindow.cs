@@ -19,8 +19,8 @@ namespace SnakeGame
         bool IsGameOver = true;
 
         Int32 squareSize = 20;
-        Int32 numSquaresX = 32;
-        Int32 numSquaresY = 32;
+        Int32 numSquaresX;
+        Int32 numSquaresY;
 
         private Tile[][] world;
 
@@ -40,8 +40,6 @@ namespace SnakeGame
             InitConnection();
             this.screen.Visible = false;
 
-            img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
-            imgGraph = Graphics.FromImage(img);
             graph = screen.CreateGraphics();
 
         }
@@ -53,6 +51,11 @@ namespace SnakeGame
             {
                 TypeNameHandling = TypeNameHandling.Auto
             });
+            numSquaresX = worldFromServer.GetLength(0);
+            numSquaresY = worldFromServer[0].Length;
+
+            img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
+            imgGraph = Graphics.FromImage(img);
 
             world = worldFromServer;
             Draw();
