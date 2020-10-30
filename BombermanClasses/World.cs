@@ -2,6 +2,7 @@
 using BombermanClasses.BombNameSpace;
 using BombermanClasses.Command;
 using BombermanClasses.Items;
+using BombermanClasses.MapBuilder;
 using BombermanClasses.Observer;
 using BombermanClasses.Walls;
 using System;
@@ -18,11 +19,11 @@ namespace BombermanClasses
         private static readonly World instance = new World();
         public static World Instance { get { return instance; } }
         private Int32 squareSize = 20;
-        private Int32 numSquaresX = 32;
-        private Int32 numSquaresY = 32;
+        private Int32 numSquaresX;
+        private Int32 numSquaresY;
         private List<Player> Players { get; set; }
-        private Tile[][] Objects { get; set; }
 
+        private Map Map { get; set; }
         public BombermanHub hub { get; set; }
 
         private int timeUnitInMilisec = 1000;
@@ -30,25 +31,31 @@ namespace BombermanClasses
 
         private MovementInvoker movementInvoker;
 
+        private AbstractMapBuilder mapBuilder;
+
         static World()
         {
 
         }
+
         private World()
         {
-            Objects = new Tile[numSquaresY][];
-            for (int i = 0; i < numSquaresY; i++)
-            {
-                Objects[i] = new Tile[numSquaresX];
-                for (int j = 0; j < numSquaresX; j++)
-                {
-                    Objects[i][j] = new Tile();
-                }
-            }
+            var rand = new Random();
+            mapBuilder = rand.Next(2) == 0 ? (AbstractMapBuilder)new SmallMapBuilder() : new NormalMapBuilder();
+            BuildMap();
+            numSquaresX = Map.Objects.GetLength(0);
+            numSquaresY = Map.Objects[0].Length;
             Players = new List<Player>();
-            GenerateWorld();
             SetTimer();
             movementInvoker = new MovementInvoker();
+        }
+
+        private void BuildMap()
+        {
+           
+            MapDirector director = new MapDirector(mapBuilder);
+            director.Construct();
+            Map = mapBuilder.Build();
         }
 
         private void SetTimer()
@@ -66,7 +73,7 @@ namespace BombermanClasses
 
         public Tile[][] GetObjects()
         {
-            return Objects;
+            return Map.Objects;
         }
 
         public void MovePlayer(string id, string keypress)
@@ -76,127 +83,127 @@ namespace BombermanClasses
 
 
             int x = player.x, y = player.y;
-            Objects[x][y].onfiretype = null;
-            Objects[x][y].firetype = null;
-            Objects[x][y].icetype = null;
+            Map.Objects[x][y].onfiretype = null;
+            Map.Objects[x][y].firetype = null;
+            Map.Objects[x][y].icetype = null;
             switch (keypress)
             {
                 case "W":
-                    if (y != 0 && (Objects[x][y - 1].entity == null ||
-                        (Objects[x][y - 1].entity is Fire && player.item is FireShield) ||
-                        (Objects[x][y - 1].entity is IceWall && player.item is IceShield)))
+                    if (y != 0 && (Map.Objects[x][y - 1].entity == null ||
+                        (Map.Objects[x][y - 1].entity is Fire && player.item is FireShield) ||
+                        (Map.Objects[x][y - 1].entity is IceWall && player.item is IceShield)))
                     {
                         IPlayer play = new Player(id, x, y);
-                        if (Objects[x][y - 1].item != null)
+                        if (Map.Objects[x][y - 1].item != null)
                         {
-                            player.item = Objects[x][y - 1].item;
-                            Objects[x][y - 1].item = null;
+                            player.item = Map.Objects[x][y - 1].item;
+                            Map.Objects[x][y - 1].item = null;
                         }
 
-                        Objects[x][y].entity = null;
+                        Map.Objects[x][y].entity = null;
 
-                        if (Objects[x][y - 1].entity is Fire && player.item is FireShield)
-                            Objects[x][y - 1].onfiretype = new OnFirePlayer(play);
+                        if (Map.Objects[x][y - 1].entity is Fire && player.item is FireShield)
+                            Map.Objects[x][y - 1].onfiretype = new OnFirePlayer(play);
                         else if (player.item is FireShield)
-                            Objects[x][y - 1].firetype = new FirePlayer(play);
+                            Map.Objects[x][y - 1].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
-                            Objects[x][y - 1].icetype = new IcePlayer(play);
-                        Objects[x][y - 1].entity = player;
+                            Map.Objects[x][y - 1].icetype = new IcePlayer(play);
+                        Map.Objects[x][y - 1].entity = player;
 
                         movementInvoker.setCommand(new MoveUpCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "A":
-                    if (x != 0 && (Objects[x -1][y].entity == null ||
-                        (Objects[x -1][y].entity is Fire && player.item is FireShield) ||
-                        (Objects[x -1][y].entity is IceWall && player.item is IceShield)))
+                    if (x != 0 && (Map.Objects[x -1][y].entity == null ||
+                        (Map.Objects[x -1][y].entity is Fire && player.item is FireShield) ||
+                        (Map.Objects[x -1][y].entity is IceWall && player.item is IceShield)))
                     {
                         IPlayer play = new Player(id, x, y);
-                        if (Objects[x - 1][y].item != null)
+                        if (Map.Objects[x - 1][y].item != null)
                         {
-                            player.item = Objects[x - 1][y].item;
-                            Objects[x - 1][y].item = null;
+                            player.item = Map.Objects[x - 1][y].item;
+                            Map.Objects[x - 1][y].item = null;
                         }
 
-                        Objects[x][y].entity = null;
+                        Map.Objects[x][y].entity = null;
 
 
-                        if (Objects[x - 1][y].entity is Fire && player.item is FireShield)
-                            Objects[x - 1][y].onfiretype = new OnFirePlayer(play);
+                        if (Map.Objects[x - 1][y].entity is Fire && player.item is FireShield)
+                            Map.Objects[x - 1][y].onfiretype = new OnFirePlayer(play);
                         else if (player.item is FireShield)
-                            Objects[x - 1][y].firetype = new FirePlayer(play);
+                            Map.Objects[x - 1][y].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
-                            Objects[x - 1][y].icetype = new IcePlayer(play);
-                        Objects[x - 1][y].entity = player;
+                            Map.Objects[x - 1][y].icetype = new IcePlayer(play);
+                        Map.Objects[x - 1][y].entity = player;
 
                         movementInvoker.setCommand(new MoveLeftCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "D":
-                    if (x != numSquaresX - 1 && (Objects[x + 1][y].entity == null ||
-                        (Objects[x + 1][y].entity is Fire && player.item is FireShield) ||
-                        (Objects[x + 1][y].entity is IceWall && player.item is IceShield)))
+                    if (x != numSquaresX - 1 && (Map.Objects[x + 1][y].entity == null ||
+                        (Map.Objects[x + 1][y].entity is Fire && player.item is FireShield) ||
+                        (Map.Objects[x + 1][y].entity is IceWall && player.item is IceShield)))
                     {
                         IPlayer play = new Player(id, x, y);
-                        if (Objects[x + 1][y].item != null)
+                        if (Map.Objects[x + 1][y].item != null)
                         {
-                            player.item = Objects[x + 1][y].item;
-                            Objects[x + 1][y].item = null;
+                            player.item = Map.Objects[x + 1][y].item;
+                            Map.Objects[x + 1][y].item = null;
                         }
 
-                        Objects[x][y].entity = null;
+                        Map.Objects[x][y].entity = null;
 
-                        if (Objects[x + 1][y].entity is Fire && player.item is FireShield)
-                            Objects[x + 1][y].onfiretype = new OnFirePlayer(play);
+                        if (Map.Objects[x + 1][y].entity is Fire && player.item is FireShield)
+                            Map.Objects[x + 1][y].onfiretype = new OnFirePlayer(play);
                         else if (player.item is FireShield)
-                            Objects[x + 1][y].firetype = new FirePlayer(play);
+                            Map.Objects[x + 1][y].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
-                            Objects[x + 1][y].icetype = new IcePlayer(play);
-                        Objects[x + 1][y].entity = player;
+                            Map.Objects[x + 1][y].icetype = new IcePlayer(play);
+                        Map.Objects[x + 1][y].entity = player;
 
                         movementInvoker.setCommand(new MoveRightCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "S":
-                    if (y != numSquaresY - 1 && (Objects[x][y + 1].entity == null ||
-                        (Objects[x][y + 1].entity is Fire && player.item is FireShield) ||
-                        (Objects[x][y + 1].entity is IceWall && player.item is IceShield)))
+                    if (y != numSquaresY - 1 && (Map.Objects[x][y + 1].entity == null ||
+                        (Map.Objects[x][y + 1].entity is Fire && player.item is FireShield) ||
+                        (Map.Objects[x][y + 1].entity is IceWall && player.item is IceShield)))
                     {
                         IPlayer play = new Player(id, x, y);
-                        if (Objects[x][y + 1].item != null)
+                        if (Map.Objects[x][y + 1].item != null)
                         {
-                            player.item = Objects[x][y + 1].item;
-                            Objects[x][y + 1].item = null;
+                            player.item = Map.Objects[x][y + 1].item;
+                            Map.Objects[x][y + 1].item = null;
                         }
 
-                        Objects[x][y].entity = null;
+                        Map.Objects[x][y].entity = null;
 
-                        if (Objects[x][y + 1].entity is Fire && player.item is FireShield)
-                            Objects[x][y + 1].onfiretype = new OnFirePlayer(play);
+                        if (Map.Objects[x][y + 1].entity is Fire && player.item is FireShield)
+                            Map.Objects[x][y + 1].onfiretype = new OnFirePlayer(play);
                         else if (player.item is FireShield)
-                            Objects[x][y + 1].firetype = new FirePlayer(play);
+                            Map.Objects[x][y + 1].firetype = new FirePlayer(play);
                         else if (player.item is IceShield)
-                            Objects[x][y + 1].icetype = new IcePlayer(play);
-                        Objects[x][y + 1].entity = player;
+                            Map.Objects[x][y + 1].icetype = new IcePlayer(play);
+                        Map.Objects[x][y + 1].entity = player;
 
                         movementInvoker.setCommand(new MoveDownCommand(player));
                         movementInvoker.move();
                     }
                     break;
                 case "F":
-                    Objects[x][y].entity = null;
+                    Map.Objects[x][y].entity = null;
                     movementInvoker.undo(player.Id);
-                    Objects[player.x][player.y].entity = player;
+                    Map.Objects[player.x][player.y].entity = player;
                     IPlayer play1 = new Player(id, x, y);
-                    if (Objects[player.x][player.y].entity is Fire && player.item is FireShield)
-                        Objects[player.x][player.y].onfiretype = new OnFirePlayer(play1);
+                    if (Map.Objects[player.x][player.y].entity is Fire && player.item is FireShield)
+                        Map.Objects[player.x][player.y].onfiretype = new OnFirePlayer(play1);
                     else if (player.item is FireShield)
-                        Objects[player.x][player.y].firetype = new FirePlayer(play1);
+                        Map.Objects[player.x][player.y].firetype = new FirePlayer(play1);
                     else if (player.item is IceShield)
-                        Objects[player.x][player.y].icetype = new IcePlayer(play1);
+                        Map.Objects[player.x][player.y].icetype = new IcePlayer(play1);
                     break;
                 default:
                     break;
@@ -230,28 +237,28 @@ namespace BombermanClasses
             ItemsMaker maker = new ItemsMaker();
             if (player.item is FireBomb)
             {
-                Objects[player.x][player.y].bomb = maker.GetFireBomb(player.x, player.y, strategy, instance);
+                Map.Objects[player.x][player.y].bomb = maker.GetFireBomb(player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else if (player.item is IceBomb)
             {
-                Objects[player.x][player.y].bomb = maker.GetIceBomb(player.x, player.y, strategy, instance);
+                Map.Objects[player.x][player.y].bomb = maker.GetIceBomb(player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else
             {
                 Bomb bomb = new Bomb(player.x, player.y, strategy, instance);
-                Objects[player.x][player.y].bomb = bomb;
+                Map.Objects[player.x][player.y].bomb = bomb;
             }         
         }
 
         public async Task Explode(int x, int y)
         {
-            if (Objects[x][y].bomb == null) return;
+            if (Map.Objects[x][y].bomb == null) return;
 
-            int radius = Objects[x][y].bomb.explosionRadius(2);
+            int radius = Map.Objects[x][y].bomb.explosionRadius(2);
 
-            Objects[x][y].destroy();
+            Map.Objects[x][y].destroy();
 
             var wallFactory = new WallFactory();
 
@@ -259,64 +266,64 @@ namespace BombermanClasses
 
             for (int i = 1; i <= radius; i++)
             {
-                if (x + i < numSquaresX && !(Objects[x + i][y].entity is IndestructableWall) && !right) 
+                if (x + i < numSquaresX && !(Map.Objects[x + i][y].entity is IndestructableWall) && !right) 
                 {
-                    if (Objects[x][y].bomb is FireBomb)
-                        Objects[x + i][y].entity = new Fire(x + i, y);
-                    else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x + 1][y].entity is DestructableWall))
-                            Objects[x + i][y].entity = wallFactory.CreateWall(4);
+                    if (Map.Objects[x][y].bomb is FireBomb)
+                        Map.Objects[x + i][y].entity = new Fire(x + i, y);
+                    else if (Map.Objects[x][y].bomb is IceBomb)
+                        if (!(Map.Objects[x + 1][y].entity is DestructableWall))
+                            Map.Objects[x + i][y].entity = wallFactory.CreateWall(4);
                         else
                             right = true;
-                    else 
-                        Objects[x + i][y].destroy();
+                    else
+                        Map.Objects[x + i][y].destroy();
                 }
                 else
                     right = true;
-                if (x - i >= 0 && !(Objects[x - i][y].entity is IndestructableWall) && !left)
+                if (x - i >= 0 && !(Map.Objects[x - i][y].entity is IndestructableWall) && !left)
                 {
-                    if (Objects[x][y].bomb is FireBomb)
-                        Objects[x - i][y].entity = new Fire(x - i, y);
-                    else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x - 1][y].entity is DestructableWall))
-                            Objects[x - i][y].entity = wallFactory.CreateWall(4);
+                    if (Map.Objects[x][y].bomb is FireBomb)
+                        Map.Objects[x - i][y].entity = new Fire(x - i, y);
+                    else if (Map.Objects[x][y].bomb is IceBomb)
+                        if (!(Map.Objects[x - 1][y].entity is DestructableWall))
+                            Map.Objects[x - i][y].entity = wallFactory.CreateWall(4);
                         else
                             left = true;
                     else
-                        Objects[x - i][y].destroy();
+                        Map.Objects[x - i][y].destroy();
                 }
                 else
                     left = true;
-                if (y + i < numSquaresX && !(Objects[x][y + i].entity is IndestructableWall) && !up)
+                if (y + i < numSquaresX && !(Map.Objects[x][y + i].entity is IndestructableWall) && !up)
                 {
-                    if (Objects[x][y].bomb is FireBomb)
-                        Objects[x][y + i].entity = new Fire(x, y - i);
-                    else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x][y + i].entity is DestructableWall))
-                            Objects[x][y + i].entity = wallFactory.CreateWall(4);
+                    if (Map.Objects[x][y].bomb is FireBomb)
+                        Map.Objects[x][y + i].entity = new Fire(x, y - i);
+                    else if (Map.Objects[x][y].bomb is IceBomb)
+                        if (!(Map.Objects[x][y + i].entity is DestructableWall))
+                            Map.Objects[x][y + i].entity = wallFactory.CreateWall(4);
                         else
                             down = true;
                     else
-                        Objects[x][y + i].destroy();
+                        Map.Objects[x][y + i].destroy();
                 }
                 else
                     down = true;
-                if (y - i >= 0 && !(Objects[x][y - i].entity is IndestructableWall) && !down)
+                if (y - i >= 0 && !(Map.Objects[x][y - i].entity is IndestructableWall) && !down)
                 {
-                    if (Objects[x][y].bomb is FireBomb)
-                        Objects[x][y - i].entity = new Fire(x, y - i);
-                    else if (Objects[x][y].bomb is IceBomb)
-                        if (!(Objects[x][y - i].entity is DestructableWall))
-                            Objects[x][y - i].entity = wallFactory.CreateWall(4);
+                    if (Map.Objects[x][y].bomb is FireBomb)
+                        Map.Objects[x][y - i].entity = new Fire(x, y - i);
+                    else if (Map.Objects[x][y].bomb is IceBomb)
+                        if (!(Map.Objects[x][y - i].entity is DestructableWall))
+                            Map.Objects[x][y - i].entity = wallFactory.CreateWall(4);
                         else
                             up = true;
                     else
-                        Objects[x][y - i].destroy();
+                        Map.Objects[x][y - i].destroy();
                 }
                 else
                     up = true;
             }
-            Objects[x][y].bomb = null;
+            Map.Objects[x][y].bomb = null;
             CheckIfEndgame();
         }
 
@@ -325,19 +332,19 @@ namespace BombermanClasses
             Random random = new Random();
             int x = 0;
             int y = 0;
-            while (!(Objects[x][y].entity == null))
+            while (!(Map.Objects[x][y].entity == null))
             {
                 x = random.Next(0, numSquaresX);
                 y = random.Next(0, numSquaresY);
             }
             Player player = new Player(id, x, y);
-            Objects[x][y].entity = player;
+            Map.Objects[x][y].entity = player;
             Players.Add(player);
         }
         public void RemovePlayer(string id)
         {
             Player player = GetPlayer(id);
-            Objects[player.x][player.y].entity = null;
+            Map.Objects[player.x][player.y].entity = null;
             Players.Remove(player);
         }
         private Player GetPlayer(string id)
@@ -354,20 +361,14 @@ namespace BombermanClasses
         }
         private void RestartGame()
         {
-            foreach (Tile[] row in Objects)
-            {
-                foreach (Tile tile in row)
-                {
-                    tile.clear();
-                }
-            }
-            GenerateWorld();
+            BuildMap();
+
             foreach (Player player in Players)
             {
                 Random random = new Random();
                 int x = 0;
                 int y = 0;
-                while (!(Objects[x][y].entity == null))
+                while (!(Map.Objects[x][y].entity == null))
                 {
                     x = random.Next(0, numSquaresX);
                     y = random.Next(0, numSquaresY);
@@ -375,61 +376,7 @@ namespace BombermanClasses
                 player.isDead = false;
                 player.x = x;
                 player.y = y;
-                Objects[x][y].entity = player;
-            }
-        }
-        private void GenerateWorld()
-        {
-            Random r = new Random();
-            int rand = 0;
-
-            var wallFactory = new WallFactory();
-
-            for (int i = 0; i < Objects.GetLength(0); i++)
-            {
-                for (int j = 0; j < Objects.GetLength(0); j++)
-                {
-                    rand = r.Next(0, 10);
-
-                    if (j == 0 || j == (Objects.GetLength(0) - 1) || i == 0 || i == (Objects.GetLength(0) - 1))
-                        Objects[i][j].entity = wallFactory.CreateWall(2);
-                    else
-                    {
-                        if (i % 2 == 0 && j % 2 == 0)
-                            Objects[i][j].entity = wallFactory.CreateWall(2);
-
-                        else
-                        {
-                            if (((i == 1 && (j == 1 || j == 2)) || (i == 2 && j == 1)
-                                || (i == (Objects.GetLength(0) - 1) - 2 && j == (Objects.GetLength(0) - 1) - 1) || (i == (Objects.GetLength(0) - 1) - 1 && (j == (Objects.GetLength(0) - 1) - 1 || j == (Objects.GetLength(0) - 1) - 2))))
-                            {
-                                //empty path
-                                continue;
-                            }
-                            else if (rand >= 9)
-                            {
-                                Objects[i][j].entity = wallFactory.CreateWall(3);
-                                ItemsMaker maker = new ItemsMaker();
-                                int rand2 = r.Next(0, 100);
-                                if (rand2 < 25)
-                                    Objects[i][j].item = maker.GetFireShield();
-                                else if (rand2 < 50)
-                                    Objects[i][j].item = maker.GetIceShield();
-                                else if (rand2 < 75)
-                                    Objects[i][j].item = maker.GetFireBomb();
-                                else if (rand2 < 101)
-                                    Objects[i][j].item = maker.GetIceBomb();
-                            }
-                            else if (rand >= 6)
-                                Objects[i][j].entity = wallFactory.CreateWall(1);
-                            
-                            else
-                            {
-                            }
-
-                        }
-                    }
-                }
+                Map.Objects[x][y].entity = player;
             }
         }
     }

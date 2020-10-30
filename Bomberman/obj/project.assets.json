@@ -1200,19 +1200,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sxlar\\.nuget\\packages\\": {}
+    "C:\\Users\\Justinas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
+      "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\newBomberman\\bomberman\\Bomberman\\Bomberman.csproj",
       "projectName": "Bomberman",
-      "projectPath": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
-      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-      "outputPath": "D:\\bomberman\\Bomberman\\obj\\",
+      "projectPath": "C:\\Users\\Justinas\\Desktop\\newBomberman\\bomberman\\Bomberman\\Bomberman.csproj",
+      "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Justinas\\Desktop\\newBomberman\\bomberman\\Bomberman\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1225,8 +1225,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
-              "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+            "C:\\Users\\Justinas\\Desktop\\newBomberman\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\newBomberman\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
             }
           }
         }
@@ -1267,7 +1267,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
