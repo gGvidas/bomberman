@@ -22,6 +22,7 @@ namespace BombermanClasses.Command
             if (command != null)
             {
                 command.undo();
+                command.undo();
                 commands.Remove(playerId);
             }
         }

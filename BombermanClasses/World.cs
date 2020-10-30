@@ -194,16 +194,25 @@ namespace BombermanClasses
                     }
                     break;
                 case "F":
-                    Map.Objects[x][y].entity = null;
                     movementInvoker.undo(player.Id);
-                    Map.Objects[player.x][player.y].entity = player;
-                    IPlayer play1 = new Player(id, x, y);
-                    if (Map.Objects[player.x][player.y].entity is Fire && player.item is FireShield)
-                        Map.Objects[player.x][player.y].onfiretype = new OnFirePlayer(play1);
-                    else if (player.item is FireShield)
-                        Map.Objects[player.x][player.y].firetype = new FirePlayer(play1);
-                    else if (player.item is IceShield)
-                        Map.Objects[player.x][player.y].icetype = new IcePlayer(play1);
+                    if (player.x >= 0 && player.y >= 0 && player.x < numSquaresX && player.y < numSquaresY && (Map.Objects[player.x][player.y].entity == null ||
+                        (Map.Objects[player.x][player.y].entity is Fire && player.item is FireShield) ||
+                        (Map.Objects[player.x][player.y].entity is IceWall && player.item is IceShield)))
+                    {
+                        Map.Objects[x][y].entity = null;
+                        Map.Objects[player.x][player.y].entity = player;
+                        IPlayer play1 = new Player(id, x, y);
+                        if (Map.Objects[player.x][player.y].entity is Fire && player.item is FireShield)
+                            Map.Objects[player.x][player.y].onfiretype = new OnFirePlayer(play1);
+                        else if (player.item is FireShield)
+                            Map.Objects[player.x][player.y].firetype = new FirePlayer(play1);
+                        else if (player.item is IceShield)
+                            Map.Objects[player.x][player.y].icetype = new IcePlayer(play1);
+                    } else
+                    {
+                        player.x = x;
+                        player.y = y;
+                    }
                     break;
                 default:
                     break;
