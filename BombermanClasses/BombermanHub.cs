@@ -15,9 +15,10 @@ namespace Bomberman
 
         public async Task UpdateClients()
         {
+
              await Clients.All.SendAsync("StateUpdate",
                                          JsonConvert.SerializeObject(World.Instance.GetObjects(),
-                                         typeof(Tile), new JsonSerializerSettings
+                                         typeof(Map), new JsonSerializerSettings
                                         { TypeNameHandling = TypeNameHandling.Auto }));
         }
         public async Task Movement(string KeyPress)

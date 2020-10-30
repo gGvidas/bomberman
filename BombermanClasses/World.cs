@@ -29,6 +29,8 @@ namespace BombermanClasses
         private int timeUnitInMilisec = 1000;
         private Timer _timer { get; set; }
 
+        private Timer _gameStateTimer { get; set; }
+
         private MovementInvoker movementInvoker;
 
         private AbstractMapBuilder mapBuilder;
@@ -47,6 +49,7 @@ namespace BombermanClasses
             numSquaresY = Map.Objects[0].Length;
             Players = new List<Player>();
             SetTimer();
+            SetGameStateTimer();
             movementInvoker = new MovementInvoker();
         }
 
@@ -66,14 +69,27 @@ namespace BombermanClasses
             _timer.Start();
         }
 
+        private void SetGameStateTimer()
+        {
+            _timer = new Timer();
+            _timer.Interval = 500;
+            _timer.Elapsed += OnTimedEventForState;
+            _timer.Start();
+        }
+
         private async void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             Notify();
         }
 
-        public Tile[][] GetObjects()
+        private async void OnTimedEventForState(Object source, System.Timers.ElapsedEventArgs e)
         {
-            return Map.Objects;
+            Map.isGameOver = false;
+        }
+
+        public Map GetObjects()
+        {
+            return Map;
         }
 
         public void MovePlayer(string id, string keypress)
@@ -377,6 +393,7 @@ namespace BombermanClasses
                 player.x = x;
                 player.y = y;
                 Map.Objects[x][y].entity = player;
+                Map.isGameOver = true;
             }
         }
     }

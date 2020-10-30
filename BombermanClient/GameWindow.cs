@@ -30,6 +30,8 @@ namespace SnakeGame
         Graphics imgGraph = null;
         Graphics graph = null;
 
+        private bool isGameOver = false;
+
         [NonSerialized]        
         private Image Background_;
 
@@ -47,18 +49,27 @@ namespace SnakeGame
     
         public void StateUpdated(string serializedWordFromServer)
         {
-            var worldFromServer = JsonConvert.DeserializeObject<Tile[][]>(serializedWordFromServer, new JsonSerializerSettings()
+            var worldFromServer = JsonConvert.DeserializeObject<Map>(serializedWordFromServer, new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.Auto
             });
-            numSquaresX = worldFromServer.GetLength(0);
-            numSquaresY = worldFromServer[0].Length;
+            numSquaresX = worldFromServer.Objects.GetLength(0);
+            numSquaresY = worldFromServer.Objects[0].Length;
 
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
             imgGraph = Graphics.FromImage(img);
 
-            world = worldFromServer;
-            Draw();
+            if(!worldFromServer.isGameOver)
+            {
+                Draw();
+
+            }
+            else
+            {
+                ChangeGameState();
+            }
+
+            world = worldFromServer.Objects;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,6 +82,7 @@ namespace SnakeGame
 
         private void ChangeGameState()
         {
+         
             IsGameOver = !IsGameOver;
 
             this.screen.Visible = !IsGameOver;
@@ -85,7 +97,8 @@ namespace SnakeGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            hubConnection.SendAsync("UpdateClients");
+            if(!IsGameOver)
+                hubConnection.SendAsync("UpdateClients");
         }
         public Image Background
         {

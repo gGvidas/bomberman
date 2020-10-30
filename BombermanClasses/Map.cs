@@ -8,5 +8,7 @@ namespace BombermanClasses
     {
         public Tile[][] Objects { get; set; }
 
+        public bool isGameOver { get; set; } = false;
+
     }
 }
