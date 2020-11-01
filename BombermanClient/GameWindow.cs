@@ -59,9 +59,19 @@ namespace SnakeGame
             numSquaresX = state.Objects.GetLength(0);
             numSquaresY = state.Objects[0].Length;
 
-            if(state.DeadPlayersIds.Any(deadPlayer => deadPlayer == Id) && !this.textGameOver.Visible)
+            if (state.AlivePlayersIds.Count == 1 && 
+                state.DeadPlayersIds.Count > 0 && 
+                state.AlivePlayersIds.Any(alivePlayer => alivePlayer == Id))
+            {
+                this.winnerLabel.Visible = true;
+                this.buttonRestart.Visible = true;
+            }
+
+            else if (state.DeadPlayersIds.Any(deadPlayer => deadPlayer == Id) && !this.textGameOver.Visible)
             {
                 this.textGameOver.Visible = true;
+                if(state.AlivePlayersIds.Count <= 0)
+                    this.buttonRestart.Visible = true;
             }
 
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
@@ -75,6 +85,8 @@ namespace SnakeGame
         private void Form1_Load(object sender, EventArgs e)
         {
             this.textGameOver.Visible = false;
+            this.winnerLabel.Visible = false;
+            this.buttonRestart.Visible = false;
 
             this.timer1.Interval = 200;
             timer1.Start();
@@ -234,5 +246,9 @@ namespace SnakeGame
             buttonStart.Enabled = true;
         }
 
+        private void buttonRestart_Click(object sender, EventArgs e)
+        {
+            ChangeGameState();
+        }
     }
 }

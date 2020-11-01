@@ -366,6 +366,12 @@ namespace BombermanClasses
         {
             return Players.Where(player => player.isDead).Select(player => player.Id).ToList();
         }
+
+        public List<string> GetAlivePlayersIds()
+        {
+            return Players.Where(player => !player.isDead).Select(player => player.Id).ToList();
+        }
+
         private void CheckIfEndgame()
         {
             int aliveCount = Players.Where(player => !player.isDead).Count();
