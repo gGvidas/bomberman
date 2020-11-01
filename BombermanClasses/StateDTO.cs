@@ -10,5 +10,6 @@ namespace BombermanClasses
 
         public List<string> DeadPlayersIds { get; set; }
         public List<string> AlivePlayersIds { get; set; }
+
     }
 }

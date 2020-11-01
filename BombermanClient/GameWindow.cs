@@ -50,7 +50,6 @@ namespace SnakeGame
     
         public void StateUpdated(string serializedWordFromServer)
         {
-         
             var state = JsonConvert.DeserializeObject<StateDTO>(serializedWordFromServer, new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.Auto
@@ -66,12 +65,17 @@ namespace SnakeGame
                 this.winnerLabel.Visible = true;
                 this.buttonRestart.Visible = true;
             }
-
-            else if (state.DeadPlayersIds.Any(deadPlayer => deadPlayer == Id) && !this.textGameOver.Visible)
+            else if (state.DeadPlayersIds.Any(deadPlayer => deadPlayer == Id))
             {
                 this.textGameOver.Visible = true;
-                if(state.AlivePlayersIds.Count <= 0)
+                if(state.AlivePlayersIds.Count == 1)
                     this.buttonRestart.Visible = true;
+            }
+            else
+            {
+                this.textGameOver.Visible = false;
+                this.buttonRestart.Visible = false;
+                this.winnerLabel.Visible = false;
             }
 
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
@@ -248,7 +252,14 @@ namespace SnakeGame
 
         private void buttonRestart_Click(object sender, EventArgs e)
         {
-            ChangeGameState();
+            this.textGameOver.Visible = false;
+            this.winnerLabel.Visible = false;
+            this.buttonRestart.Visible = false;
+
+            if (hubConnection != null)
+            {
+                hubConnection.SendAsync("RestartGame");
+            }
         }
     }
 }

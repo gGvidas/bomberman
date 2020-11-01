@@ -35,6 +35,11 @@ namespace Bomberman
             World.Instance.AddBomb(Context.ConnectionId);
             await UpdateClients();
         }
+        public async Task RestartGame()
+        {
+            World.Instance.RestartGame();
+            await UpdateClients();
+        }
         public async override Task OnConnectedAsync()
         {
             World.Instance.AddPlayer(Context.ConnectionId);
