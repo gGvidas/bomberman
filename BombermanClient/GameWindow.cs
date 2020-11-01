@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,6 +34,8 @@ namespace SnakeGame
         [NonSerialized]        
         private Image Background_;
 
+        private string Id;
+
         public GameWindow()
         {
             InitializeComponent();
@@ -47,18 +50,26 @@ namespace SnakeGame
     
         public void StateUpdated(string serializedWordFromServer)
         {
-            var worldFromServer = JsonConvert.DeserializeObject<Tile[][]>(serializedWordFromServer, new JsonSerializerSettings()
+         
+            var state = JsonConvert.DeserializeObject<StateDTO>(serializedWordFromServer, new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.Auto
             });
-            numSquaresX = worldFromServer.GetLength(0);
-            numSquaresY = worldFromServer[0].Length;
+
+            numSquaresX = state.Objects.GetLength(0);
+            numSquaresY = state.Objects[0].Length;
+
+            if(state.DeadPlayersIds.Any(deadPlayer => deadPlayer == Id) && !this.textGameOver.Visible)
+            {
+                this.textGameOver.Visible = true;
+            }
 
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
             imgGraph = Graphics.FromImage(img);
 
-            world = worldFromServer;
+            world = state.Objects;
             Draw();
+         
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,7 +85,6 @@ namespace SnakeGame
             IsGameOver = !IsGameOver;
 
             this.screen.Visible = !IsGameOver;
-            this.textGameOver.Visible = IsGameOver;
             this.buttonStart.Visible = IsGameOver;
         }
 
@@ -214,12 +224,13 @@ namespace SnakeGame
 
         private async Task InitConnection()
         {
+
             hubConnection = new HubConnectionBuilder()
-                            .WithUrl("https://localhost:5001/hub/")
+                            .WithUrl("https://localhost:5001/hub")
                             .Build();
             hubConnection.On<string>("StateUpdate", StateUpdated);
-
             await hubConnection.StartAsync();
+            Id = hubConnection.ConnectionId;
             buttonStart.Enabled = true;
         }
 

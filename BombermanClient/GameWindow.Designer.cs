@@ -51,12 +51,12 @@
             this.textGameOver.BackColor = System.Drawing.Color.Transparent;
             this.textGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textGameOver.ForeColor = System.Drawing.Color.Red;
-            this.textGameOver.Location = new System.Drawing.Point(526, 97);
+            this.textGameOver.Location = new System.Drawing.Point(1000, 97);
             this.textGameOver.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.textGameOver.Name = "textGameOver";
             this.textGameOver.Size = new System.Drawing.Size(363, 73);
             this.textGameOver.TabIndex = 1;
-            this.textGameOver.Text = "Game Over";
+            this.textGameOver.Text = "You have died";
             // 
             // buttonStart
             // 
