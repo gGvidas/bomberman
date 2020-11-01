@@ -233,8 +233,6 @@ C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\bin\Debug\netc
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csprojAssemblyReference.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfoInputs.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfo.cs
-C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
-C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.RazorTargetAssemblyInfo.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CopyComplete
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\staticwebassets\Bomberman.StaticWebAssets.Manifest.cache
@@ -242,3 +240,6 @@ C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netc
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.dll
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
+C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
+C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache

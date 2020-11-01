@@ -356,3 +356,4 @@ C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\obj\Debu
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.dll
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.pdb
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.genruntimeconfig.cache
+C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll

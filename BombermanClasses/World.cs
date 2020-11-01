@@ -336,6 +336,7 @@ namespace BombermanClasses
             CheckIfEndgame();
         }
 
+
         public void AddPlayer(string id)
         {
             Random random = new Random();
@@ -360,13 +361,18 @@ namespace BombermanClasses
         {
             return Players.FirstOrDefault(player => player.Id == id);
         }
+
+        public List<string> GetDeadPlayersIds()
+        {
+            return Players.Where(player => player.isDead).Select(player => player.Id).ToList();
+        }
         private void CheckIfEndgame()
         {
             int aliveCount = Players.Where(player => !player.isDead).Count();
-            if ((Players.Count == 1 && aliveCount == 0) || (Players.Count > 1 && aliveCount == 1))
-            {
-                RestartGame();
-            }
+            //if ((Players.Count == 1 && aliveCount == 0) || (Players.Count > 1 && aliveCount == 1))
+            //{
+            //    RestartGame();
+            //}
         }
         private void RestartGame()
         {
