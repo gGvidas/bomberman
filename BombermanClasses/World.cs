@@ -333,7 +333,7 @@ namespace BombermanClasses
                     up = true;
             }
             Map.Objects[x][y].bomb = null;
-            CheckIfEndgame();
+            //CheckIfEndgame();
         }
 
 
@@ -366,15 +366,21 @@ namespace BombermanClasses
         {
             return Players.Where(player => player.isDead).Select(player => player.Id).ToList();
         }
+
+        public List<string> GetAlivePlayersIds()
+        {
+            return Players.Where(player => !player.isDead).Select(player => player.Id).ToList();
+        }
+
         private void CheckIfEndgame()
         {
             int aliveCount = Players.Where(player => !player.isDead).Count();
             //if ((Players.Count == 1 && aliveCount == 0) || (Players.Count > 1 && aliveCount == 1))
-            //{
-            //    RestartGame();
-            //}
+            {
+                RestartGame();
+            }
         }
-        private void RestartGame()
+        public void RestartGame()
         {
             BuildMap();
 

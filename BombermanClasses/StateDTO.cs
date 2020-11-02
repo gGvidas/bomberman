@@ -9,5 +9,7 @@ namespace BombermanClasses
         public Tile[][] Objects { get; set; }
 
         public List<string> DeadPlayersIds { get; set; }
+        public List<string> AlivePlayersIds { get; set; }
+
     }
 }

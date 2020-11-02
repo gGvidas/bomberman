@@ -16,7 +16,9 @@ namespace Bomberman
 
         public async Task UpdateClients()
         {
-             var stateDTO = new StateDTO { Objects = World.Instance.GetObjects(), DeadPlayersIds = World.Instance.GetDeadPlayersIds()};
+             var stateDTO = new StateDTO { Objects = World.Instance.GetObjects(), 
+                                            DeadPlayersIds = World.Instance.GetDeadPlayersIds(), 
+                                            AlivePlayersIds = World.Instance.GetAlivePlayersIds() };
             
              await Clients.All.SendAsync("StateUpdate",
                                          JsonConvert.SerializeObject(stateDTO,
@@ -31,6 +33,11 @@ namespace Bomberman
         public async Task PutDownBomb()
         {
             World.Instance.AddBomb(Context.ConnectionId);
+            await UpdateClients();
+        }
+        public async Task RestartGame()
+        {
+            World.Instance.RestartGame();
             await UpdateClients();
         }
         public async override Task OnConnectedAsync()

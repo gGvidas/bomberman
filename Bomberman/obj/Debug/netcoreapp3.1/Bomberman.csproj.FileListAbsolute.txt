@@ -243,3 +243,4 @@ C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netc
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\44421\Desktop\bomber2\Bomberman\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
