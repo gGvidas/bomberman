@@ -16,9 +16,10 @@ namespace BombermanClasses.Iterator
             Items[3] = maker.GetIceShield();
             return new ItemIterator();
         }
+
         private class ItemIterator : Iterator
         {
-            public bool HasNext()
+            public override bool HasNext()
             {
                 if (0 < Items.Length)
                 {
@@ -27,7 +28,7 @@ namespace BombermanClasses.Iterator
                 return false;
             }
 
-            public Item Next()
+            public override Item Next()
             {
                 Random r = new Random();
 

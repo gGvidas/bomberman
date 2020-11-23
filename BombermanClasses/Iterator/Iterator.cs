@@ -2,9 +2,9 @@
 
 namespace BombermanClasses.Iterator
 {
-    public interface Iterator
+    public abstract class Iterator
     {
-        public bool HasNext();
-        public Item Next();
+        public abstract bool HasNext();
+        public abstract Item Next();
     }
 }
