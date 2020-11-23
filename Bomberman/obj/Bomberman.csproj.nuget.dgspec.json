@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\bomberman\\Bomberman\\Bomberman.csproj": {}
+    "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj": {}
   },
   "projects": {
-    "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+    "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
+        "projectUniqueName": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj",
         "projectName": "BombermanClasses",
-        "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
-        "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-        "outputPath": "D:\\bomberman\\BombermanClasses\\obj\\",
+        "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj",
+        "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +29,6 @@
         },
         "frameworks": {
           "netstandard2.0": {
-            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -38,7 +40,6 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.AspNetCore.Http.Connections": {
               "target": "Package",
@@ -69,21 +70,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\bomberman\\Bomberman\\Bomberman.csproj": {
+    "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
+        "projectUniqueName": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj",
         "projectName": "Bomberman",
-        "projectPath": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
-        "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-        "outputPath": "D:\\bomberman\\Bomberman\\obj\\",
+        "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj",
+        "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,10 +99,9 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
-                "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+              "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj": {
+                "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj"
               }
             }
           }
@@ -111,7 +114,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.SignalR.Common": {
               "target": "Package",
@@ -144,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
