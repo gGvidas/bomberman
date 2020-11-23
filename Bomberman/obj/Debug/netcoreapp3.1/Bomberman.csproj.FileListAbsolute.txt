@@ -151,7 +151,6 @@ C:\Users\44421\Desktop\bomber2\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
 C:\Users\44421\Desktop\bomber2\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
 D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.json
-D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.exe
 D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.deps.json
 D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.runtimeconfig.json
@@ -244,3 +243,5 @@ C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\bin\Debug\netc
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\44421\Desktop\bomber2\Bomberman\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+D:\bomberman\Bomberman\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+D:\bomberman\Bomberman\obj\Debug\netcoreapp3.1\scopedcss\bundle\Bomberman.styles.css

@@ -1,5 +1,6 @@
 ﻿using BombermanClasses.BombNameSpace;
 using BombermanClasses.Items;
+using BombermanClasses.TemplateMethod;
 using System;
 using System.Drawing;
 
@@ -15,16 +16,18 @@ namespace BombermanClasses
         public OnFirePlayer onfiretype { get; set; } = null;
         public IcePlayer icetype { get; set; } = null;
 
-        public IMapObject entity { get; set; }
+        public DestructionTemplate entity { get; set; }
 
         public void destroy()
         {
-            if (entity is Player)
+            if (entity != null)
             {
-                Player player = entity as Player;
-                player.isDead = true;
+                bool canDestroy = entity.Destroy();
+                if (canDestroy)
+                {
+                    entity = null;
+                }
             }
-            entity = null;
         }
 
         public void clear()

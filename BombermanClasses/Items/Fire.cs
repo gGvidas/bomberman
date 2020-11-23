@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BombermanClasses.TemplateMethod;
 using System.Drawing;
-using System.Text;
 
 namespace BombermanClasses.Items
 {
-    public class Fire : IMapObject
+    public class Fire : DestructionTemplate
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -16,7 +14,7 @@ namespace BombermanClasses.Items
             this.Y = y;
         }
 
-        public void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
+        public override void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
             graphics.DrawImage(image, x, y, width, height);
         }

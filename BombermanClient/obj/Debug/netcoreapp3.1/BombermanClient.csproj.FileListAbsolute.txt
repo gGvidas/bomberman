@@ -223,7 +223,6 @@ C:\Users\44421\Desktop\bomber2\BombermanClient\obj\Debug\netcoreapp3.1\Bomberman
 C:\Users\44421\Desktop\bomber2\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.genruntimeconfig.cache
 D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\appsettings.json
-D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.exe
 D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.exe
 D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.deps.json
@@ -358,3 +357,4 @@ C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\obj\Debu
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\obj\Debug\netcoreapp3.1\BombermanClient.genruntimeconfig.cache
 C:\Users\Justinas\Desktop\bomberman naujasias\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\44421\Desktop\bomber2\BombermanClient\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+D:\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll

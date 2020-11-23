@@ -1846,23 +1846,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\44421\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Sxlar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj",
+      "projectUniqueName": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
       "projectName": "Bomberman",
-      "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj",
-      "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\obj\\",
+      "projectPath": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
+      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
+      "outputPath": "D:\\bomberman\\Bomberman\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1874,9 +1870,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj": {
-              "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj"
+            "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
             }
           }
         }
@@ -1889,6 +1886,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.SignalR.Common": {
             "target": "Package",
@@ -1921,7 +1919,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

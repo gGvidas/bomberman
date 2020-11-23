@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BombermanClasses.TemplateMethod;
+using System;
 using System.Drawing;
-using System.Text;
 
 namespace BombermanClasses.Walls
 {
     [Serializable]
-    public abstract class Wall : IMapObject
+    public abstract class Wall : DestructionTemplate
     {
-        public void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
+        public override void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
             graphics.DrawImage(image, x, y, width, height);
         }

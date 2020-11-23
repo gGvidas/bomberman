@@ -18,7 +18,6 @@ namespace BombermanClasses
     {
         private static readonly World instance = new World();
         public static World Instance { get { return instance; } }
-        private Int32 squareSize = 20;
         private Int32 numSquaresX;
         private Int32 numSquaresY;
         private List<Player> Players { get; set; }
@@ -66,7 +65,7 @@ namespace BombermanClasses
             _timer.Start();
         }
 
-        private async void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             Notify();
         }
@@ -261,7 +260,7 @@ namespace BombermanClasses
             }         
         }
 
-        public async Task Explode(int x, int y)
+        public void Explode(int x, int y)
         {
             if (Map.Objects[x][y].bomb == null) return;
 
@@ -333,7 +332,6 @@ namespace BombermanClasses
                     up = true;
             }
             Map.Objects[x][y].bomb = null;
-            //CheckIfEndgame();
         }
 
 
