@@ -38,7 +38,7 @@ namespace BombermanClasses.BombNameSpace
             return strategy.calculateRadius(a);
         }
 
-        public void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
+        public new void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
             graphics.DrawImage(image, x, y, width, height);
         }
@@ -49,7 +49,7 @@ namespace BombermanClasses.BombNameSpace
                 if (currentTime == explosionTime)
                 {
                     Subject.Detach(this);
-                    await World.Instance.Explode(x, y);
+                    World.Instance.Explode(x, y);
                 }
             
         }
