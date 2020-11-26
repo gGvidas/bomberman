@@ -242,12 +242,18 @@ namespace SnakeGame
         {
 
             hubConnection = new HubConnectionBuilder()
-                            .WithUrl("https://localhost:5001/hub")
+                            .WithUrl("http://localhost:5000/hub")
                             .Build();
             hubConnection.On<string>("StateUpdate", StateUpdated);
-            await hubConnection.StartAsync();
-            Id = hubConnection.ConnectionId;
-            buttonStart.Enabled = true;
+            try
+            {
+                await hubConnection.StartAsync();
+                Id = hubConnection.ConnectionId;
+                buttonStart.Enabled = true;
+            }catch(Exception e)
+            {
+
+            }
         }
 
         private void buttonRestart_Click(object sender, EventArgs e)

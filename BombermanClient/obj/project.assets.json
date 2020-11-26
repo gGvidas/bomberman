@@ -4870,23 +4870,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\44421\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Justinas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClient\\BombermanClient.csproj",
+      "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\BombermanClient.csproj",
       "projectName": "BombermanClient",
-      "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClient\\BombermanClient.csproj",
-      "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClient\\obj\\",
+      "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\BombermanClient.csproj",
+      "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4899,11 +4895,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj": {
-              "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\BombermanClasses\\BombermanClasses.csproj"
+            "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
             },
-            "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj": {
-              "projectPath": "C:\\Users\\44421\\Desktop\\bomber2\\Bomberman\\Bomberman.csproj"
+            "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj": {
+              "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj"
             }
           }
         }
@@ -4983,7 +4979,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
