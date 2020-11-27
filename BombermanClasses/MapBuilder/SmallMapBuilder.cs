@@ -78,6 +78,7 @@ namespace BombermanClasses.MapBuilder
 
             var wallFactory = new WallFactory();
             ItemAggregate itemsRepository = new ItemAggregate();
+            var iter = itemsRepository.GetIterator();
 
             for (int i = 0; i < Map.Objects.GetLength(0); i++)
             {
@@ -103,12 +104,8 @@ namespace BombermanClasses.MapBuilder
                             else if (rand >= 9)
                             {
                                 Map.Objects[i][j].entity = wallFactory.CreateWall(3);
-
-                                for (var iter = itemsRepository.GetIterator(); iter.HasNext();)
-                                {
-                                    Map.Objects[i][j].item = iter.Next();
-                                    break;
-                                }
+                                iter.HasNext();
+                                Map.Objects[i][j].item = iter.Next(j, numSquaresY);
                             }
 
                         }

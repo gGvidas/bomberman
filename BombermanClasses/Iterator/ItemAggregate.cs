@@ -12,6 +12,7 @@ namespace BombermanClasses.Iterator
             ItemsMaker maker = new ItemsMaker();
             Items[0] = maker.GetFireBomb();
             Items[1] = maker.GetFireShield();
+
             Items[2] = maker.GetIceBomb();
             Items[3] = maker.GetIceShield();
             return new ItemIterator();
@@ -19,31 +20,26 @@ namespace BombermanClasses.Iterator
 
         private class ItemIterator : Iterator
         {
+            int index = 0;
+
             public override bool HasNext()
             {
-                if (0 < Items.Length)
-                {
-                    return true;
-                }
-                return false;
+                if (Items.Length <= 0)
+                    return false;
+                return true;
             }
 
-            public override Item Next()
+            public override Item Next(int y, int size)
             {
-                Random r = new Random();
-
-                int rand2 = r.Next(0, 100);
-
-                if (rand2 < 25)
-                    return Items[0];
-                else if (rand2 < 50)
-                    return Items[1];
-                else if (rand2 < 75)
-                    return Items[2];
-                else if (rand2 < 101)
-                    return Items[3];
+                if (index == 0)
+                    index++;
                 else
-                    return null;
+                    index--;
+
+                if (y > size / 2)
+                    return Items[0+index];
+                else
+                    return Items[2+index];
             }
         }
     }
