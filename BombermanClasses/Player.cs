@@ -44,7 +44,7 @@ namespace BombermanClasses
 
         protected sealed override void setIsDead()
         {
-            isDead = false;
+            isDead = true;
             base.setIsDead();
         }
     }
