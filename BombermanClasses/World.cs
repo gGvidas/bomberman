@@ -2,6 +2,7 @@
 using BombermanClasses.BombNameSpace;
 using BombermanClasses.Command;
 using BombermanClasses.Items;
+using BombermanClasses.Iterator;
 using BombermanClasses.MapBuilder;
 using BombermanClasses.Observer;
 using BombermanClasses.Walls;
@@ -23,7 +24,7 @@ namespace BombermanClasses
         private List<Player> Players { get; set; }
 
         private Map Map { get; set; }
-        public BombermanHub hub { get; set; }
+        public BombermanHub Hub { get; set; }
 
         private int timeUnitInMilisec = 1000;
         private Timer _timer { get; set; }
@@ -97,6 +98,7 @@ namespace BombermanClasses
                         {
                             player.item = Map.Objects[x][y - 1].item;
                             Map.Objects[x][y - 1].item = null;
+                            AddNewItem();
                         }
 
                         Map.Objects[x][y].entity = null;
@@ -123,6 +125,7 @@ namespace BombermanClasses
                         {
                             player.item = Map.Objects[x - 1][y].item;
                             Map.Objects[x - 1][y].item = null;
+                            AddNewItem();
                         }
 
                         Map.Objects[x][y].entity = null;
@@ -150,6 +153,7 @@ namespace BombermanClasses
                         {
                             player.item = Map.Objects[x + 1][y].item;
                             Map.Objects[x + 1][y].item = null;
+                            AddNewItem();
                         }
 
                         Map.Objects[x][y].entity = null;
@@ -176,6 +180,7 @@ namespace BombermanClasses
                         {
                             player.item = Map.Objects[x][y + 1].item;
                             Map.Objects[x][y + 1].item = null;
+                            AddNewItem();
                         }
 
                         Map.Objects[x][y].entity = null;
@@ -370,14 +375,26 @@ namespace BombermanClasses
             return Players.Where(player => !player.isDead).Select(player => player.Id).ToList();
         }
 
-        private void CheckIfEndgame()
+        private void AddNewItem()
         {
-            int aliveCount = Players.Where(player => !player.isDead).Count();
-            //if ((Players.Count == 1 && aliveCount == 0) || (Players.Count > 1 && aliveCount == 1))
+            int x = 0, y = 0;
+            Random r = new Random();
+            while (!(Map.Objects[x][y].entity == null)) 
             {
-                RestartGame();
+                x = r.Next(0, numSquaresX);
+                y = r.Next(0, numSquaresY);
             }
+
+            var wallFactory = new WallFactory();
+            ItemArray itemsRepository = new ItemArray();
+            var iter = itemsRepository.GetIterator();
+
+            Map.Objects[x][y].entity = wallFactory.CreateWall(3);
+
+            iter.HasNext();
+            Map.Objects[x][y].item = iter.Next(y, numSquaresY);
         }
+
         public void RestartGame()
         {
             BuildMap();

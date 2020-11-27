@@ -1,20 +1,21 @@
 ﻿using BombermanClasses.Items;
 using System;
+using System.Collections.Generic;
 
 namespace BombermanClasses.Iterator
 {
-    public class ItemAggregate : Aggregate
+    public class ItemList : Aggregate
     {
-        public static Item[] Items = new Item[4];
+        public static List<Item> Items = new List<Item>();
 
         public Iterator GetIterator()
         {
             ItemsMaker maker = new ItemsMaker();
-            Items[0] = maker.GetFireBomb();
-            Items[1] = maker.GetFireShield();
+            Items.Add(maker.GetFireBomb());
+            Items.Add(maker.GetFireShield());
 
-            Items[2] = maker.GetIceBomb();
-            Items[3] = maker.GetIceShield();
+            Items.Add(maker.GetIceBomb());
+            Items.Add(maker.GetIceShield());
             return new ItemIterator();
         }
 
@@ -24,7 +25,7 @@ namespace BombermanClasses.Iterator
 
             public override bool HasNext()
             {
-                if (Items.Length <= 0)
+                if (Items.Count <= 0)
                     return false;
                 return true;
             }
@@ -37,9 +38,19 @@ namespace BombermanClasses.Iterator
                     index--;
 
                 if (y > size / 2)
-                    return Items[0+index];
+                    return Items[0 + index];
                 else
-                    return Items[2+index];
+                    return Items[2 + index];
+            }
+
+            public override Item First()
+            {
+                return Items[0];
+            }
+
+            public override bool Remove(int index)
+            {
+                return Items.Remove(Items[index]);
             }
         }
     }

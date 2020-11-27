@@ -77,7 +77,7 @@ namespace BombermanClasses.MapBuilder
             int rand = 0;
 
             var wallFactory = new WallFactory();
-            ItemAggregate itemsRepository = new ItemAggregate();
+            ItemArray itemsRepository = new ItemArray();
             var iter = itemsRepository.GetIterator();
 
             for (int i = 0; i < Map.Objects.GetLength(0); i++)

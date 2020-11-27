@@ -11,7 +11,7 @@ namespace Bomberman
     {
         public BombermanHub()
         {
-            World.Instance.hub = this;
+            World.Instance.Hub = this;
         }
 
         public async Task UpdateClients()
