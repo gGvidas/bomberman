@@ -313,7 +313,7 @@ namespace BombermanClasses
                             left = true;
                     else
                     {
-                        DestructionTemplate destroyedObject = Map.Objects[x + i][y].destroy();
+                        DestructionTemplate destroyedObject = Map.Objects[x - i][y].destroy();
                         if (destroyedObject != null)
                         {
                             destroyedEntities.add(destroyedObject);
@@ -333,7 +333,7 @@ namespace BombermanClasses
                             down = true;
                     else
                     {
-                        DestructionTemplate destroyedObject = Map.Objects[x + i][y].destroy();
+                        DestructionTemplate destroyedObject = Map.Objects[x][y + i].destroy();
                         if (destroyedObject != null)
                         {
                             destroyedEntities.add(destroyedObject);
@@ -353,7 +353,7 @@ namespace BombermanClasses
                             up = true;
                     else
                     {
-                        DestructionTemplate destroyedObject = Map.Objects[x + i][y].destroy();
+                        DestructionTemplate destroyedObject = Map.Objects[x][y - i].destroy();
                         if (destroyedObject != null)
                         {
                             destroyedEntities.add(destroyedObject);

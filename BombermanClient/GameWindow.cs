@@ -78,7 +78,7 @@ namespace SnakeGame
                 this.winnerLabel.Visible = false;
             }
 
-            this.score.Text = state.PlayerScores[Id].ToString();
+            this.score.Text = $"Score: {state.PlayerScores[Id].ToString()}";
 
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
             imgGraph = Graphics.FromImage(img);
