@@ -8,9 +8,9 @@ namespace BombermanClasses.Items
 {
 	public class FireFactory : AbstractFactory
 	{
-		public override Bomb createBomb(int x, int y, IBombRadiusStrategy strategy, World subject)
+		public override Bomb createBomb(string id, int x, int y, IBombRadiusStrategy strategy, World subject)
 		{
-			return new FireBomb(x, y, strategy, subject);
+			return new FireBomb(id, x, y, strategy, subject);
 		}
 
         public override Bomb createBomb()

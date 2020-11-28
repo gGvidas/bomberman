@@ -78,6 +78,8 @@ namespace SnakeGame
                 this.winnerLabel.Visible = false;
             }
 
+            this.score.Text = state.PlayerScores[Id].ToString();
+
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
             imgGraph = Graphics.FromImage(img);
 
@@ -266,6 +268,11 @@ namespace SnakeGame
             {
                 hubConnection.SendAsync("RestartGame");
             }
+        }
+
+        private void textGameOver_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

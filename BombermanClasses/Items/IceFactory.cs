@@ -12,9 +12,9 @@ namespace BombermanClasses.Items
 		{
 			return new IceBomb();
 		}
-		public override Bomb createBomb(int x, int y, IBombRadiusStrategy strategy, World subject)
+		public override Bomb createBomb(string id, int x, int y, IBombRadiusStrategy strategy, World subject)
 		{
-			return new IceBomb(x, y, strategy, subject);
+			return new IceBomb(id, x, y, strategy, subject);
 		}
 
 		public override Shield createShield(  )

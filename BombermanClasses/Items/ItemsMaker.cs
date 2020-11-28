@@ -1,9 +1,5 @@
 ﻿using BombermanClasses.BombNameSpace;
 using BombermanClasses.Items;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Text;
 
 namespace BombermanClasses
 {
@@ -31,17 +27,17 @@ namespace BombermanClasses
             return fireFactory.createBomb();
         }
 
-        public Bomb GetFireBomb(int x, int y, IBombRadiusStrategy strategy, World subject)
+        public Bomb GetFireBomb(string id, int x, int y, IBombRadiusStrategy strategy, World subject)
         {
-            return fireFactory.createBomb(x, y, strategy, subject);
+            return fireFactory.createBomb(id, x, y, strategy, subject);
         }
         public Bomb GetIceBomb()
         {
             return iceFactory.createBomb();
         }
-        public Bomb GetIceBomb(int x, int y, IBombRadiusStrategy strategy, World subject)
+        public Bomb GetIceBomb(string id, int x, int y, IBombRadiusStrategy strategy, World subject)
         {
-            return iceFactory.createBomb(x, y, strategy, subject);
+            return iceFactory.createBomb(id, x, y, strategy, subject);
         }
     }
 }
