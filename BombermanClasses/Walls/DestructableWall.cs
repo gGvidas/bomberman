@@ -7,5 +7,9 @@ namespace BombermanClasses.Walls
     [Serializable]
     public class DestructableWall : Wall
     {
+        public override int getScore()
+        {
+            return 50;
+        }
     }
 }

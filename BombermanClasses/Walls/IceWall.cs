@@ -14,5 +14,10 @@ namespace BombermanClasses.Walls
             DamageTaken = true;
             return false;
         }
+
+        public override int getScore()
+        {
+            return 125;
+        }
     }
 }

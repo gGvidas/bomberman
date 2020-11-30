@@ -1,4 +1,6 @@
-﻿using BombermanClasses.Walls;
+﻿using BombermanClasses.Items;
+using BombermanClasses.Iterator;
+using BombermanClasses.Walls;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -76,6 +78,8 @@ namespace BombermanClasses.MapBuilder
             int rand = 0;
 
             var wallFactory = new WallFactory();
+            ItemArray itemsRepository = new  ItemArray();
+            var iter = itemsRepository.GetIterator();
 
             for (int i = 0; i < Map.Objects.GetLength(0); i++)
             {
@@ -101,16 +105,9 @@ namespace BombermanClasses.MapBuilder
                             else if (rand >= 9)
                             {
                                 Map.Objects[i][j].entity = wallFactory.CreateWall(3);
-                                ItemsMaker maker = new ItemsMaker();
-                                int rand2 = r.Next(0, 100);
-                                if (rand2 < 25)
-                                    Map.Objects[i][j].item = maker.GetFireShield();
-                                else if (rand2 < 50)
-                                    Map.Objects[i][j].item = maker.GetIceShield();
-                                else if (rand2 < 75)
-                                    Map.Objects[i][j].item = maker.GetFireBomb();
-                                else if (rand2 < 101)
-                                    Map.Objects[i][j].item = maker.GetIceBomb();
+
+                                iter.HasNext();
+                                Map.Objects[i][j].item = iter.Next(j, numSquaresY);
                             }
 
                         }

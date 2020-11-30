@@ -11,14 +11,16 @@ namespace Bomberman
     {
         public BombermanHub()
         {
-            World.Instance.hub = this;
+            World.Instance.Hub = this;
         }
 
         public async Task UpdateClients()
         {
              var stateDTO = new StateDTO { Objects = World.Instance.GetObjects(), 
                                             DeadPlayersIds = World.Instance.GetDeadPlayersIds(), 
-                                            AlivePlayersIds = World.Instance.GetAlivePlayersIds() };
+                                            AlivePlayersIds = World.Instance.GetAlivePlayersIds(),
+                                            PlayerScores = World.Instance.GetPlayerScores()
+                                         };
             
              await Clients.All.SendAsync("StateUpdate",
                                          JsonConvert.SerializeObject(stateDTO,

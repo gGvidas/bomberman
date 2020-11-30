@@ -18,5 +18,10 @@ namespace BombermanClasses.Items
         {
             graphics.DrawImage(image, x, y, width, height);
         }
+
+        public override int getScore()
+        {
+            return 125;
+        }
     }
 }

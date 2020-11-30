@@ -1,7 +1,5 @@
-﻿using Bomberman;
-using BombermanClasses.Items;
+﻿using BombermanClasses.Items;
 using BombermanClasses.Observer;
-using System;
 using System.Drawing;
 using System.Threading.Tasks;
 
@@ -9,6 +7,7 @@ namespace BombermanClasses.BombNameSpace
 {
     public class Bomb : Item, IMapObject, IObserver
     {
+        public string playerId { get; set; }
         public int x { get; set; }
         public int y { get; set; }
 
@@ -22,9 +21,10 @@ namespace BombermanClasses.BombNameSpace
         public Bomb()
         {
         }
-        public Bomb(int x, int y, IBombRadiusStrategy strategy, World subject)
+        public Bomb(string playerId, int x, int y, IBombRadiusStrategy strategy, World subject)
         {
             if (subject == null) return;
+            this.playerId = playerId;
             this.x = x;
             this.y = y;
             this.strategy = strategy;

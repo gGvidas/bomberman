@@ -2,7 +2,6 @@
 using BombermanClasses.Items;
 using BombermanClasses.TemplateMethod;
 using System;
-using System.Drawing;
 
 namespace BombermanClasses
 {
@@ -18,16 +17,20 @@ namespace BombermanClasses
 
         public DestructionTemplate entity { get; set; }
 
-        public void destroy()
+        public DestructionTemplate destroy()
         {
             if (entity != null)
             {
                 bool canDestroy = entity.Destroy();
                 if (canDestroy)
                 {
+                    Type type = entity.GetType();
+                    DestructionTemplate returnObject = (DestructionTemplate) Activator.CreateInstance(type);
                     entity = null;
+                    return returnObject;
                 }
             }
+            return null;
         }
 
         public void clear()
