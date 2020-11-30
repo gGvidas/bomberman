@@ -5,7 +5,7 @@ using System.Drawing;
 namespace BombermanClasses.Walls
 {
     [Serializable]
-    public abstract class Wall : DestructionTemplate
+    public abstract class Wall : DestructionTemplate, IWallFlyweight
     {
         public override void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
         {
