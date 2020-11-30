@@ -1,4 +1,5 @@
-﻿using BombermanClasses.Items;
+﻿using BombermanClasses.Composite;
+using BombermanClasses.Items;
 using BombermanClasses.TemplateMethod;
 using System.Drawing;
 
@@ -13,11 +14,14 @@ namespace BombermanClasses
 
         public bool isDead { get; set; } = false;
 
+        public CompositeDirectory destroyedEntities { get; set; }
+
         public Player(string id, int x, int y)
         {
             Id = id;
             this.x = x;
             this.y = y;
+            this.destroyedEntities = new CompositeDirectory();
         }
 
         public override void Draw(Image image, int x, int y, int width, int height, Graphics graphics)
@@ -40,6 +44,11 @@ namespace BombermanClasses
         public void moveLeft()
         {
             x--;
+        }
+
+        public override int getScore()
+        {
+            return 300;
         }
 
         protected sealed override void setIsDead()

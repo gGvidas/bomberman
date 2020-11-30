@@ -1,10 +1,12 @@
 ﻿using Bomberman;
 using BombermanClasses.BombNameSpace;
 using BombermanClasses.Command;
+using BombermanClasses.Composite;
 using BombermanClasses.Items;
 using BombermanClasses.Iterator;
 using BombermanClasses.MapBuilder;
 using BombermanClasses.Observer;
+using BombermanClasses.TemplateMethod;
 using BombermanClasses.Walls;
 using System;
 using System.Collections.Generic;
@@ -250,17 +252,17 @@ namespace BombermanClasses
             ItemsMaker maker = new ItemsMaker();
             if (player.item is FireBomb)
             {
-                Map.Objects[player.x][player.y].bomb = maker.GetFireBomb(player.x, player.y, strategy, instance);
+                Map.Objects[player.x][player.y].bomb = maker.GetFireBomb(id, player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else if (player.item is IceBomb)
             {
-                Map.Objects[player.x][player.y].bomb = maker.GetIceBomb(player.x, player.y, strategy, instance);
+                Map.Objects[player.x][player.y].bomb = maker.GetIceBomb(id, player.x, player.y, strategy, instance);
                 player.item = null;
             }
             else
             {
-                Bomb bomb = new Bomb(player.x, player.y, strategy, instance);
+                Bomb bomb = new Bomb(id, player.x, player.y, strategy, instance);
                 Map.Objects[player.x][player.y].bomb = bomb;
             }         
         }
@@ -268,6 +270,7 @@ namespace BombermanClasses
         public void Explode(int x, int y)
         {
             if (Map.Objects[x][y].bomb == null) return;
+            CompositeDirectory destroyedEntities = new CompositeDirectory();
 
             int radius = Map.Objects[x][y].bomb.explosionRadius(2);
 
@@ -289,7 +292,13 @@ namespace BombermanClasses
                         else
                             right = true;
                     else
-                        Map.Objects[x + i][y].destroy();
+                    {
+                        DestructionTemplate destroyedObject = Map.Objects[x + i][y].destroy();
+                        if (destroyedObject != null)
+                        {
+                            destroyedEntities.add(destroyedObject);
+                        }
+                    }
                 }
                 else
                     right = true;
@@ -303,7 +312,13 @@ namespace BombermanClasses
                         else
                             left = true;
                     else
-                        Map.Objects[x - i][y].destroy();
+                    {
+                        DestructionTemplate destroyedObject = Map.Objects[x - i][y].destroy();
+                        if (destroyedObject != null)
+                        {
+                            destroyedEntities.add(destroyedObject);
+                        }
+                    }
                 }
                 else
                     left = true;
@@ -317,7 +332,13 @@ namespace BombermanClasses
                         else
                             down = true;
                     else
-                        Map.Objects[x][y + i].destroy();
+                    {
+                        DestructionTemplate destroyedObject = Map.Objects[x][y + i].destroy();
+                        if (destroyedObject != null)
+                        {
+                            destroyedEntities.add(destroyedObject);
+                        }
+                    }
                 }
                 else
                     down = true;
@@ -331,10 +352,21 @@ namespace BombermanClasses
                         else
                             up = true;
                     else
-                        Map.Objects[x][y - i].destroy();
+                    {
+                        DestructionTemplate destroyedObject = Map.Objects[x][y - i].destroy();
+                        if (destroyedObject != null)
+                        {
+                            destroyedEntities.add(destroyedObject);
+                        }
+                    }
                 }
                 else
                     up = true;
+            }
+            Player player = GetPlayer(Map.Objects[x][y].bomb.playerId);
+            if (player != null)
+            {
+                player.destroyedEntities.add(destroyedEntities);
             }
             Map.Objects[x][y].bomb = null;
         }
@@ -374,6 +406,12 @@ namespace BombermanClasses
         {
             return Players.Where(player => !player.isDead).Select(player => player.Id).ToList();
         }
+
+        public Dictionary<string, int> GetPlayerScores()
+        {
+            return Players.ToDictionary(player => player.Id, player => player.destroyedEntities.getScore());
+        }
+        
 
         private void AddNewItem()
         {

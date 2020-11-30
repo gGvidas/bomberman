@@ -14,7 +14,7 @@ namespace BombermanClasses.Items
         {
         }
 
-        public IceBomb(int x, int y, IBombRadiusStrategy strategy, World subject) : base(x, y, strategy, subject)
+        public IceBomb(string playerId, int x, int y, IBombRadiusStrategy strategy, World subject) : base(playerId, x, y, strategy, subject)
         {
         }
 

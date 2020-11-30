@@ -12,7 +12,7 @@ namespace BombermanClasses.Items
         public FireBomb()
         {
         }
-        public FireBomb(int x, int y, IBombRadiusStrategy strategy, World subject) : base(x, y, strategy, subject)
+        public FireBomb(string playerId, int x, int y, IBombRadiusStrategy strategy, World subject) : base(playerId, x, y, strategy, subject)
         {
         }
     }
