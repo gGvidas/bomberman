@@ -1,5 +1,6 @@
 ﻿using BombermanClasses.Composite;
 using BombermanClasses.Items;
+using BombermanClasses.Memento;
 using BombermanClasses.TemplateMethod;
 using System.Drawing;
 
@@ -14,6 +15,8 @@ namespace BombermanClasses
 
         public bool isDead { get; set; } = false;
 
+        private Originator originator = new Originator();
+        private CareTaker careTaker = new CareTaker();
         public CompositeDirectory destroyedEntities { get; set; }
 
         public Player(string id, int x, int y)
@@ -46,6 +49,18 @@ namespace BombermanClasses
             x--;
         }
 
+        public void SaveItem()
+        {
+            originator.SetState(item);
+            careTaker.Add(originator.SaveStateToMemento());
+        }
+
+        public void ReturnItem()
+        {
+            originator.GetStateFromMemento(careTaker.Get(0));
+            item = originator.GetState();
+        }
+
         public override int getScore()
         {
             return 300;
@@ -53,6 +68,7 @@ namespace BombermanClasses
 
         protected sealed override void setIsDead()
         {
+            careTaker = new CareTaker();        //delete saved items after death
             isDead = true;
             base.setIsDead();
         }

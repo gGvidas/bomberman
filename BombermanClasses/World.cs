@@ -5,6 +5,7 @@ using BombermanClasses.Composite;
 using BombermanClasses.Items;
 using BombermanClasses.Iterator;
 using BombermanClasses.MapBuilder;
+using BombermanClasses.Memento;
 using BombermanClasses.Observer;
 using BombermanClasses.TemplateMethod;
 using BombermanClasses.Walls;
@@ -214,11 +215,21 @@ namespace BombermanClasses
                             Map.Objects[player.x][player.y].firetype = new FirePlayer(play1);
                         else if (player.item is IceShield)
                             Map.Objects[player.x][player.y].icetype = new IcePlayer(play1);
-                    } else
+                    }
+                    else
                     {
                         player.x = x;
                         player.y = y;
                     }
+                    break;
+                case "I":
+                    if (player.item != null)
+                    {
+                        player.SaveItem();
+                    }
+                    break;
+                case "O":
+                    player.ReturnItem();
                     break;
                 default:
                     break;
@@ -371,7 +382,6 @@ namespace BombermanClasses
             Map.Objects[x][y].bomb = null;
         }
 
-
         public void AddPlayer(string id)
         {
             Random random = new Random();
@@ -386,12 +396,14 @@ namespace BombermanClasses
             Map.Objects[x][y].entity = player;
             Players.Add(player);
         }
+        
         public void RemovePlayer(string id)
         {
             Player player = GetPlayer(id);
             Map.Objects[player.x][player.y].entity = null;
             Players.Remove(player);
         }
+        
         private Player GetPlayer(string id)
         {
             return Players.FirstOrDefault(player => player.Id == id);
@@ -412,7 +424,6 @@ namespace BombermanClasses
             return Players.ToDictionary(player => player.Id, player => player.destroyedEntities.getScore());
         }
         
-
         private void AddNewItem()
         {
             int x = 0, y = 0;

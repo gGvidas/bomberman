@@ -220,7 +220,8 @@ namespace SnakeGame
         {
              if (hubConnection != null)
             {
-                if (keyData == Keys.A || keyData == Keys.S || keyData == Keys.D || keyData == Keys.W || keyData == Keys.F)
+                if (keyData == Keys.A || keyData == Keys.S || keyData == Keys.D || keyData == Keys.W || 
+                    keyData == Keys.F || keyData == Keys.I || keyData == Keys.O)
                 {
                     hubConnection.SendAsync("Movement", keyData.ToString());
                     return true;
