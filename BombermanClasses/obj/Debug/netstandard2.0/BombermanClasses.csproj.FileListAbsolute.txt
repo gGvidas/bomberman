@@ -7,3 +7,12 @@ C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClasses\obj\Debug\netsta
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb
+C:\Users\44421\Desktop\bomber\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.deps.json
+C:\Users\44421\Desktop\bomber\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.dll
+C:\Users\44421\Desktop\bomber\BombermanClasses\bin\Debug\netstandard2.0\BombermanClasses.pdb
+C:\Users\44421\Desktop\bomber\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csprojAssemblyReference.cache
+C:\Users\44421\Desktop\bomber\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfoInputs.cache
+C:\Users\44421\Desktop\bomber\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.AssemblyInfo.cs
+C:\Users\44421\Desktop\bomber\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.csproj.CoreCompileInputs.cache
+C:\Users\44421\Desktop\bomber\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.dll
+C:\Users\44421\Desktop\bomber\BombermanClasses\obj\Debug\netstandard2.0\BombermanClasses.pdb
