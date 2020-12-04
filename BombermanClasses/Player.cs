@@ -19,6 +19,11 @@ namespace BombermanClasses
         private CareTaker careTaker = new CareTaker();
         public CompositeDirectory destroyedEntities { get; set; }
 
+        public Player()
+        {
+
+        }
+
         public Player(string id, int x, int y)
         {
             Id = id;
