@@ -293,7 +293,7 @@ namespace BombermanClasses
 
             for (int i = 1; i <= radius; i++)
             {
-                if (x + i < numSquaresX && !(Map.Objects[x + i][y].entity is IndestructableWall) && !right) 
+                if (x + i < numSquaresX && !(Map.Objects[x + i][y].entity is IndestructableWall) && !(Map.Objects[x + i][y].entity is Fire) && !right) 
                 {
                     if (Map.Objects[x][y].bomb is FireBomb)
                         Map.Objects[x + i][y].entity = new Fire(x + i, y);
@@ -313,7 +313,7 @@ namespace BombermanClasses
                 }
                 else
                     right = true;
-                if (x - i >= 0 && !(Map.Objects[x - i][y].entity is IndestructableWall) && !left)
+                if (x - i >= 0 && !(Map.Objects[x - i][y].entity is IndestructableWall) && !(Map.Objects[x - i][y].entity is Fire) && !left)
                 {
                     if (Map.Objects[x][y].bomb is FireBomb)
                         Map.Objects[x - i][y].entity = new Fire(x - i, y);
@@ -333,7 +333,7 @@ namespace BombermanClasses
                 }
                 else
                     left = true;
-                if (y + i < numSquaresX && !(Map.Objects[x][y + i].entity is IndestructableWall) && !up)
+                if (y + i < numSquaresX && !(Map.Objects[x][y + i].entity is IndestructableWall) && !(Map.Objects[x][y + i].entity is Fire) && !up)
                 {
                     if (Map.Objects[x][y].bomb is FireBomb)
                         Map.Objects[x][y + i].entity = new Fire(x, y - i);
@@ -353,7 +353,7 @@ namespace BombermanClasses
                 }
                 else
                     down = true;
-                if (y - i >= 0 && !(Map.Objects[x][y - i].entity is IndestructableWall) && !down)
+                if (y - i >= 0 && !(Map.Objects[x][y - i].entity is IndestructableWall) && !(Map.Objects[x][y - i].entity is Fire) && !down)
                 {
                     if (Map.Objects[x][y].bomb is FireBomb)
                         Map.Objects[x][y - i].entity = new Fire(x, y - i);

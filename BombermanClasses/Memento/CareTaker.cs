@@ -6,7 +6,8 @@ namespace BombermanClasses.Memento
 {
     public class CareTaker
     {
-        private List<Memento> mementoList = new List<Memento>();
+        private Memento[] mementoList = new Memento[1];
+        //private List<Memento> mementoList = new List<Memento>();
 
         public void Add(Memento state)
         {
@@ -16,7 +17,8 @@ namespace BombermanClasses.Memento
 
         public Memento Get(int index)
         {
-            return mementoList[index];
+            //return mementoList[index];
+            return mementoList[0];
         }
     }
 }
