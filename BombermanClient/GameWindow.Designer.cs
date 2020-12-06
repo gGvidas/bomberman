@@ -106,7 +106,7 @@
             // score
             // 
             this.score.AutoSize = true;
-            this.score.Location = new System.Drawing.Point(1369, 470);
+            this.score.Location = new System.Drawing.Point(1000, 470);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(36, 15);
             this.score.TabIndex = 5;

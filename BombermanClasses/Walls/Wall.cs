@@ -11,5 +11,7 @@ namespace BombermanClasses.Walls
         {
             graphics.DrawImage(image, x, y, width, height);
         }
+
+        public abstract Image GetImage();
     }
 }
