@@ -7,6 +7,7 @@ using BombermanClasses.Iterator;
 using BombermanClasses.MapBuilder;
 using BombermanClasses.Memento;
 using BombermanClasses.Observer;
+using BombermanClasses.Proxy;
 using BombermanClasses.TemplateMethod;
 using BombermanClasses.Walls;
 using System;
@@ -419,11 +420,34 @@ namespace BombermanClasses
             return Players.Where(player => !player.isDead).Select(player => player.Id).ToList();
         }
 
-        public Dictionary<string, int> GetPlayerScores()
+        public RealLeaderboard GetPlayerScores()
         {
-            return Players.ToDictionary(player => player.Id, player => player.destroyedEntities.getScore());
+            var dummyResults = getDummyLeaderBoard();
+            var currentPlayerResult = Players.Select(player => new LeaderBoardRow { Id = player.Id, Name = "New player", score = player.destroyedEntities.getScore() });
+
+            dummyResults.AddRange(currentPlayerResult);
+
+            var result = dummyResults.OrderByDescending(player => player.score).
+             Select((player, index) => new LeaderBoardRow { Id = player.Id, Rank = index + 1, Name = player.Name, score = player.score }).ToList();
+
+            if(result == null)
+            {
+
+            }
+
+            return new RealLeaderboard { _leaderboard = result.GetRange(0, result.Count) }; ;
         }
-        
+
+        private List<LeaderBoardRow> getDummyLeaderBoard()
+        {
+            var result = new List<LeaderBoardRow>();
+            for(int i = 0; i < 50; i++)
+            {
+                result.Add(new LeaderBoardRow { Name = $"Player{i + 1}", score = 100 * i });
+            }
+            return result;
+        }
+
         private void AddNewItem()
         {
             int x = 0, y = 0;

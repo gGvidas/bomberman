@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BombermanClasses.Proxy;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace BombermanClasses
 
         public List<string> DeadPlayersIds { get; set; }
         public List<string> AlivePlayersIds { get; set; }
-        public Dictionary<string, int> PlayerScores { get; set; }
+        public RealLeaderboard PlayerScores { get; set; }
 
     }
 }
