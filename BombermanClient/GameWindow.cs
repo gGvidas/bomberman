@@ -1,13 +1,16 @@
 ﻿using BombermanClasses;
 using BombermanClasses.BombNameSpace;
 using BombermanClasses.Items;
+using BombermanClasses.Proxy;
 using BombermanClasses.Walls;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -78,7 +81,9 @@ namespace SnakeGame
                 this.winnerLabel.Visible = false;
             }
 
-            this.score.Text = $"Score: {state.PlayerScores[Id].ToString()}";
+            //this.score.Text = $"Score: {state.PlayerScores.Where(playerScore => playerScore.Id == Id).Select(playerScore => playerScore.score).First().ToString()}";
+            var proxy = new LeaderboardProxy { Id = Id, _realLeaderboard = state.PlayerScores };
+            score.Text = BuildLeaderBoard(proxy.GetLeaderBoard());
 
             img = new Bitmap(squareSize * numSquaresX, squareSize * numSquaresY);
             imgGraph = Graphics.FromImage(img);
@@ -86,6 +91,22 @@ namespace SnakeGame
             world = state.Objects;
             Draw();
          
+        }
+
+        private static string BuildLeaderBoard(List<LeaderBoardRow> rows)
+        {
+            var builder = new StringBuilder();
+            builder.AppendLine(string.Format("High scores:"));
+
+            builder.AppendLine(string.Format("{0, 30}|{1, 30}|{2, 30}", "Rank", "Name", "Score"));
+            builder.AppendLine(new string('-', 80));
+
+            foreach (var row in rows)
+            {
+                builder.AppendLine(string.Format("{0, 30}|{1, 30}|{2, 30}", row.Rank, row.Name, row.score));
+            }
+
+            return builder.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
