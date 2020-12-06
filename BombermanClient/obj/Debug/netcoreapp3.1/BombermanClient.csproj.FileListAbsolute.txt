@@ -1,6 +1,5 @@
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\Bomberman.exe
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.exe
 C:\Users\Justinas\Desktop\bormabrman\bomberman\BombermanClient\bin\Debug\netcoreapp3.1\BombermanClient.deps.json

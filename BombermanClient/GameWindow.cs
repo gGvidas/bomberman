@@ -37,7 +37,8 @@ namespace SnakeGame
         [NonSerialized]        
         private Image Background_;
 
-        private string Id;
+        private static string Id;
+        private static string PlayerName;
 
         public GameWindow()
         {
@@ -103,7 +104,9 @@ namespace SnakeGame
 
             foreach (var row in rows)
             {
-                builder.AppendLine(string.Format("{0, 30}|{1, 30}|{2, 30}", row.Rank, row.Name, row.score));
+                var name = row.Id == Id ? string.IsNullOrEmpty(PlayerName) ? row.Name : PlayerName : row.Name;
+
+                builder.AppendLine(string.Format("{0, 30}|{1, 30}|{2, 30}", row.Rank, name, row.score));
             }
 
             return builder.ToString();
@@ -121,6 +124,8 @@ namespace SnakeGame
 
         private void ChangeGameState()
         {
+            this.textBox1.Visible = false;
+            PlayerName = this.textBox1.Text;
             IsGameOver = !IsGameOver;
 
             this.screen.Visible = !IsGameOver;
@@ -293,6 +298,11 @@ namespace SnakeGame
         }
 
         private void textGameOver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

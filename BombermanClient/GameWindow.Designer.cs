@@ -36,6 +36,7 @@
             this.winnerLabel = new System.Windows.Forms.Label();
             this.buttonRestart = new System.Windows.Forms.Button();
             this.score = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,15 +109,24 @@
             this.score.AutoSize = true;
             this.score.Location = new System.Drawing.Point(1000, 470);
             this.score.Name = "score";
-            this.score.Size = new System.Drawing.Size(36, 15);
+            this.score.Size = new System.Drawing.Size(13, 15);
             this.score.TabIndex = 5;
             this.score.Text = "0";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(575, 448);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(272, 23);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 791);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.score);
             this.Controls.Add(this.buttonRestart);
             this.Controls.Add(this.winnerLabel);
@@ -144,6 +154,7 @@
         private System.Windows.Forms.Label winnerLabel;
         private System.Windows.Forms.Button buttonRestart;
         private System.Windows.Forms.Label score;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

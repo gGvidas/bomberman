@@ -430,18 +430,13 @@ namespace BombermanClasses
             var result = dummyResults.OrderByDescending(player => player.score).
              Select((player, index) => new LeaderBoardRow { Id = player.Id, Rank = index + 1, Name = player.Name, score = player.score }).ToList();
 
-            if(result == null)
-            {
-
-            }
-
             return new RealLeaderboard { _leaderboard = result.GetRange(0, result.Count) }; ;
         }
 
         private List<LeaderBoardRow> getDummyLeaderBoard()
         {
             var result = new List<LeaderBoardRow>();
-            for(int i = 0; i < 50; i++)
+            for(int i = 0; i < 500; i++)
             {
                 result.Add(new LeaderBoardRow { Name = $"Player{i + 1}", score = 100 * i });
             }
