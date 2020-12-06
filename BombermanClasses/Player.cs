@@ -66,9 +66,9 @@ namespace BombermanClasses
             item = originator.GetState();
         }
 
-        public override int getScore()
+        public override int calculateScore(int score)
         {
-            return 300;
+            return base.calculateScore(score + 300);
         }
 
         protected sealed override void setIsDead()

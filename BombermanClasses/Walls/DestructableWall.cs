@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Text;
 
 namespace BombermanClasses.Walls
 {
@@ -18,9 +16,9 @@ namespace BombermanClasses.Walls
             }catch(Exception e) { return null; }
         }
 
-        public override int getScore()
+        public override int calculateScore(int score)
         {
-            return 50;
+            return base.calculateScore(score + 50);
         }
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\BombermanClient.csproj": {}
+    "D:\\bomberman\\BombermanClient\\BombermanClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+    "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
+        "projectUniqueName": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
         "projectName": "BombermanClasses",
-        "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
-        "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\obj\\",
+        "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
+        "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
+        "outputPath": "D:\\bomberman\\BombermanClasses\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,17 +73,17 @@
         }
       }
     },
-    "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\BombermanClient.csproj": {
+    "D:\\bomberman\\BombermanClient\\BombermanClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\BombermanClient.csproj",
+        "projectUniqueName": "D:\\bomberman\\BombermanClient\\BombermanClient.csproj",
         "projectName": "BombermanClient",
-        "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\BombermanClient.csproj",
-        "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClient\\obj\\",
+        "projectPath": "D:\\bomberman\\BombermanClient\\BombermanClient.csproj",
+        "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
+        "outputPath": "D:\\bomberman\\BombermanClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,11 +97,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
-                "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+              "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+                "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
               },
-              "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj": {
-                "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj"
+              "D:\\bomberman\\Bomberman\\Bomberman.csproj": {
+                "projectPath": "D:\\bomberman\\Bomberman\\Bomberman.csproj"
               }
             }
           }
@@ -186,17 +186,17 @@
         }
       }
     },
-    "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj": {
+    "D:\\bomberman\\Bomberman\\Bomberman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj",
+        "projectUniqueName": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
         "projectName": "Bomberman",
-        "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj",
-        "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\obj\\",
+        "projectPath": "D:\\bomberman\\Bomberman\\Bomberman.csproj",
+        "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
+        "outputPath": "D:\\bomberman\\Bomberman\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -210,8 +210,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
-                "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+              "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
+                "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
               }
             }
           }
