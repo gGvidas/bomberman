@@ -15,9 +15,9 @@ namespace BombermanClasses.Walls
             return false;
         }
 
-        public override int getScore()
+        public override int calculateScore(int score)
         {
-            return 125;
+            return base.calculateScore(score + 125);
         }
     }
 }

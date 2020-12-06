@@ -421,7 +421,7 @@ namespace BombermanClasses
 
         public Dictionary<string, int> GetPlayerScores()
         {
-            return Players.ToDictionary(player => player.Id, player => player.destroyedEntities.getScore());
+            return Players.ToDictionary(player => player.Id, player => player.destroyedEntities.calculateScore(0));
         }
         
         private void AddNewItem()

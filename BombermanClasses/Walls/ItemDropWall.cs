@@ -7,9 +7,9 @@ namespace BombermanClasses.Walls
     [Serializable]
     public class ItemDropWall : Wall
     {
-        public override int getScore()
+        public override int calculateScore(int score)
         {
-            return 150;
+            return base.calculateScore(score + 150);
         }
     }
 }
