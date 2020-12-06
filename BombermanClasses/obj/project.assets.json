@@ -2169,19 +2169,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sxlar\\.nuget\\packages\\": {}
+    "C:\\Users\\Justinas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
+      "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
       "projectName": "BombermanClasses",
-      "projectPath": "D:\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
-      "packagesPath": "C:\\Users\\Sxlar\\.nuget\\packages\\",
-      "outputPath": "D:\\bomberman\\BombermanClasses\\obj\\",
+      "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj",
+      "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sxlar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2239,5 +2239,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
