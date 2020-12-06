@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 
 namespace BombermanClasses.Walls
 {
@@ -6,6 +8,16 @@ namespace BombermanClasses.Walls
     public class IceWall : Wall
     {
         public bool DamageTaken { get; set; } = false;
+
+
+        public override Image GetImage()
+        {
+            try
+            {
+                return Image.FromFile(Path.Combine(Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), @"Sprites\BlockIce.png"))));
+            }
+            catch (Exception e) { return null; }
+        }
 
         protected sealed override bool canDestroy()
         {
