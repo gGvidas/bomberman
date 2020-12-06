@@ -1,9 +1,8 @@
-﻿using BombermanClasses.Composite;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace BombermanClasses.TemplateMethod
 {
-    public abstract class DestructionTemplate : IMapObject, IComposite
+    public abstract class DestructionTemplate : Composite.Composite, IMapObject
     {
         public abstract void Draw(Image image, int x, int y, int width, int height, Graphics graphics);
         public bool Destroy()
@@ -22,7 +21,5 @@ namespace BombermanClasses.TemplateMethod
         {
             return true;
         }
-
-        public abstract int getScore();
     }
 }

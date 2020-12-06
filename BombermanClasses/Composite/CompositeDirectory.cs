@@ -2,25 +2,34 @@
 
 namespace BombermanClasses.Composite
 {
-    public class CompositeDirectory : IComposite
+    public class CompositeDirectory : Composite
     {
-        public List<IComposite> children { get; set; }
+        public Composite children { get; set; }
 
         public CompositeDirectory()
+        {}
+
+        public void add(Composite child)
         {
-            children = new List<IComposite>();
+            if (children != null)
+                children.setNext(child);
+            else
+                children = child;
         }
 
-        public void add(IComposite child)
+        public override int calculateScore(int score)
         {
-            children.Add(child);
-        }
-
-        public int getScore()
-        {
-            int sum = 0;
-            children.ForEach(child => sum += child.getScore());
-            return sum;
+            if (children != null)
+            {
+                int childrenScore = children.calculateScore(score);
+                int baseScore = base.calculateScore(childrenScore);
+                return baseScore;
+            } else
+            {
+                int baseScore = base.calculateScore(score);
+                return baseScore;
+            }
+//            return children != null ? base.calculateScore(children.calculateScore(score)) : base.calculateScore(score);
         }
     }
 }

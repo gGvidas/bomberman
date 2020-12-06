@@ -17,9 +17,5 @@ namespace BombermanClasses.Walls
             }
             catch (Exception e) { return null; }
         }
-        public override int getScore()
-        {
-            return 0;
-        }
     }
 }

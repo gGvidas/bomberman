@@ -423,7 +423,7 @@ namespace BombermanClasses
         public RealLeaderboard GetPlayerScores()
         {
             var dummyResults = getDummyLeaderBoard();
-            var currentPlayerResult = Players.Select(player => new LeaderBoardRow { Id = player.Id, Name = "New player", score = player.destroyedEntities.getScore() });
+            var currentPlayerResult = Players.Select(player => new LeaderBoardRow { Id = player.Id, Name = "New player", score = player.destroyedEntities.calculateScore(0) });
 
             dummyResults.AddRange(currentPlayerResult);
 
