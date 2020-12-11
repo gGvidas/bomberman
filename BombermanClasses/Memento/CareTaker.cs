@@ -6,19 +6,23 @@ namespace BombermanClasses.Memento
 {
     public class CareTaker
     {
-        private Memento[] mementoList = new Memento[1];
-        //private List<Memento> mementoList = new List<Memento>();
+        private List<Memento> mementoList = new List<Memento>();
+        int index = 0;
 
         public void Add(Memento state)
         {
-            //mementoList.Add(state);
-            mementoList[0] = state;
+            mementoList.Add(state);
         }
 
-        public Memento Get(int index)
+        public Memento Get()
         {
-            //return mementoList[index];
-            return mementoList[0];
+            if (mementoList.Count >= index+1)
+                return mementoList[index++];
+            else
+            {
+                index = 0;
+                return mementoList[index];
+            }          
         }
     }
 }

@@ -62,7 +62,7 @@ namespace BombermanClasses
 
         public void ReturnItem()
         {
-            originator.GetStateFromMemento(careTaker.Get(0));
+            originator.GetStateFromMemento(careTaker.Get());
             item = originator.GetState();
         }
 

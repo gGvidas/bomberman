@@ -1846,19 +1846,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Justinas\\.nuget\\packages\\": {}
+    "C:\\Users\\44421\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj",
+      "projectUniqueName": "C:\\Users\\44421\\Desktop\\bomber\\Bomberman\\Bomberman.csproj",
       "projectName": "Bomberman",
-      "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\Bomberman.csproj",
-      "packagesPath": "C:\\Users\\Justinas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\obj\\",
+      "projectPath": "C:\\Users\\44421\\Desktop\\bomber\\Bomberman\\Bomberman.csproj",
+      "packagesPath": "C:\\Users\\44421\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\44421\\Desktop\\bomber\\Bomberman\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Justinas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\44421\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1870,10 +1874,9 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj": {
-              "projectPath": "C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\BombermanClasses\\BombermanClasses.csproj"
+            "C:\\Users\\44421\\Desktop\\bomber\\BombermanClasses\\BombermanClasses.csproj": {
+              "projectPath": "C:\\Users\\44421\\Desktop\\bomber\\BombermanClasses\\BombermanClasses.csproj"
             }
           }
         }
@@ -1886,7 +1889,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.SignalR.Common": {
             "target": "Package",
@@ -1919,16 +1921,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Justinas\\Desktop\\bormabrman\\bomberman\\Bomberman\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
