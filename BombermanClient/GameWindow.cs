@@ -97,16 +97,17 @@ namespace SnakeGame
         private static string BuildLeaderBoard(List<LeaderBoardRow> rows)
         {
             var builder = new StringBuilder();
-            builder.AppendLine(string.Format("High scores:"));
+            builder.AppendLine(String.Format("High scores:"));
 
-            builder.AppendLine(string.Format("{0, 30}|{1, 30}|{2, 30}", "Rank", "Name", "Score"));
-            builder.AppendLine(new string('-', 80));
+            builder.AppendLine(String.Format("{0,-8}{1, 8}{2, 30}{3, 30}{4, 30}", "Rounds", "Rank", "Name", "Score", "Status"));
+            builder.AppendLine(new string('-', 130));
 
             foreach (var row in rows)
             {
-                var name = row.Id == Id ? string.IsNullOrEmpty(PlayerName) ? row.Name : PlayerName : row.Name;
+                var name = row.Id == Id ? string.IsNullOrEmpty(PlayerName) ? row.Name : PlayerName.Length >= 10 ? PlayerName.Substring(0, 10) : PlayerName : row.Name;
 
-                builder.AppendLine(string.Format("{0, 30}|{1, 30}|{2, 30}", row.Rank, name, row.score));
+                builder.AppendLine(string.Format("{0, -15}{1, 8}{2, 30}{3, 30}{4, 40}", row.RoundsPlayed, row.Rank, name, row.score, row.PlayerStatus));
+
             }
 
             return builder.ToString();

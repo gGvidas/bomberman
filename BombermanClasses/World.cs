@@ -9,6 +9,7 @@ using BombermanClasses.Memento;
 using BombermanClasses.Observer;
 using BombermanClasses.Proxy;
 using BombermanClasses.TemplateMethod;
+using BombermanClasses.Visitor;
 using BombermanClasses.Walls;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace BombermanClasses
         public static World Instance { get { return instance; } }
         private Int32 numSquaresX;
         private Int32 numSquaresY;
-        private List<Player> Players { get; set; }
+        public List<Player> Players { get; set; }
 
         private Map Map { get; set; }
         public BombermanHub Hub { get; set; }
@@ -430,7 +431,19 @@ namespace BombermanClasses
             var result = dummyResults.OrderByDescending(player => player.score).
              Select((player, index) => new LeaderBoardRow { Id = player.Id, Rank = index + 1, Name = player.Name, score = player.score }).ToList();
 
-            return new RealLeaderboard { _leaderboard = result.GetRange(0, result.Count) }; ;
+            var leaderBord = new RealLeaderboard { _leaderboard = result.GetRange(0, result.Count) }; ;
+
+            // Visitors
+            var playerStatusVisitor = new PlayerStatusVisitor();
+            var playerRoundsVisitor = new PlayersRoundVisitor();
+            var playRankVisitor = new PlayerNameConcatVisitor();
+
+            leaderBord.Accept(playerStatusVisitor);
+            leaderBord.Accept(playerRoundsVisitor);
+            leaderBord.Accept(playRankVisitor);
+
+            return leaderBord;
+        
         }
 
         private List<LeaderBoardRow> getDummyLeaderBoard()
@@ -481,6 +494,7 @@ namespace BombermanClasses
                 player.x = x;
                 player.y = y;
                 Map.Objects[x][y].entity = player;
+                player.RoundsPlayed++;
             }
         }
     }
