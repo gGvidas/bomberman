@@ -12,6 +12,7 @@ namespace BombermanClasses
         public int x { get; set; } 
         public int y { get; set; }
         public Item item { get; set; } = null;
+        public int RoundsPlayed { get; set; } = 1;
 
         public bool isDead { get; set; } = false;
 

@@ -16,7 +16,7 @@ namespace Bomberman
 
         public async Task UpdateClients()
         {
-             var stateDTO = new StateDTO { Objects = World.Instance.GetObjects(), 
+             var stateDTO = new StateDTO {  Objects = World.Instance.GetObjects(), 
                                             DeadPlayersIds = World.Instance.GetDeadPlayersIds(), 
                                             AlivePlayersIds = World.Instance.GetAlivePlayersIds(),
                                             PlayerScores = World.Instance.GetPlayerScores()

@@ -94,3 +94,35 @@ C:\Users\44421\Desktop\bomber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.dll
 C:\Users\44421\Desktop\bomber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
 C:\Users\44421\Desktop\bomber\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
 C:\Users\Justinas\Desktop\bormabrman\bomberman\Bomberman\obj\Debug\netcoreapp3.1\scopedcss\bundle\Bomberman.styles.css
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.exe
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.deps.json
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.runtimeconfig.json
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.runtimeconfig.dev.json
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Bomberman.pdb
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\bin\Debug\netcoreapp3.1\BombermanClasses.pdb
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csprojAssemblyReference.cache
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfoInputs.cache
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.AssemblyInfo.cs
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CoreCompileInputs.cache
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\staticwebassets\Bomberman.StaticWebAssets.Manifest.cache
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\staticwebassets\Bomberman.StaticWebAssets.xml
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\scopedcss\bundle\Bomberman.styles.css
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.RazorTargetAssemblyInfo.cache
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.csproj.CopyComplete
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.dll
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.pdb
+C:\Users\Justinas\Desktop\bomberman neww\bomberman\Bomberman\obj\Debug\netcoreapp3.1\Bomberman.genruntimeconfig.cache
