@@ -21,7 +21,7 @@ namespace BombermanClasses
 
         public Player()
         {
-
+            
         }
 
         public Player(string id, int x, int y)
@@ -57,6 +57,12 @@ namespace BombermanClasses
         public void SaveItem()
         {
             originator.SetState(item);
+            careTaker.Add(originator.SaveStateToMemento());
+        }
+
+        public void SaveItem(Item i)
+        {
+            originator.SetState(i);
             careTaker.Add(originator.SaveStateToMemento());
         }
 
