@@ -5,6 +5,7 @@ using BombermanClasses.Composite;
 using BombermanClasses.Items;
 using BombermanClasses.Iterator;
 using BombermanClasses.MapBuilder;
+using BombermanClasses.Mediator;
 using BombermanClasses.Memento;
 using BombermanClasses.Observer;
 using BombermanClasses.Proxy;
@@ -38,6 +39,8 @@ namespace BombermanClasses
 
         private AbstractMapBuilder mapBuilder;
 
+        private IMediator mediator;
+
         static World()
         {
 
@@ -53,6 +56,7 @@ namespace BombermanClasses
             Players = new List<Player>();
             SetTimer();
             movementInvoker = new MovementInvoker();
+            mediator = new ContreteMediator();
         }
 
         private void BuildMap()
@@ -230,6 +234,12 @@ namespace BombermanClasses
                         player.SaveItem();
                     }
                     break;
+                case "M":
+                    if (player.item != null)
+                    {
+                        mediator.SaveFakeItem(player);
+                    }
+                    break;
                 case "O":
                     player.ReturnItem();
                     break;
@@ -397,6 +407,7 @@ namespace BombermanClasses
             Player player = new Player(id, x, y);
             Map.Objects[x][y].entity = player;
             Players.Add(player);
+            mediator.addPlayer(player);
         }
         
         public void RemovePlayer(string id)
@@ -404,6 +415,7 @@ namespace BombermanClasses
             Player player = GetPlayer(id);
             Map.Objects[player.x][player.y].entity = null;
             Players.Remove(player);
+            mediator.removePlayer(player);
         }
         
         private Player GetPlayer(string id)
